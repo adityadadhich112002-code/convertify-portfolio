@@ -786,24 +786,9 @@
         return tl;
       };
 
-      // ── Trigger handler: ensures AudioContext is unlocked before starting the visual animation ──
+      // ── Trigger handler: plays visual animation immediately ──
       const triggerReel = () => {
-        const ctx = getSharedContext();
-        if (ctx && ctx.state === 'suspended') {
-          // If suspended, wait for user interaction to resume first so sound can play
-          const unlockAndPlay = () => {
-            ctx.resume().then(() => {
-              playReelAnimation();
-            });
-            window.removeEventListener('touchstart', unlockAndPlay);
-            window.removeEventListener('click', unlockAndPlay);
-          };
-          window.addEventListener('touchstart', unlockAndPlay, { passive: true });
-          window.addEventListener('click', unlockAndPlay);
-        } else {
-          // Context is already running, play immediately
-          playReelAnimation();
-        }
+        playReelAnimation();
       };
 
       // ── Trigger on scroll (first time) ──
@@ -812,22 +797,7 @@
         start: 'top 78%',
         once: true,
         onEnter: () => {
-          const portfolioEl = document.getElementById('portfolio');
-          if (!portfolioEl) return;
-          const rect = portfolioEl.getBoundingClientRect();
-          // Check if portfolio is actually near the viewport and user has scrolled down
-          if (rect.top < window.innerHeight && window.scrollY > 100) {
-            triggerReel();
-          } else {
-            const checkVisibility = () => {
-              const r = portfolioEl.getBoundingClientRect();
-              if (r.top < window.innerHeight * 0.8) {
-                triggerReel();
-                window.removeEventListener('scroll', checkVisibility);
-              }
-            };
-            window.addEventListener('scroll', checkVisibility);
-          }
+          triggerReel();
         }
       });
 
@@ -931,5 +901,11 @@
     }
   };
 
-  window.addEventListener('loaderComplete', initPortfolioAnimations);
+  // Prevent race condition if loaderComplete has already fired
+  const preloader = document.getElementById('preloader');
+  if (!preloader || preloader.style.display === 'none') {
+    initPortfolioAnimations();
+  } else {
+    window.addEventListener('loaderComplete', initPortfolioAnimations);
+  }
 </script>
