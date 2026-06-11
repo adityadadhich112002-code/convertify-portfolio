@@ -661,7 +661,7 @@
             const gain = ctx.createGain();
             const now = ctx.currentTime + timeOffset;
             gain.gain.setValueAtTime(0, now);
-            gain.gain.linearRampToValueAtTime(0.4, now + 0.001); // Instant attack
+            gain.gain.linearRampToValueAtTime(0.04, now + 0.001); // Further reduced peak gain to 0.04 (4%)
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035); // Very fast decay
             
             noise.connect(filter);
@@ -699,7 +699,7 @@
           osc.frequency.exponentialRampToValueAtTime(40, now + 0.25); // Sweep down to 40Hz
           
           gain.gain.setValueAtTime(0, now);
-          gain.gain.linearRampToValueAtTime(0.6, now + 0.005); // Quick rise
+          gain.gain.linearRampToValueAtTime(0.06, now + 0.005); // Further reduced thud gain to 0.06 (6%)
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4); // Medium decay
           
           // Add a high-freq mechanical click layer for the slam
@@ -718,7 +718,7 @@
           
           const noiseGain = ctx.createGain();
           noiseGain.gain.setValueAtTime(0, now);
-          noiseGain.gain.linearRampToValueAtTime(0.2, now + 0.002);
+          noiseGain.gain.linearRampToValueAtTime(0.04, now + 0.002); // Further reduced noise click gain to 0.04 (4%)
           noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
           
           noise.connect(filter);
