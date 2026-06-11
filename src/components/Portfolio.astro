@@ -623,12 +623,24 @@
 
     if (portfolioWord && isMobile && photoReel) {
 
+      // Helper to retrieve or create the globally shared AudioContext
+      const getSharedContext = () => {
+        const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+        if (!AudioContextClass) return null;
+        if (!(window as any).sharedAudioCtx) {
+          (window as any).sharedAudioCtx = new AudioContextClass();
+        }
+        return (window as any).sharedAudioCtx;
+      };
+
       // Synthesize camera mechanical click sound using Web Audio API
       const playCameraClickSound = () => {
         try {
-          const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
-          if (!AudioContextClass) return;
-          const ctx = new AudioContextClass();
+          const ctx = getSharedContext();
+          if (!ctx) return;
+          if (ctx.state === 'suspended') {
+            ctx.resume();
+          }
           
           const playClick = (timeOffset: number) => {
             const bufferSize = ctx.sampleRate * 0.05; // 50ms click duration
@@ -670,9 +682,11 @@
       // Synthesize heavy mechanical shutter slam
       const playSlamSound = () => {
         try {
-          const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
-          if (!AudioContextClass) return;
-          const ctx = new AudioContextClass();
+          const ctx = getSharedContext();
+          if (!ctx) return;
+          if (ctx.state === 'suspended') {
+            ctx.resume();
+          }
           
           // Heavy bass thud
           const osc = ctx.createOscillator();
@@ -772,6 +786,26 @@
         return tl;
       };
 
+      // ── Trigger handler: ensures AudioContext is unlocked before starting the visual animation ──
+      const triggerReel = () => {
+        const ctx = getSharedContext();
+        if (ctx && ctx.state === 'suspended') {
+          // If suspended, wait for user interaction to resume first so sound can play
+          const unlockAndPlay = () => {
+            ctx.resume().then(() => {
+              playReelAnimation();
+            });
+            window.removeEventListener('touchstart', unlockAndPlay);
+            window.removeEventListener('click', unlockAndPlay);
+          };
+          window.addEventListener('touchstart', unlockAndPlay, { passive: true });
+          window.addEventListener('click', unlockAndPlay);
+        } else {
+          // Context is already running, play immediately
+          playReelAnimation();
+        }
+      };
+
       // ── Trigger on scroll (first time) ──
       ScrollTrigger.create({
         trigger: '#portfolio',
@@ -783,12 +817,12 @@
           const rect = portfolioEl.getBoundingClientRect();
           // Check if portfolio is actually near the viewport and user has scrolled down
           if (rect.top < window.innerHeight && window.scrollY > 100) {
-            playReelAnimation();
+            triggerReel();
           } else {
             const checkVisibility = () => {
               const r = portfolioEl.getBoundingClientRect();
               if (r.top < window.innerHeight * 0.8) {
-                playReelAnimation();
+                triggerReel();
                 window.removeEventListener('scroll', checkVisibility);
               }
             };
@@ -798,7 +832,7 @@
       });
 
       // ── Trigger on click ──
-      portfolioWord.addEventListener('click', () => playReelAnimation());
+      portfolioWord.addEventListener('click', () => triggerReel());
     }
 
     // Filmstrip cards staggered reveal

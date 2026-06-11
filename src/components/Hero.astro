@@ -960,7 +960,8 @@
 
       try {
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        audioCtx = new AudioContextClass();
+        audioCtx = window.sharedAudioCtx || new AudioContextClass();
+        window.sharedAudioCtx = audioCtx;
         
         masterGain = audioCtx.createGain();
         // Start with 0 volume, we will fade in
@@ -1121,11 +1122,6 @@
           masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
           masterGain.gain.setValueAtTime(masterGain.gain.value, audioCtx.currentTime);
           masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.4);
-          setTimeout(() => {
-            if (isMuted && audioCtx && audioCtx.state === 'running') {
-              audioCtx.suspend();
-            }
-          }, 450);
         }
       } else {
         if (toggleBtn) toggleBtn.classList.remove('is-muted');
@@ -1167,13 +1163,6 @@
           if (masterGain && audioCtx && !isMuted) {
             // Apply volume update smoothly
             masterGain.gain.value = volumeObj.val;
-            
-            // Suspend context if scrolled past boundary to save resources
-            if (scale <= 0.01 && audioCtx.state === 'running') {
-              audioCtx.suspend();
-            } else if (scale > 0.01 && audioCtx.state === 'suspended') {
-              audioCtx.resume();
-            }
           }
         }
       });
