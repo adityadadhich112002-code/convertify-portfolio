@@ -1,0 +1,78 @@
+---
+---
+
+<div id="preloader" class="fixed inset-0 bg-canvas z-[9999] flex flex-col items-center justify-center pointer-events-auto">
+  <!-- Subtle background glow -->
+  <div class="absolute w-[500px] h-[500px] rounded-full bg-accent-blue/10 blur-[120px] pointer-events-none"></div>
+
+  <div class="relative z-10 flex flex-col items-center gap-6">
+    <!-- Logo Symbol -->
+    <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-surface-1 border border-hairline relative overflow-hidden group">
+      <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <span class="text-white font-display font-bold text-2xl tracking-tighter">C</span>
+    </div>
+
+    <!-- Progress Text -->
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-white/40 text-caption uppercase tracking-[0.2em] font-medium">Initializing Experience</span>
+      <span id="preloader-percent" class="text-white font-display text-4xl font-semibold tracking-tight">0%</span>
+    </div>
+
+    <!-- Progress bar track -->
+    <div class="w-48 h-[2px] bg-white/10 rounded-full overflow-hidden">
+      <div id="preloader-bar" class="h-full bg-brand-blue w-0 rounded-full"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Animate preloader loader progress
+  const percentText = document.getElementById('preloader-percent');
+  const progressBar = document.getElementById('preloader-bar');
+  const preloader = document.getElementById('preloader');
+
+  if (percentText && progressBar && preloader) {
+    const obj = { value: 0 };
+    
+    // Disable body scroll during loading
+    document.body.style.overflow = 'hidden';
+
+    gsap.to(obj, {
+      value: 100,
+      duration: 1.2,
+      ease: 'power3.out',
+      onUpdate: () => {
+        const rounded = Math.floor(obj.value);
+        percentText.textContent = `${rounded}%`;
+        progressBar.style.width = `${rounded}%`;
+      },
+      onComplete: () => {
+        // Exit animation for loader
+        const tl = gsap.timeline({
+          onComplete: () => {
+            preloader.style.display = 'none';
+            document.body.style.overflow = '';
+            
+            // Dispatch custom event to trigger page animations
+            window.dispatchEvent(new CustomEvent('loaderComplete'));
+          }
+        });
+
+        tl.to(preloader.querySelectorAll('.relative > *'), {
+          opacity: 0,
+          y: -20,
+          stagger: 0.05,
+          duration: 0.3,
+          ease: 'power3.in'
+        })
+        .to(preloader, {
+          yPercent: -100,
+          duration: 0.5,
+          ease: 'power4.inOut'
+        }, '-=0.15');
+      }
+    });
+  }
+</script>

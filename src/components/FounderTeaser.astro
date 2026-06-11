@@ -1,0 +1,155 @@
+---
+---
+
+<section id="founder-teaser" class="relative bg-canvas py-8 md:py-12 px-6 md:px-16 overflow-hidden select-none">
+  <!-- Glowing spotlight behind the teaser card (Gold/Amber theme matching Aditya's photo) -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] max-w-[750px] h-[85%] bg-radial from-amber-500/6 via-amber-500/1 to-transparent blur-[90px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Outer glass card with mouse spotlight gradient effect -->
+    <div class="founder-teaser-card cursor-pointer group relative p-8 md:p-10 lg:p-12 bg-surface-2/20 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-amber-500/25 transition-all duration-500 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+      
+      <!-- Ambient hover coordinates reflection -->
+      <div class="spotlight-layer absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--x,_50%)_var(--y,_50%),rgba(245,158,11,0.06)_0%,transparent_60%)]" aria-hidden="true"></div>
+      <!-- Top edge specular glare reflection -->
+      <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/1 to-white/4 pointer-events-none" aria-hidden="true"></div>
+
+      <!-- Left block: Founder Identity -->
+      <div class="flex flex-row items-center gap-5 w-full lg:w-auto shrink-0 justify-center sm:justify-start">
+        <!-- Circle photo with glowing pulsating border -->
+        <div class="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full flex-shrink-0 border-2 border-amber-500/20 group-hover:border-amber-500/60 transition-colors duration-500 p-0.5 shadow-[0_0_15px_rgba(245,158,11,0.15)]">
+          <div class="absolute inset-0 rounded-full border border-amber-500/15 animate-ping opacity-60" style="animation-duration: 3s"></div>
+          <img 
+            src="/assets/founder-portrait.jpg" 
+            alt="Aditya Dadhich" 
+            class="w-full h-full object-cover rounded-full" 
+          />
+          <!-- Verified check badge -->
+          <span class="absolute bottom-0 right-0 w-5 h-5 bg-brand-blue border-2 border-canvas rounded-full flex items-center justify-center shadow-lg" title="Verified Founder">
+            <svg class="w-2.5 h-2.5 text-white fill-current" viewBox="0 0 24 24">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Identity details -->
+        <div class="flex flex-col text-left">
+          <div class="flex items-center gap-2">
+            <span class="font-display font-bold text-white text-[16px] sm:text-[18px] md:text-[22px] tracking-tight leading-none">Aditya Dadhich</span>
+            <!-- Active dot indicator -->
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+          </div>
+          <span class="text-[10px] font-semibold text-white/40 uppercase tracking-[0.15em] mt-1.5 leading-none">Founder Authority</span>
+          <a 
+            href="https://instagram.com/animal_aditya" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-[12px] md:text-[13px] font-medium flex items-center gap-1.5 mt-2.5 font-poppins group/insta"
+          >
+            <span class="instagram-gradient-text font-bold">@animal_aditya</span>
+            <svg class="w-3 h-3 text-[#cc2366] transition-transform duration-300 group-hover/insta:translate-x-0.5 group-hover/insta:-translate-y-0.5" viewBox="0 0 12 12" fill="none">
+              <path d="M3 9L9 3M9 3H5M9 3V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Center block: Trust counter statement -->
+      <div class="flex-1 w-full flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 text-center sm:text-left">
+        <!-- Vertical separator on desktop / horizontal on mobile -->
+        <div class="hidden lg:block h-14 w-[1px] bg-white/10"></div>
+
+        <div class="flex flex-col items-center sm:items-start shrink-0">
+          <span class="font-display text-[42px] sm:text-[46px] md:text-[56px] font-black text-amber-500 leading-none tracking-tighter flex items-center drop-shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+            <span id="teaser-counter" data-target="11246">0</span>
+            <span class="text-[28px] sm:text-[32px] md:text-[36px] font-bold ml-0.5">+</span>
+          </span>
+          <span class="text-[9px] font-semibold tracking-[0.12em] text-white/30 uppercase mt-2 leading-none">Active Minds</span>
+        </div>
+
+        <div class="h-[1px] w-12 sm:h-12 sm:w-[1px] bg-white/10"></div>
+
+        <p class="text-body-sm sm:text-body-base md:text-[16px] text-white/60 max-w-[440px] md:max-w-[480px] leading-relaxed select-none">
+          people and counting trust Aditya's conversion frameworks. A brief preview of the mindset driving every client site before you explore his full breakdown below.
+        </p>
+      </div>
+
+      <!-- Right block: Trigger to scroll -->
+      <a 
+        href="#founder" 
+        class="founder-teaser-btn magnetic-btn shrink-0 w-full lg:w-auto relative inline-flex items-center justify-center px-6 py-4 md:px-8 md:py-4.5 bg-white text-canvas text-body-sm font-semibold rounded-pill overflow-hidden shadow-lg transition-all duration-300 group"
+      >
+        <!-- Gold background sweep on hover -->
+        <span class="absolute inset-0 bg-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-pill"></span>
+        <span class="relative z-10 flex items-center justify-center gap-2 group-hover:text-canvas transition-colors duration-300">
+          Meet the Founder
+          <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-0.5" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1v12M3 9l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .instagram-gradient-text {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initTeaserAnimations = () => {
+    const card = document.querySelector('.founder-teaser-card') as HTMLElement | null;
+    if (!card) return;
+
+    // 1. Mouse Spotlight Tracker (Desktop)
+    const isTouch = window.matchMedia('(hover: none)').matches;
+    if (!isTouch) {
+      card.addEventListener('mousemove', (e: any) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    }
+
+    // 2. Count-Up Stats Animation
+    const counter = document.getElementById('teaser-counter');
+    if (counter) {
+      const targetVal = parseInt(counter.getAttribute('data-target') || '0', 10);
+      const startVal = Math.max(0, targetVal - 300); // Start slightly before final value for a fast blip
+      const obj = { value: startVal };
+
+      gsap.to(obj, {
+        value: targetVal,
+        duration: 1.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#founder-teaser',
+          start: 'top 85%'
+        },
+        onUpdate: () => {
+          counter.textContent = Math.floor(obj.value).toLocaleString('en-US');
+        }
+      });
+    }
+  };
+
+  window.addEventListener('loaderComplete', initTeaserAnimations);
+</script>

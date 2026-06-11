@@ -1,0 +1,114 @@
+---
+---
+
+<nav class="fixed top-4 left-1/2 w-[calc(100%-32px)] max-w-7xl z-[100] flex items-center justify-between px-6 md:px-10 py-3 border border-white/12 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.28),inset_0_-1px_0_0_rgba(255,255,255,0.05)] overflow-hidden" style="backdrop-filter: blur(40px) saturate(220%); -webkit-backdrop-filter: blur(40px) saturate(220%); background-color: rgba(20, 20, 22, 0.45); transform: translateX(-50%) translateY(0); transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.3s, border-color 0.3s;">
+  <!-- Specular glare reflection overlay -->
+  <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/2 to-white/8 opacity-100 pointer-events-none rounded-2xl" aria-hidden="true"></div>
+  <div class="w-full flex items-center justify-between relative z-10">
+    <!-- Logo -->
+    <a href="#" class="nav-logo inline-block transition-opacity duration-200 hover:opacity-80">
+      <img src="/assets/convertify-logo.png" alt="Convertify Websites" class="h-8 md:h-10 w-auto" />
+    </a>
+
+    <!-- Nav Links (Desktop) -->
+    <div class="hidden md:flex items-center gap-8">
+      <ul class="flex items-center gap-8 list-none">
+        <li>
+          <a href="#portfolio" class="text-caption text-white/60 hover:text-white transition-colors duration-200">Work</a>
+        </li>
+        <li>
+          <a href="#why" class="text-caption text-white/60 hover:text-white transition-colors duration-200">Why Us</a>
+        </li>
+        <li>
+          <a href="#founder" class="text-caption text-white/60 hover:text-white transition-colors duration-200">Founder</a>
+        </li>
+      </ul>
+      
+      <!-- Magnetic CTA -->
+      <a href="https://wa.me/918290258775" target="_blank" class="magnetic-btn relative inline-flex items-center justify-center px-5 py-2.5 bg-brand-blue text-white text-body-sm font-semibold rounded-pill overflow-hidden shadow-[0_1px_2px_rgba(20,0,255,0.2)] hover:shadow-[0_12px_24px_rgba(20,0,255,0.4)] transition-all duration-300 group">
+        <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-pill"></span>
+        <span class="relative z-10 flex items-center gap-1">Get Free Audit <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+      </a>
+    </div>
+
+    <!-- Mobile Audit CTA Only (No Full Nav) -->
+    <div class="md:hidden flex items-center">
+      <a href="https://wa.me/918290258775" target="_blank" class="px-4 py-2 bg-brand-blue text-white text-[12px] font-semibold rounded-pill">
+        Get Free Audit
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Magnetic Button Effect
+  const initMagneticButtons = () => {
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+    
+    magneticBtns.forEach(btn => {
+      btn.addEventListener('mousemove', (e: any) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        // Move the button container
+        gsap.to(btn, {
+          x: x * 0.35,
+          y: y * 0.35,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        // Snap back
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.6,
+          ease: "elastic.out(1, 0.4)"
+        });
+      });
+    });
+  };
+
+  // Scroll behavior: sticky shadow + hide-on-scroll / show-on-scroll
+  const navElement = document.querySelector('nav') as HTMLElement | null;
+  const heroElement = document.getElementById('hero');
+  if (navElement) {
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      
+      // Shadow / background color change
+      if (currentScrollY > 50) {
+        navElement.style.backgroundColor = 'rgba(15, 15, 17, 0.75)';
+        navElement.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+      } else {
+        navElement.style.backgroundColor = 'rgba(20, 20, 22, 0.45)';
+        navElement.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+      }
+
+      // Hide/show logic (preserving translateX(-50%) centering)
+      const heroHeight = heroElement ? heroElement.offsetHeight : window.innerHeight;
+      
+      if (currentScrollY < heroHeight) {
+        // Always show while passing through the hero section
+        navElement.style.transform = 'translateX(-50%) translateY(0)';
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling DOWN — hide (only active after passing hero section)
+        navElement.style.transform = 'translateX(-50%) translateY(-150%)';
+      } else {
+        // Scrolling UP — show
+        navElement.style.transform = 'translateX(-50%) translateY(0)';
+      }
+      
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+  }
+
+  window.addEventListener('loaderComplete', initMagneticButtons);
+</script>

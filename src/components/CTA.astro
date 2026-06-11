@@ -1,0 +1,233 @@
+---
+---
+
+<section id="cta" class="relative bg-canvas overflow-hidden select-none">
+  <!-- Unique Diagonal Cut Top -->
+  <div class="absolute top-0 left-0 w-full h-24 md:h-32 z-10 pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-full" viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+      <path d="M0,120 L0,40 Q360,0 720,60 Q1080,120 1440,40 L1440,120 Z" fill="#090909"/>
+    </svg>
+  </div>
+
+  <!-- Dramatic Background Effects -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="noise-bg"></div>
+    <!-- Massive radial glow -->
+    <div id="cta-glow-main" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] max-w-[1400px] h-[100vh] max-h-[900px] bg-radial from-red-500/8 via-brand-blue/5 to-transparent blur-[100px] opacity-0 scale-75 transition-all duration-[1500ms] ease-out"></div>
+    <!-- Floating accent orbs -->
+    <div class="cta-orb absolute top-[15%] left-[8%] w-[300px] h-[300px] rounded-full bg-red-500/6 blur-[80px] pointer-events-none"></div>
+    <div class="cta-orb absolute bottom-[20%] right-[5%] w-[250px] h-[250px] rounded-full bg-brand-blue/8 blur-[70px] pointer-events-none"></div>
+    <!-- Grid lines -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)] opacity-60"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-16 pt-24 md:pt-52 pb-24 md:pb-32">
+    
+    <!-- Urgency Eyebrow -->
+    <div id="cta-eyebrow" class="opacity-0 translate-y-6 flex justify-center mb-12 md:mb-16">
+      <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-red-500/30 bg-red-500/8 backdrop-blur-sm">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+        <span class="text-[10px] md:text-[11px] font-display font-semibold tracking-[0.2em] uppercase text-red-400">Limited Slots This Month</span>
+      </div>
+    </div>
+
+    <!-- Massive Bold Headline (hero-inspired) -->
+    <h2 class="text-center mb-6 md:mb-8">
+      <span id="cta-line-1" class="block opacity-0 translate-y-8 text-[44px] sm:text-[60px] md:text-[78px] lg:text-[96px] font-bold leading-[0.9] tracking-[-0.05em] text-white">
+        <span class="cta-word inline-block" style="--d:0">Stop</span>
+        <span class="cta-word inline-block" style="--d:1">Losing</span>
+        <span class="cta-word inline-block" style="--d:2">Customers</span>
+      </span>
+      <span id="cta-line-2" class="block opacity-0 translate-y-8 text-[44px] sm:text-[60px] md:text-[78px] lg:text-[96px] font-bold leading-[0.9] tracking-[-0.05em] text-white mt-2 md:mt-3">
+        <span class="cta-word inline-block" style="--d:3">To</span>
+        <span class="cta-word inline-block relative" style="--d:4">
+          <span class="relative z-10 text-red-500">Worse</span>
+          <!-- Red scribble underline -->
+          <svg class="absolute left-[-4%] bottom-[-15%] w-[108%] h-[0.35em] overflow-visible pointer-events-none" viewBox="0 0 100 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="cta-scribble-1" class="stroke-red-500 stroke-[3.5] stroke-linecap-round" d="M1 9 C30 2, 70 2, 99 6" stroke-dasharray="100" stroke-dashoffset="100"></path>
+            <path id="cta-scribble-2" class="stroke-red-500/70 stroke-[1.8] stroke-linecap-round" d="M5 12 C35 6, 65 6, 95 10" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          </svg>
+        </span>
+        <span class="cta-word inline-block" style="--d:5">Websites.</span>
+      </span>
+      <span id="cta-line-3" class="block opacity-0 translate-y-8 mt-2 md:mt-3">
+        <span class="text-[48px] sm:text-[64px] md:text-[84px] lg:text-[100px] font-bold leading-[1.0] tracking-[-0.03em] text-white">Let Us</span>
+        <span class="cta-word inline-block font-script italic text-brand-blue text-[48px] sm:text-[64px] md:text-[84px] lg:text-[100px] leading-[1.0] tracking-normal ml-3 md:ml-4" style="--d:6">Fix That.</span>
+      </span>
+    </h2>
+
+    <!-- Subhead -->
+    <p id="cta-sub" class="opacity-0 translate-y-6 text-center text-[16px] md:text-[18px] text-white/45 max-w-[540px] mx-auto mb-8 md:mb-10 leading-relaxed">
+      Every day your website underperforms is revenue handed to your competitors. One conversation changes everything.
+    </p>
+
+    <!-- Fastest Way Label -->
+    <div id="cta-fastest" class="opacity-0 translate-y-4 flex justify-center mb-3 md:mb-4">
+      <span class="text-[11px] md:text-[12px] font-display font-semibold tracking-[0.15em] uppercase text-white/30">Fastest way to reach out to us</span>
+    </div>
+
+    <!-- Giant CTA Button -->
+    <div id="cta-btn" class="opacity-0 translate-y-6 flex justify-center mb-6 md:mb-8">
+      <a href="https://wa.me/918290258775" target="_blank" class="cta-giant-btn group relative inline-flex items-center justify-center gap-3 px-10 py-5 md:px-14 md:py-6 bg-gradient-to-b from-white via-white/95 to-white/80 backdrop-blur-2xl border border-white/30 text-canvas text-[17px] md:text-[19px] font-display font-semibold rounded-full overflow-hidden shadow-[0_8px_40px_rgba(255,255,255,0.25),0_2px_8px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.08)] hover:shadow-[0_16px_60px_rgba(255,255,255,0.4),0_4px_16px_rgba(0,0,0,0.2),inset_0_1px 0_rgba(255,255,255,1),inset_0_-1px_0_rgba(0,0,0,0.1)] hover:from-white hover:via-white hover:to-white/95 border-white/40 transition-all duration-500 hover:scale-[1.03] active:scale-[0.98]">
+        <!-- Sheen sweep -->
+        <span class="shine-sweep absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full"></span>
+        <!-- Pulse ring -->
+        <span class="cta-pulse-ring absolute inset-0 rounded-full border-2 border-white/30 opacity-0"></span>
+        <span class="relative z-10 flex items-center gap-3">
+          <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Us Now
+          <span class="group-hover:translate-x-1 transition-transform duration-300 text-xl">→</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Secondary Option -->
+    <div id="cta-secondary" class="opacity-0 translate-y-6 flex justify-center mb-10 md:mb-14">
+      <a href="https://www.instagram.com/convertify.websites/" target="_blank" class="inline-flex items-center gap-2 text-[13px] md:text-[14px] text-white/30 hover:text-white/60 transition-colors duration-300 font-medium">
+        <span>or DM us on Instagram</span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Stats Row (dramatic) -->
+    <div id="cta-stats" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 max-w-[880px] mx-auto">
+      <div class="cta-stat opacity-0 translate-y-8 text-center p-5 md:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm relative overflow-hidden hover:border-white/[0.15] transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="relative block font-display text-[28px] md:text-[36px] font-bold text-white tracking-tight leading-none">11.2k+</span>
+        <span class="relative block text-[9px] md:text-[10px] tracking-[0.08em] font-medium text-white/30 uppercase mt-2">Followers</span>
+      </div>
+      <div class="cta-stat opacity-0 translate-y-8 text-center p-5 md:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm relative overflow-hidden hover:border-white/[0.15] transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="relative block font-display text-[28px] md:text-[36px] font-bold text-white tracking-tight leading-none">437+</span>
+        <span class="relative block text-[9px] md:text-[10px] tracking-[0.08em] font-medium text-white/30 uppercase mt-2">Sites Delivered</span>
+      </div>
+      <div class="cta-stat opacity-0 translate-y-8 text-center p-5 md:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm relative overflow-hidden hover:border-white/[0.15] transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="relative block font-display text-[28px] md:text-[36px] font-bold text-white tracking-tight leading-none">184%</span>
+        <span class="relative block text-[9px] md:text-[10px] tracking-[0.08em] font-medium text-white/30 uppercase mt-2">Avg Conversion Lift</span>
+      </div>
+      <div class="cta-stat opacity-0 translate-y-8 text-center p-5 md:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm relative overflow-hidden hover:border-white/[0.15] transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="relative block font-display text-[28px] md:text-[36px] font-bold text-white tracking-tight leading-none">100%</span>
+        <span class="relative block text-[9px] md:text-[10px] tracking-[0.08em] font-medium text-white/30 uppercase mt-2">Success Ratio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unique Diagonal Cut Bottom -->
+  <div class="absolute bottom-0 left-0 w-full h-20 md:h-28 z-10 pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-full" viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none">
+      <path d="M0,0 L0,60 Q360,100 720,40 Q1080,0 1440,60 L1440,0 Z" fill="#090909"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  /* Floating orbs animation */
+  .cta-orb {
+    animation: ctaFloat 12s ease-in-out infinite alternate;
+  }
+  .cta-orb:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 15s;
+  }
+
+  @keyframes ctaFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -20px) scale(1.1); }
+    100% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+
+  /* Giant CTA button pulse ring */
+  .cta-pulse-ring {
+    animation: ctaPulse 2s ease-out infinite;
+  }
+
+  @keyframes ctaPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.25); opacity: 0; }
+  }
+
+  /* Button shine loop */
+  .cta-giant-btn .shine-sweep {
+    animation: shineLoop 3s ease-in-out infinite;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.95) 45%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.95) 55%, transparent 70%);
+  }
+
+  @keyframes shineLoop {
+    0%, 100% { transform: translateX(-200%); }
+    50% { transform: translateX(200%); }
+  }
+
+  /* Stat card hover */
+  .cta-stat {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .cta-stat:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initCta = () => {
+    // Glow expand
+    const glow = document.getElementById('cta-glow-main');
+    if (glow) {
+      ScrollTrigger.create({
+        trigger: '#cta',
+        start: 'top 70%',
+        onEnter: () => {
+          glow.classList.remove('opacity-0', 'scale-75');
+          glow.classList.add('opacity-100', 'scale-100');
+        }
+      });
+    }
+
+    // Main timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#cta',
+        start: 'top 65%'
+      }
+    });
+
+    tl.to('#cta-eyebrow', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+      .to('#cta-line-1', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
+      .to('#cta-line-2', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.4')
+      .to('#cta-line-3', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.4')
+      .to('#cta-sub', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3')
+      .to('#cta-fastest', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2')
+      .to('#cta-btn', { opacity: 1, y: 0, duration: 0.7, ease: 'back.out(1.2)' }, '-=0.2')
+      .to('#cta-secondary', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+      .to('.cta-stat', {
+        opacity: 1,
+        y: 0,
+        stagger: 0.08,
+        duration: 0.6,
+        ease: 'power3.out'
+      }, '-=0.3');
+
+    // Scribble animation
+    const scribble1 = document.getElementById('cta-scribble-1');
+    const scribble2 = document.getElementById('cta-scribble-2');
+    if (scribble1 && scribble2) {
+      tl.to([scribble1, scribble2], {
+        strokeDashoffset: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, '-=1.2');
+    }
+  };
+
+  window.addEventListener('loaderComplete', initCta);
+</script>

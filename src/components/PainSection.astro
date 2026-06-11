@@ -1,0 +1,307 @@
+---
+---
+
+<section id="pain" class="relative bg-surface-1 py-24 md:py-32 px-6 md:px-16 overflow-hidden select-none flex items-center justify-center">
+  <!-- Glowing spot in pain section (Pure Red color theme for problem context) -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px] h-[80%] bg-radial from-red-600/7 via-red-600/1.5 to-transparent blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Background grid lines for structural design context -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl w-full mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+    
+    <!-- Left Column: Copy Narrative -->
+    <div class="pain-left lg:col-span-6 flex flex-col gap-6 opacity-0 translate-y-8">
+      <span class="flex items-center gap-3 text-[10px] md:text-[11px] font-display font-medium tracking-[0.25em] uppercase text-red-500">
+        <span class="w-5 h-[1px] bg-red-500/50"></span>
+        The Conversion Leak
+      </span>
+      
+      <h2 class="text-[34px] sm:text-[48px] lg:text-[56px] text-white font-bold leading-[1.0] tracking-[-0.05em] font-display text-left">
+        <span class="text-red-500 text-[64px] sm:text-[80px] lg:text-[96px] font-black tracking-[-0.05em] uppercase relative block text-center sm:inline-block sm:text-left py-1 mb-3 pain-stop-word opacity-0 translate-y-6">
+          STOP
+          <!-- Dynamic Double Underline Red Scribbles -->
+          <svg class="absolute left-[-10%] bottom-[-14%] w-[120%] h-[0.38em] overflow-visible pointer-events-none" viewBox="0 0 100 15" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="pain-scribble-path-1" class="stroke-red-600 stroke-[3.5] stroke-linecap-round" d="M0 9 C30 2, 70 2, 100 6" stroke-dasharray="100" stroke-dashoffset="100"></path>
+            <path id="pain-scribble-path-2" class="stroke-red-600/80 stroke-[2] stroke-linecap-round" d="M2 12 C32 6, 68 6, 98 10" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          </svg>
+        </span>
+        <br>
+        <span class="block mb-2 font-bold text-white/95">You are Literally</span>
+        <span class="block font-bold text-white/95">Wasting <span class="text-red-500 font-black">$$$</span> on Ads!</span>
+      </h2>
+
+      <p class="text-body-base text-white/50 leading-relaxed max-w-[480px] mt-2 select-none">
+        You spend budget on ads and social campaigns. Clicks arrive. But because of loading delays, generic templates, and zero proof, visitors bounce in seconds.
+      </p>
+
+      <div class="font-display text-[18px] md:text-[20px] text-white font-semibold leading-snug tracking-tight border-l-2 border-red-500 pl-6 my-2">
+        Not because your offer is bad.<br>
+        But because your website failed to secure trust fast.
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto">
+        <a 
+          href="https://wa.me/918290258775" 
+          target="_blank" 
+          class="magnetic-btn w-full sm:w-auto relative inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white text-body-sm font-semibold rounded-pill overflow-hidden shadow-[0_4px_20px_rgba(239,68,68,0.25)] hover:shadow-[0_12px_36px_rgba(239,68,68,0.45)] transition-all duration-300 group"
+        >
+          <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-pill"></span>
+          <span class="relative z-10 flex items-center justify-center gap-2">
+            Free Conversion Audit
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 14 14" fill="none">
+              <path d="M1 7h12M9 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Diagnostic Funnel Console -->
+    <div class="pain-right lg:col-span-6 flex justify-center opacity-0 translate-y-8">
+      <!-- Terminal-style glass console -->
+      <div class="w-full max-w-[450px] bg-surface-2/10 backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden relative group">
+        
+        <!-- Header bar -->
+        <div class="px-5 py-3.5 border-b border-white/5 bg-white/3 flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+          </div>
+          <span class="text-[9px] font-mono tracking-wider text-white/30 uppercase">funnel_leak_diagnostic.sh</span>
+          <div class="w-10"></div> <!-- spacing -->
+        </div>
+
+        <!-- Diagnostic Screen Info -->
+        <div class="p-6 pb-2 border-b border-white/5 flex items-center justify-between text-left">
+          <div>
+            <div class="text-[10px] font-mono text-white/40 uppercase">Funnel Status</div>
+            <div class="text-red-500 font-display font-black text-[18px] tracking-tight mt-0.5 animate-pulse">80% Drop-off</div>
+          </div>
+          <div class="text-right">
+            <div class="text-[10px] font-mono text-white/40 uppercase">Ad Spend Loss</div>
+            <div class="text-white font-display font-bold text-[18px] tracking-tight mt-0.5" id="ad-spend-loss-counter">$0</div>
+          </div>
+        </div>
+
+        <!-- Funnel SVG Space -->
+        <div class="relative p-6 flex justify-center items-center bg-radial from-red-500/3 via-transparent to-transparent">
+          
+          <svg class="w-full max-w-[320px] h-[340px]" viewBox="0 0 300 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Dashed Funnel Guide Borders -->
+            <!-- Mouth -->
+            <path d="M 30 30 L 100 110" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" stroke-dasharray="4 4" />
+            <path d="M 270 30 L 200 110" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" stroke-dasharray="4 4" />
+            <!-- Stem -->
+            <line x1="100" y1="110" x2="100" y2="280" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" stroke-dasharray="4 4" />
+            <line x1="200" y1="110" x2="200" y2="280" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" stroke-dasharray="4 4" />
+            
+            <!-- Central flow tracking path -->
+            <line x1="150" y1="20" x2="150" y2="300" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+
+            <!-- LEAK GATES -->
+            <!-- Gate 1: Speed Leak -->
+            <line x1="100" y1="110" x2="200" y2="110" stroke="rgba(239,68,68,0.15)" stroke-width="2" />
+            <circle cx="100" cy="110" r="3" fill="#ef4444" />
+            <circle cx="200" cy="110" r="3" fill="#ef4444" />
+            <text x="150" y="102" fill="rgba(239,68,68,0.8)" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle" letter-spacing="1">GATE 1: LOAD DELAY</text>
+            <path d="M 100 110 L 72 138" stroke="rgba(239,68,68,0.2)" stroke-width="1" stroke-dasharray="2 2" />
+            <text x="72" y="152" fill="rgba(239,68,68,0.75)" font-family="monospace" font-size="8" text-anchor="middle" font-weight="bold">LEAK -40%</text>
+
+            <!-- Gate 2: Trust Leak -->
+            <line x1="100" y1="200" x2="200" y2="200" stroke="rgba(239,68,68,0.15)" stroke-width="2" />
+            <circle cx="100" cy="200" r="3" fill="#ef4444" />
+            <circle cx="200" cy="200" r="3" fill="#ef4444" />
+            <text x="150" y="192" fill="rgba(239,68,68,0.8)" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle" letter-spacing="1">GATE 2: ZERO TRUST</text>
+            <path d="M 200 200 L 228 228" stroke="rgba(239,68,68,0.2)" stroke-width="1" stroke-dasharray="2 2" />
+            <text x="228" y="242" fill="rgba(239,68,68,0.75)" font-family="monospace" font-size="8" text-anchor="middle" font-weight="bold">LEAK -40%</text>
+
+            <!-- SUCCESS TARGET -->
+            <!-- Success Node -->
+            <circle id="success-node-glow" cx="150" cy="290" r="22" fill="#10b981" fill-opacity="0.03" />
+            <circle id="success-node" cx="150" cy="290" r="14" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1.5" />
+            <text x="150" y="294" fill="#10b981" font-family="var(--font-display)" font-size="11" font-weight="bold" text-anchor="middle">$</text>
+            <text x="150" y="324" fill="rgba(16,185,129,0.8)" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle" letter-spacing="1">CONVERSION (20%)</text>
+
+            <!-- FLOW PARTICLES (GSAP target elements) -->
+            <circle id="particle-leak-1" cx="150" cy="20" r="4" fill="#ffffff" filter="drop-shadow(0 0 4px rgba(255,255,255,0.8))" style="opacity: 0;" />
+            <circle id="particle-leak-2" cx="150" cy="20" r="3.5" fill="#ef4444" filter="drop-shadow(0 0 4px rgba(239,68,68,0.8))" style="opacity: 0;" />
+            <circle id="particle-leak-3" cx="150" cy="20" r="4" fill="#ffffff" filter="drop-shadow(0 0 4px rgba(255,255,255,0.8))" style="opacity: 0;" />
+            <circle id="particle-leak-4" cx="150" cy="20" r="3.5" fill="#ef4444" filter="drop-shadow(0 0 4px rgba(239,68,68,0.8))" style="opacity: 0;" />
+            <circle id="particle-success" cx="150" cy="20" r="4.5" fill="#10b981" filter="drop-shadow(0 0 6px rgba(16,185,129,0.8))" style="opacity: 0;" />
+
+          </svg>
+
+          <!-- Label elements positioned inside diagnostic layout -->
+          <div class="absolute top-[38%] left-[2%] bg-red-600/10 border border-red-500/20 px-2 py-1 rounded text-[8px] font-mono text-red-400 select-none">
+            5.8sec Load Time
+          </div>
+          <div class="absolute top-[61%] right-[2%] bg-red-600/10 border border-red-500/20 px-2 py-1 rounded text-[8px] font-mono text-red-400 select-none">
+            No Social Proof
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initPainAnimations = () => {
+    // Set initial states for STOP word and scribble paths
+    gsap.set('.pain-stop-word', { scale: 0.75, opacity: 0, y: 30, transformOrigin: 'left center' });
+    gsap.set(['#pain-scribble-path-1', '#pain-scribble-path-2'], { strokeDashoffset: 100 });
+
+    // 1. Left column copy reveals
+    const painLeftTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#pain',
+        start: 'top 75%'
+      }
+    });
+
+    painLeftTimeline.to('.pain-left', {
+      opacity: 1,
+      y: 0,
+      duration: 1.0,
+      ease: 'power3.out'
+    })
+    .to('.pain-stop-word', {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.8,
+      ease: 'back.out(1.5)'
+    }, '-=0.6')
+    .to('#pain-scribble-path-1', {
+      strokeDashoffset: 0,
+      duration: 0.9,
+      ease: 'power2.out'
+    }, '-=0.4')
+    .to('#pain-scribble-path-2', {
+      strokeDashoffset: 0,
+      duration: 0.9,
+      ease: 'power2.out'
+    }, '-=0.7')
+    .call(() => {
+      // Gentle alive pulse animation
+      gsap.to('.pain-stop-word', {
+        scale: 1.05,
+        repeat: -1,
+        yoyo: true,
+        duration: 0.8,
+        ease: 'sine.inOut',
+        transformOrigin: 'left center'
+      });
+    });
+
+    // 2. Right column console reveals
+    gsap.to('.pain-right', {
+      opacity: 1,
+      y: 0,
+      duration: 1.0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#pain',
+        start: 'top 75%'
+      },
+      onComplete: () => {
+        // Start diagnostic funnel loops and count ups
+        startFunnelSimulation();
+      }
+    });
+  };
+
+  const startFunnelSimulation = () => {
+    const p1 = document.getElementById('particle-leak-1');
+    const p2 = document.getElementById('particle-leak-2');
+    const p3 = document.getElementById('particle-leak-3');
+    const p4 = document.getElementById('particle-leak-4');
+    const p5 = document.getElementById('particle-success');
+    const successNode = document.getElementById('success-node');
+    const successNodeGlow = document.getElementById('success-node-glow');
+    const spendCounter = document.getElementById('ad-spend-loss-counter');
+
+    if (!p1 || !p2 || !p3 || !p4 || !p5) return;
+
+    // Check motion preferences
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      gsap.set([p1, p2, p3, p4, p5], { opacity: 0 });
+      if (spendCounter) spendCounter.textContent = '$800';
+      return;
+    }
+
+    // 1. Spawning Flow Particle Timelines
+    const funnelTimeline = gsap.timeline({ repeat: -1 });
+
+    // Particle 1 (Leak at Load Gate 1 - Left)
+    funnelTimeline.fromTo(p1, 
+      { cx: 150, cy: 20, opacity: 0, scale: 1 }, 
+      { opacity: 1, duration: 0.15 }, 0
+    )
+    .to(p1, { cy: 110, ease: 'none', duration: 0.45 }, 0)
+    .to(p1, { cx: 50, cy: 142, opacity: 0, ease: 'power1.out', duration: 0.35 }, 0.45);
+
+    // Particle 2 (Leak at Load Gate 1 - Left)
+    funnelTimeline.fromTo(p2, 
+      { cx: 150, cy: 20, opacity: 0 }, 
+      { opacity: 1, duration: 0.15 }, 0.25
+    )
+    .to(p2, { cy: 110, ease: 'none', duration: 0.45 }, 0.25)
+    .to(p2, { cx: 45, cy: 144, opacity: 0, ease: 'power1.out', duration: 0.35 }, 0.7);
+
+    // Particle 3 (Leak at Trust Gate 2 - Right)
+    funnelTimeline.fromTo(p3, 
+      { cx: 150, cy: 20, opacity: 0 }, 
+      { opacity: 1, duration: 0.15 }, 0.5
+    )
+    .to(p3, { cy: 200, ease: 'none', duration: 0.8 }, 0.5)
+    .to(p3, { cx: 250, cy: 232, opacity: 0, ease: 'power1.out', duration: 0.35 }, 1.3);
+
+    // Particle 4 (Leak at Trust Gate 2 - Right)
+    funnelTimeline.fromTo(p4, 
+      { cx: 150, cy: 20, opacity: 0 }, 
+      { opacity: 1, duration: 0.15 }, 0.8
+    )
+    .to(p4, { cy: 200, ease: 'none', duration: 0.8 }, 0.8)
+    .to(p4, { cx: 255, cy: 234, opacity: 0, ease: 'power1.out', duration: 0.35 }, 1.6);
+
+    // Particle 5 (Successful Conversion Flow to Bottom - Green)
+    funnelTimeline.fromTo(p5, 
+      { cx: 150, cy: 20, opacity: 0, scale: 1 }, 
+      { opacity: 1, duration: 0.15 }, 1.15
+    )
+    .to(p5, { cy: 290, ease: 'none', duration: 1.15 }, 1.15)
+    .to(p5, { scale: 1.6, duration: 0.1 }, 2.3)
+    .to([successNode, successNodeGlow], { scale: 1.18, duration: 0.15, yoyo: true, repeat: 1, ease: 'power2.out', transformOrigin: 'center center' }, 2.3)
+    .to(p5, { opacity: 0, duration: 0.05 }, 2.4);
+
+    // 2. Count-Up $ Loss Tracker
+    if (spendCounter) {
+      const spendObj = { value: 0 };
+      gsap.to(spendObj, {
+        value: 840,
+        duration: 3.2,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: '#pain',
+          start: 'top 75%'
+        },
+        onUpdate: () => {
+          spendCounter.textContent = `$${Math.floor(spendObj.value)}`;
+        }
+      });
+    }
+  };
+
+  window.addEventListener('loaderComplete', initPainAnimations);
+</script>

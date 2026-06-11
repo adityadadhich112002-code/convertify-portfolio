@@ -1,0 +1,1187 @@
+---
+---
+
+<section id="positioning" class="relative bg-canvas py-24 md:py-32 px-6 md:px-16 overflow-hidden select-none">
+  <!-- Interactive radial background glow (Ambient color that will change in JS) -->
+  <div id="pos-bg-glow" class="absolute top-[20%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-brand-blue/5 blur-[100px] pointer-events-none transition-all duration-1000" aria-hidden="true"></div>
+
+  <!-- Background blueprint Grid lines for laboratory dashboard aesthetic -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:32px_32px] opacity-15 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Header (Inspired by Hero section layout & transitions) -->
+    <div class="positioning-header flex flex-col gap-4 mb-16 md:mb-20">
+      <span id="pos-eyebrow" class="opacity-0 translate-y-4 flex items-center gap-3 text-[10px] md:text-[11px] font-display font-medium tracking-[0.25em] uppercase text-brand-blue">
+        <span class="w-5 h-[1px] bg-brand-blue/50"></span>
+        The Standard
+      </span>
+      <h2 id="pos-title" class="text-[36px] xs:text-[40px] sm:text-display-lg md:text-display-xl text-white font-bold leading-[0.9] tracking-[-0.05em] max-w-[25ch]">
+        <span class="block overflow-hidden py-1">
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:0">We</span>
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:1">Don't</span>
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:2">Build</span>
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:3">Sites.</span>
+        </span>
+        <span class="block overflow-hidden py-1">
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:4">We</span>
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:5">Engineer</span>
+          <span class="pos-word inline-block opacity-0 translate-y-12 relative py-1" style="--d:6">
+            <span class="relative z-10 font-black text-red-500">Conversion</span>
+            <!-- Double Red Scribble Underline SVG -->
+            <svg class="absolute left-[-10%] bottom-[-8px] w-[120%] h-[0.3em] overflow-visible pointer-events-none" viewBox="0 0 100 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path id="pos-scribble-path-1" class="stroke-red-500 stroke-[3.5] stroke-linecap-round" d="M1 9 C30 2, 70 2, 99 6" stroke-dasharray="100" stroke-dashoffset="100"></path>
+              <path id="pos-scribble-path-2" class="stroke-red-500/70 stroke-[1.5] stroke-linecap-round" d="M5 12 C35 6, 65 6, 95 10" stroke-dasharray="100" stroke-dashoffset="100"></path>
+            </svg>
+          </span>
+        </span>
+        <span class="block overflow-hidden py-1">
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:7">To</span>
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:8">Set</span>
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:9">A</span>
+          <span class="pos-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:10">New</span>
+          <span class="pos-highlight inline-block font-script font-bold italic text-brand-blue text-[1.12em] tracking-normal not-italic opacity-0 translate-y-12" style="--d:11">Standard.</span>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Redesigned Creative Grid Layout -->
+    <!-- Redesigned Unified Console Layout -->
+    <div class="positioning-grid opacity-0 translate-y-8 max-w-5xl mx-auto relative z-10">
+      <div class="pos-terminal-window w-full rounded-2xl overflow-hidden border border-white/20 shadow-[0_30px_80px_rgba(0,0,0,0.85)] relative bg-[#0f0f13]/85 backdrop-blur-2xl transition-all duration-500">
+        <!-- Inner Dynamic Console Spotlight -->
+        <div id="pos-console-glow" class="absolute inset-0 bg-radial from-emerald-500/10 via-transparent to-transparent opacity-60 z-0 pointer-events-none transition-all duration-500"></div>
+        
+        <!-- Glass sheen reflection -->
+        <div class="glass-reflection absolute inset-0 pointer-events-none z-10 opacity-70"></div>
+        
+        <!-- Window Header bar -->
+        <div class="flex items-center justify-between px-5 py-3.5 border-b border-white/20 bg-white/[0.02] relative z-20">
+          <!-- Window dots -->
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+          </div>
+          <!-- Tab label -->
+          <span class="text-[11px] font-mono text-white/40 tracking-wider">convertify_standard.ts</span>
+          <!-- Active simulation mode label -->
+          <div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/5 border border-white/5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="pos-console-mode" class="text-[9px] font-mono text-white/50 tracking-tight uppercase">Mode: SSL VERIFY</span>
+          </div>
+        </div>
+
+        <!-- Mobile Horizontal Scroll Tabs (md:hidden) -->
+        <div class="md:hidden overflow-x-auto whitespace-nowrap px-4 py-3 border-b border-white/5 bg-[#0c0c0f]/60 relative z-20 pos-mob-scroll flex gap-2">
+          {[
+            { title: "Instant Trust", tag: "SOCIAL PROOF", lift: "38%", color: "#10b981" },
+            { title: "Typing FAQ", tag: "COGNITIVE EASE", lift: "22%", color: "#1400ff" },
+            { title: "Checkout Card", tag: "PAYMENT FLOW", lift: "45%", color: "#a855f7" },
+            { title: "Countdown", tag: "SCARCITY LOCK", lift: "19%", color: "#f59e0b" },
+            { title: "Safe Vault", tag: "RISK REVERSAL", lift: "31%", color: "#06b6d4" },
+            { title: "CTA Burst", tag: "ATTENTION CTA", lift: "54%", color: "#ec4899" },
+            { title: "Page Speed", tag: "PERFORMANCE", lift: "41%", color: "#3b82f6" }
+          ].map((pt, index) => (
+            <button
+              id={`pos-btn-mob-${index}`}
+              class={`pos-btn-mob px-3.5 py-1.5 rounded-full border text-[10px] font-mono tracking-tight transition-all duration-300 flex items-center gap-1.5 font-bold cursor-pointer ${index === 0 ? 'bg-emerald-500/25 border-emerald-500/40 text-white shadow-[0_0_12px_rgba(16,185,129,0.35)]' : 'bg-surface-1/40 border-white/5 text-white/40'}`}
+              data-index={index}
+              type="button"
+            >
+              <span>{pt.title}</span>
+              <span class="text-[9px] font-mono text-emerald-400 font-bold opacity-80">{pt.lift}</span>
+            </button>
+          ))}
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 relative z-10">
+          <!-- Left Column: Compact Sidebar Tabs (desktop/tablet only) -->
+          <div class="hidden md:flex md:col-span-5 flex-col border-r border-white/25 bg-black/15 p-4 gap-2.5 overflow-y-auto max-h-[520px] pos-sidebar-scroll">
+            {[
+              { title: "Instant Trust in Seconds", tag: "SOCIAL PROOF", lift: "38% Lift", desc: "Bounce-proof verified tags & green conversion sweeps.", color: "#10b981" },
+              { title: "Answers Before They Ask", tag: "COGNITIVE EASE", lift: "22% Lift", desc: "Interactive typing search resolving visitor doubts instantly.", color: "#1400ff" },
+              { title: "Friction Dies at Checkout", tag: "PAYMENT FLOW", lift: "45% Lift", desc: "Visual credit card slide payment verification.", color: "#a855f7" },
+              { title: "Resists Second-Thoughts", tag: "SCARCITY LOCK", lift: "19% Lift", desc: "Live countdown timers locking in visitor commitment.", color: "#f59e0b" },
+              { title: "Makes the Offer Feel Safe", tag: "RISK REVERSAL", lift: "31% Lift", desc: "Secure lock vaults and slow-rotating seals.", color: "#06b6d4" },
+              { title: "Turns Attention into Action", tag: "ATTENTION CTA", lift: "54% Lift", desc: "High-click CTAs triggering dynamic particle bursts.", color: "#ec4899" },
+              { title: "Loads in a Blink", tag: "PERFORMANCE", lift: "41% Lift", desc: "Sub-second speed sweeps keeping traffic from bouncing.", color: "#3b82f6" }
+            ].map((pt, index) => (
+              <button
+                id={`pos-btn-${index}`}
+                class={`pos-btn group flex items-start gap-3 p-3.5 rounded-xl border text-left transition-all duration-300 cursor-pointer ${index === 0 ? 'pos-active bg-surface-1 border-white/30 shadow-[0_8px_24px_rgba(20,0,255,0.1)] translate-x-1.5' : 'bg-surface-1/40 border-white/10 hover:border-white/20 hover:bg-white/[0.02]'}`}
+                data-index={index}
+                type="button"
+              >
+                <!-- Bullet node / Active Indicator -->
+                <span class={`w-3.5 h-3.5 rounded-full flex-shrink-0 mt-1 flex items-center justify-center border transition-all duration-300 ${index === 0 ? 'bg-brand-blue border-brand-blue shadow-[0_0_8px_rgba(20,0,255,0.7)]' : 'bg-[#0f0f13] border-white/10 group-hover:border-white/20'}`}>
+                  <span class="w-1 h-1 rounded-full bg-white opacity-0 transition-opacity duration-300"></span>
+                </span>
+
+                <div class="flex flex-col gap-1 pr-1 relative z-10">
+                  <div class="flex items-center gap-1.5">
+                    <span class={`text-[8px] font-mono tracking-wider uppercase px-1.5 py-0.5 rounded transition-all duration-300 ${index === 0 ? 'text-white bg-brand-blue/30 border border-brand-blue/30' : 'text-white/40 bg-white/5 border border-white/5'}`}>{pt.tag}</span>
+                    {pt.lift && <span class="text-[9px] font-mono font-bold text-emerald-400">{pt.lift}</span>}
+                  </div>
+                  <span class={`text-[13px] font-semibold tracking-tight transition-colors duration-300 ${index === 0 ? 'text-white' : 'text-white/60 group-hover:text-white/80'}`}>{pt.title}</span>
+                  <span class={`text-[11px] font-normal leading-normal transition-colors duration-300 ${index === 0 ? 'text-white/45' : 'text-white/30'}`}>{pt.desc}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <!-- Right Column: Viewport for active simulations -->
+          <div id="pos-sandbox-viewport" class="md:col-span-7 relative w-full h-[380px] md:h-[420px] bg-[#0c0c0f] p-6 overflow-hidden flex items-center justify-center">
+            
+            <!-- ── Sandbox 0: Trust Sweep ── -->
+            <div id="pos-sandbox-0" class="pos-sandbox-card absolute inset-0 w-full h-full p-4 md:p-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 opacity-1 scale-100 z-10 transition-all duration-500">
+              <!-- Left Side: Security Checklist Feed -->
+              <div class="w-full sm:w-1/2 flex flex-col gap-2.5 text-left">
+                <div class="text-[9px] font-mono text-white/30 uppercase tracking-widest pl-1">Verification Status</div>
+                <div id="trust-check-1" class="flex items-center gap-2.5 p-2.5 md:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-md transition-all duration-300">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="text-emerald-400 flex-shrink-0">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                  <div class="flex flex-col">
+                    <span class="text-[11px] font-bold text-white leading-none">SSL Secure Certified</span>
+                    <span class="text-[8px] text-white/40 mt-0.5">Checked 1s ago</span>
+                  </div>
+                </div>
+                <div id="trust-check-2" class="flex items-center gap-2.5 p-2.5 md:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-md transition-all duration-300">
+                  <svg id="trust-check-2-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" class="text-white/40 flex-shrink-0 transition-colors duration-500">
+                    <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <div class="flex flex-col">
+                    <span class="text-[10px] font-medium text-white/70 leading-none">Dynamic IP Location Match</span>
+                    <span class="text-[9px] text-emerald-400 font-bold mt-0.5" id="pos-visitor-location">Detecting Connection...</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Right Side: Circular Trust Gauge (Super Glassy Apple Style - Responsive) -->
+              <div class="flex flex-col items-center justify-center bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl p-4 md:p-5 rounded-2xl shadow-2xl relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0 overflow-hidden">
+                <div class="absolute w-24 h-24 md:w-28 md:h-28 rounded-full bg-emerald-500/10 blur-xl pointer-events-none"></div>
+                <svg class="absolute inset-0 w-full h-full -rotate-90 scale-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.03)" stroke-width="5" fill="none" />
+                  <circle id="trust-gauge-circle" cx="50" cy="50" r="40" stroke="#10b981" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="251" stroke-dashoffset="251" class="drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                </svg>
+                <span id="trust-counter" class="text-3xl md:text-4xl font-display font-black text-white leading-none relative z-10">0%</span>
+                <span class="text-[8px] md:text-[9px] font-medium text-white/40 uppercase tracking-wider mt-2 relative z-10">Trust Score</span>
+              </div>
+            </div>
+
+            <!-- ── Sandbox 1: Q&A typing ── -->
+            <div id="pos-sandbox-1" class="pos-sandbox-card absolute inset-0 w-full h-full p-6 flex flex-col items-center justify-center opacity-0 scale-95 pointer-events-none transition-all duration-500">
+              <div class="w-full max-w-[340px] flex flex-col gap-3 text-left">
+                <div class="text-[9px] font-mono text-white/30 uppercase tracking-widest mb-1 text-center">Simulated Client-Faq Channel</div>
+                <!-- Message Bubble 1 (Client Question) -->
+                <div id="qa-msg-q1" class="p-3.5 rounded-2xl rounded-tl-sm border border-white/8 bg-[#141419] flex items-start gap-2.5 opacity-0 translate-y-3">
+                  <div class="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[10px] text-white/80 font-bold font-mono">Q</div>
+                  <div class="flex-1">
+                    <p id="qa-q1-text" class="text-[12.5px] leading-relaxed text-white/90 font-medium"></p>
+                  </div>
+                </div>
+                <!-- Message Bubble 2 (Agent Answer) -->
+                <div id="qa-msg-a1" class="p-3.5 rounded-2xl rounded-tr-sm border border-brand-blue/35 bg-brand-blue/5 shadow-[0_8px_20px_rgba(20,0,255,0.06)] flex items-start gap-2.5 opacity-0 translate-y-3">
+                  <div class="w-5 h-5 rounded-full bg-brand-blue flex items-center justify-center text-[10px] text-white font-bold font-mono">A</div>
+                  <div class="flex-1">
+                    <p class="text-[12.5px] leading-relaxed text-white/95 font-medium">Yes, 100% Risk-Free 30-Day Money-Back Guarantee. No questions asked.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Sandbox 2: Credit Card Friction ── -->
+            <div id="pos-sandbox-2" class="pos-sandbox-card absolute inset-0 w-full h-full p-6 flex flex-col items-center justify-center opacity-0 scale-95 pointer-events-none transition-all duration-500">
+              <div class="w-full max-w-[280px] flex flex-col items-center gap-4 relative">
+                <!-- Payment Slot Receiver -->
+                <div class="w-full h-2 bg-black/70 border border-white/10 rounded-full relative z-20 shadow-inner flex items-center justify-center">
+                  <div class="w-[180px] h-[3px] bg-brand-blue/40 blur-sm"></div>
+                </div>
+                
+                <!-- Credit Card (z-5 to sit behind receipt) -->
+                <div id="pos-credit-card" class="w-[200px] h-[125px] rounded-xl border border-white/15 bg-gradient-to-br from-[#1c1d24] to-[#0d0d10] p-4 flex flex-col justify-between shadow-2xl relative z-5 overflow-hidden">
+                  <!-- Specular glare sheen -->
+                  <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none"></div>
+                  
+                  <div class="flex items-center justify-between">
+                    <span class="text-[8px] font-mono tracking-widest text-white/30">CONVERTIFY GOLD</span>
+                    <!-- Gold Card Chip -->
+                    <div class="w-6 h-4 rounded bg-gradient-to-br from-amber-200 via-amber-400 to-amber-300 border border-amber-600/30"></div>
+                  </div>
+                  <div class="flex flex-col gap-0.5 mt-auto">
+                    <span class="text-[11px] font-mono text-white/60 tracking-wider">•••• •••• •••• 5590</span>
+                    <span class="text-[7px] font-mono text-white/35 uppercase tracking-widest">TAP OR INSERT</span>
+                  </div>
+                  
+                  <!-- Success verification overlay -->
+                  <div id="card-success-glow" class="absolute inset-0 bg-emerald-500/10 border border-emerald-500/30 rounded-xl opacity-0 flex items-center justify-center transition-all duration-500">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="text-emerald-400">
+                        <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Receipt Output Printout (z-10 to sit in front of credit card) -->
+                <div id="pos-receipt" class="w-[180px] bg-white text-black p-3.5 rounded-b shadow-lg border-t border-dashed border-black/20 text-left font-mono text-[9px] flex flex-col gap-1 z-10 absolute top-[12px] opacity-0 translate-y-0 transition-all duration-500">
+                  <div class="text-center font-bold border-b border-black/10 pb-1.5 mb-1 text-black/80">CONVERTIFY RECEIPT</div>
+                  <div class="flex justify-between"><span>Audit Setup:</span><span>$0.00</span></div>
+                  <div class="flex justify-between"><span>Design Slot:</span><span>SECURED</span></div>
+                  <div class="flex justify-between font-bold border-t border-black/10 pt-1 mt-1 text-emerald-600"><span>STATUS:</span><span>PAID</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Sandbox 3: Countdown Scarcity Timer ── -->
+            <div id="pos-sandbox-3" class="pos-sandbox-card absolute inset-0 w-full h-full p-6 flex flex-col items-center justify-center opacity-0 scale-95 pointer-events-none transition-all duration-500">
+              <div class="w-full max-w-[300px] p-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.6)] flex flex-col gap-5 text-left relative overflow-hidden">
+                <!-- Subtle internal glass sheen -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/[0.02] to-white/[0.05] pointer-events-none"></div>
+                
+                <!-- Reserved notice -->
+                <div class="flex items-center justify-between w-full relative z-10">
+                  <div class="flex items-center gap-2 px-3 py-1 bg-white/[0.04] border border-white/[0.08] rounded-full text-[9px] text-white/80 font-mono tracking-wider font-semibold uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                    Locking Offer Price
+                  </div>
+                  <span id="scarcity-slots" class="text-[9.5px] font-mono font-bold text-white/50 bg-white/5 px-2 py-0.5 rounded border border-white/5">2 Slots Left</span>
+                </div>
+                
+                <!-- Heavy timer clock (Super premium glassy glassmorphism clock) -->
+                <div class="py-4 px-6 rounded-xl bg-white/[0.01] border border-white/[0.07] backdrop-blur-md font-mono text-4xl text-white tracking-widest font-black flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] relative z-10 text-glow">
+                  <span id="pos-timer-min" class="drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">09</span>
+                  <span class="mx-2 animate-pulse text-white/40 drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">:</span>
+                  <span id="pos-timer-sec" class="drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">59</span>
+                </div>
+                
+                <!-- Progress bar and description -->
+                <div class="w-full flex flex-col gap-3 relative z-10">
+                  <div class="w-full h-1.5 bg-white/[0.05] border border-white/5 rounded-full overflow-hidden p-[0.5px]">
+                    <div id="scarcity-bar" class="h-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.4)] w-4/5 rounded-full transition-all duration-500"></div>
+                  </div>
+                  <p class="text-[10px] text-white/40 text-center leading-relaxed font-sans font-medium px-1">Your slot is reserved. Complete checkout before the countdown expires.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Sandbox 4: Safe Padlock ── -->
+            <div id="pos-sandbox-4" class="pos-sandbox-card absolute inset-0 w-full h-full p-6 flex flex-col items-center justify-center opacity-0 scale-95 pointer-events-none transition-all duration-500">
+              <div class="w-full max-w-[280px] flex items-center justify-center gap-6 relative">
+                <!-- Pulsating secure waves (Brighter & more visible) -->
+                <div class="absolute w-48 h-48 rounded-full border border-cyan-400/30 bg-cyan-400/[0.02] scale-50 opacity-0 pointer-events-none" id="lock-wave-1"></div>
+                <div class="absolute w-48 h-48 rounded-full border border-cyan-400/40 bg-cyan-400/[0.03] scale-50 opacity-0 pointer-events-none" id="lock-wave-2"></div>
+                
+                <!-- Rotating guarantee seal (Increased opacity and brightness) -->
+                <div class="absolute pointer-events-none w-[220px] h-[220px] opacity-65 drop-shadow-[0_0_15px_rgba(6,182,212,0.3)]" id="pos-rotator-badge">
+                  <svg viewBox="0 0 100 100" class="w-full h-full text-cyan-400">
+                    <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                    <text font-family="monospace" font-size="6.3" font-weight="bold" fill="currentColor" letter-spacing="1">
+                      <textPath href="#circlePath">
+                        100% SECURE CHECKOUT • SATISFACTION GUARANTEED •
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+                
+                <!-- Padlock Core (Silver/Chrome bright body) -->
+                <div id="pos-padlock" class="w-24 h-28 flex flex-col items-center justify-end relative z-10 filter drop-shadow-[0_15px_30px_rgba(6,182,212,0.35)]">
+                  <!-- Shackle (Brighter chrome) -->
+                  <div class="w-16 h-16 rounded-t-full border-[7px] border-neutral-300 border-b-0 absolute top-0 left-1/2 -translate-x-1/2 -z-10 transition-transform duration-500" id="lock-shackle"></div>
+                  <!-- Body (Reflective silver metal with glowing slot) -->
+                  <div class="w-20 h-16 rounded-xl border border-white/60 bg-gradient-to-b from-neutral-100 via-neutral-200 to-neutral-300 flex items-center justify-center shadow-[0_10px_25px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                    <div class="absolute inset-0 bg-cyan-400/10 opacity-40 transition-colors duration-500"></div>
+                    <!-- Lock slot icon (High contrast black keyhole) -->
+                    <div class="w-3.5 h-6 rounded-full bg-neutral-900 border border-neutral-700 relative flex flex-col items-center">
+                      <div class="w-2 h-2 rounded-full bg-cyan-400 mt-1 shadow-[0_0_8px_#22d3ee]"></div>
+                      <div class="w-1 h-2.5 bg-neutral-900 absolute bottom-1"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Sandbox 5: CTA Click Burst ── -->
+            <div id="pos-sandbox-5" class="pos-sandbox-card absolute inset-0 w-full h-full p-6 flex flex-col items-center justify-center opacity-0 scale-95 pointer-events-none transition-all duration-500">
+              <div class="w-full max-w-[280px] flex flex-col items-center justify-center relative">
+                
+                <!-- Pulsating primary CTA pill -->
+                <button
+                  id="pos-action-btn"
+                  class="magnetic-btn px-8 py-3.5 bg-brand-blue text-white text-[13px] font-bold rounded-full shadow-[0_10px_30px_rgba(20,0,255,0.35)] relative overflow-hidden flex items-center gap-2 group border border-white/10"
+                  type="button"
+                >
+                  <!-- Specular shine sweep -->
+                  <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full" id="pos-btn-glare"></span>
+                  <span class="relative z-10 flex items-center gap-1.5">
+                    Launch Conversion Engine
+                    <span class="group-hover:translate-x-1 transition-transform">→</span>
+                  </span>
+                </button>
+                
+                <!-- Mock pointer cursor symbol -->
+                <div id="pos-mock-cursor" class="absolute w-5 h-5 top-1/2 left-1/2 pointer-events-none z-20 transition-all duration-700" style="transform: translate(120px, 90px);">
+                  <svg viewBox="0 0 24 24" class="w-full h-full text-white filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" fill="currentColor">
+                    <path d="M4.5 3l15 9.5-6.5 1.5 5 8-3.5 2-5-8-5 3V3z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Sandbox 6: Performance Speed ── -->
+            <div id="pos-sandbox-6" class="pos-sandbox-card absolute inset-0 w-full h-full p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-center gap-6 opacity-0 scale-95 pointer-events-none transition-all duration-500">
+              <!-- Left Side: Performance Metrics Report -->
+              <div class="w-full sm:w-1/2 flex flex-col gap-2.5 text-left">
+                <div class="text-[9.5px] font-mono text-white/30 uppercase tracking-widest pl-1">PageSpeed Diagnostic</div>
+                <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-md">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="text-[#3b82f6] flex-shrink-0">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
+                  </svg>
+                  <div class="flex flex-col">
+                    <span class="text-[11px] font-bold text-white leading-none">Sub-Second Loading</span>
+                    <span class="text-[8px] text-white/40 mt-0.5">Speed Index: 0.28s</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-md">
+                  <div class="w-3.5 h-3.5 rounded-full border-2 border-emerald-400 border-t-transparent animate-spin flex-shrink-0"></div>
+                  <div class="flex flex-col">
+                    <span class="text-[10px] font-medium text-white/70 leading-none">Core Web Vitals Status</span>
+                    <span class="text-[9px] text-emerald-400 font-bold mt-0.5">PASSED (All Green)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Right Side: Apple-like Speed Ring -->
+              <div class="flex flex-col items-center justify-center bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl p-5 rounded-2xl shadow-2xl relative w-40 h-40 flex-shrink-0 overflow-hidden">
+                <!-- Subtle ambient glow behind the ring -->
+                <div class="absolute w-28 h-28 rounded-full bg-blue-500/10 blur-xl pointer-events-none"></div>
+                
+                <svg class="w-32 h-32 -rotate-90 relative z-10" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.03)" stroke-width="4" fill="none" />
+                  <circle id="speed-gauge-circle" cx="50" cy="50" r="42" stroke="#3b82f6" stroke-width="4.5" stroke-linecap="round" fill="none" stroke-dasharray="264" stroke-dashoffset="264" class="drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+                </svg>
+                
+                <!-- Speed Counter Text (Center of Ring) -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+                  <span id="speed-counter" class="text-4xl font-display font-black text-white leading-none">0</span>
+                  <span class="text-[8px] font-mono font-bold text-blue-400 uppercase tracking-widest mt-1">Score</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /pos-sandbox-viewport -->
+        </div><!-- /pos-terminal-window -->
+
+      </div><!-- /Grid -->
+  </div>
+</section>
+
+<style>
+  /* Metallic chamfered border for the macOS window (desktop min-width: 640px) */
+  @media (min-width: 640px) {
+    .pos-terminal-window {
+      background: rgba(15, 15, 20, 0.85) !important;
+      backdrop-filter: blur(40px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(40px) saturate(220%) !important;
+      border: 2px solid rgba(255, 255, 255, 0.22) !important;
+    }
+  }
+
+  /* Specular reflections overlay */
+  .glass-reflection {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.02) 40%,
+      transparent 60%
+    );
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  /* Desktop Sidebar Scrollbar */
+  .pos-sidebar-scroll::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .pos-sidebar-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+
+  .pos-sidebar-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+  }
+
+  .pos-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.45);
+  }
+
+  .pos-sidebar-scroll::-moz-scrollbar {
+    width: 5px;
+  }
+
+  .pos-sidebar-scroll::-moz-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+
+  .pos-sidebar-scroll::-moz-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+  }
+
+  /* Mobile Horizontal Scrollbar */
+  .pos-mob-scroll::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .pos-mob-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+  }
+
+  .pos-mob-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+  }
+
+  .pos-mob-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .pos-mob-scroll::-moz-scrollbar {
+    height: 6px;
+  }
+
+  .pos-mob-scroll::-moz-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+  }
+
+  .pos-mob-scroll::-moz-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { TextPlugin } from 'gsap/TextPlugin';
+  gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+  const initPositioningAnimations = () => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const entranceStart = 'top 95%';
+    const innerStart = 'top 95%';
+
+    // ── Entrance Animations ──
+    const headerTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#positioning',
+        start: entranceStart
+      }
+    });
+
+    headerTl.to('#pos-eyebrow', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' })
+      .to('.pos-word', {
+        opacity: 1,
+        y: 0,
+        stagger: 0.06,
+        duration: 0.7,
+        ease: 'power3.out'
+      }, '-=0.55')
+      .to('#pos-scribble-path-1', {
+        strokeDashoffset: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, '-=0.35')
+      .to('#pos-scribble-path-2', {
+        strokeDashoffset: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, '-=0.65')
+      .to('.pos-highlight', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'back.out(1.5)'
+      }, '-=0.8');
+
+    gsap.to('.positioning-grid', {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      delay: 0.35,
+      scrollTrigger: { trigger: '#positioning', start: entranceStart },
+      onComplete: () => {
+        switchSandbox(1);
+        startAutoplay();
+      }
+    });
+
+    // ── Interactive Sandbox Switching Logic ──
+    const desktopButtons = document.querySelectorAll('.pos-btn');
+    const mobileButtons = document.querySelectorAll('.pos-btn-mob');
+    const cards = document.querySelectorAll('.pos-sandbox-card');
+    const bgGlow = document.getElementById('pos-bg-glow');
+    const consoleGlow = document.getElementById('pos-console-glow');
+    const modeLabel = document.getElementById('pos-console-mode');
+    
+    let activeIndex = 0;
+    let timerInterval: any = null;
+    let autoPlayTimer: any = null;
+
+    // Synthesize UI feedback click sounds (Premium tactile tick/pop)
+    let audioCtx: AudioContext | null = null;
+    const playClickSound = () => {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        
+        const now = audioCtx.currentTime;
+        
+        // 1. Softer base pop (sine wave, quick pitch drop)
+        const osc1 = audioCtx.createOscillator();
+        const gain1 = audioCtx.createGain();
+        osc1.type = 'sine';
+        osc1.connect(gain1);
+        gain1.connect(audioCtx.destination);
+        
+        osc1.frequency.setValueAtTime(320, now);
+        osc1.frequency.exponentialRampToValueAtTime(80, now + 0.05);
+        
+        gain1.gain.setValueAtTime(0.05, now);
+        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+        
+        osc1.start(now);
+        osc1.stop(now + 0.06);
+        
+        // 2. High-frequency crisp transient (subtle tick)
+        const osc2 = audioCtx.createOscillator();
+        const gain2 = audioCtx.createGain();
+        osc2.type = 'sine';
+        osc2.connect(gain2);
+        gain2.connect(audioCtx.destination);
+        
+        osc2.frequency.setValueAtTime(1600, now);
+        osc2.frequency.exponentialRampToValueAtTime(600, now + 0.012);
+        
+        gain2.gain.setValueAtTime(0.015, now);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.012);
+        
+        osc2.start(now);
+        osc2.stop(now + 0.02);
+      } catch (e) {
+        // Suppress audio policy warnings silently
+      }
+    };
+
+    // Color theme configuration per index
+    const colorThemes = [
+      { border: 'rgba(16, 185, 129, 0.3)', glow: 'from-emerald-500/10', mode: 'SSL VERIFY', bg: 'rgba(16,185,129,0.04)' },
+      { border: 'rgba(20, 0, 255, 0.3)', glow: 'from-brand-blue/10', mode: 'COGNITIVE FAQ', bg: 'rgba(20,0,255,0.04)' },
+      { border: 'rgba(168, 85, 247, 0.3)', glow: 'from-violet-500/10', mode: 'PAYMENT FLOW', bg: 'rgba(168,85,247,0.04)' },
+      { border: 'rgba(245, 158, 11, 0.3)', glow: 'from-amber-500/10', mode: 'SCARCITY TIMER', bg: 'rgba(245,158,11,0.04)' },
+      { border: 'rgba(6, 182, 212, 0.3)', glow: 'from-cyan-500/10', mode: 'RISK REVERSAL', bg: 'rgba(6,182,212,0.04)' },
+      { border: 'rgba(236, 72, 153, 0.3)', glow: 'from-pink-500/10', mode: 'CTA EXP burst', bg: 'rgba(236,72,153,0.04)' },
+      { border: 'rgba(59, 130, 246, 0.3)', glow: 'from-blue-500/10', mode: 'SPEED SWEEP', bg: 'rgba(59,130,246,0.04)' }
+    ];
+
+    // Dynamic laser indicator line update
+    const updateLaserLine = () => {
+      const activeBtn = document.querySelector('.pos-btn.pos-active') as HTMLElement;
+      const laser = document.getElementById('pos-laser-line');
+      if (activeBtn && laser && activeBtn.offsetParent !== null) {
+        laser.style.top = `${activeBtn.offsetTop}px`;
+        laser.style.height = `${activeBtn.offsetHeight}px`;
+      }
+    };
+
+    // Geolocation simulator mock
+    const fetchGeoIPMock = () => {
+      const locationText = document.getElementById('pos-visitor-location');
+      if (locationText) {
+        const cities = ['New Delhi, IN', 'London, UK', 'New York, US', 'Mumbai, IN', 'California, US'];
+        let count = 0;
+        locationText.textContent = `Connected: ${cities[0]}`;
+        setInterval(() => {
+          count = (count + 1) % cities.length;
+          locationText.textContent = `Connected: ${cities[count]}`;
+        }, 8000);
+      }
+    };
+    fetchGeoIPMock();
+
+    // ── Internal Sandbox Animation Triggers ──
+    
+    // Panel 0: Trust score circle gauge sweep & count up (Apple Premium Easing)
+    const runTrustAnimation = () => {
+      const circle = document.getElementById('trust-gauge-circle');
+      const counter = document.getElementById('trust-counter');
+      const check1 = document.getElementById('trust-check-1');
+      const check2 = document.getElementById('trust-check-2');
+      const check2Icon = document.getElementById('trust-check-2-icon');
+      
+      if (circle && counter) {
+        gsap.killTweensOf([circle, counter, check1, check2, check2Icon]);
+        
+        // Reset
+        gsap.set(circle, { strokeDashoffset: 251 });
+        counter.textContent = '0%';
+        if (check1 && check2 && check2Icon) {
+          gsap.set([check1, check2], { opacity: 0.5, scale: 0.98 });
+          check2Icon.classList.remove('text-emerald-400');
+          check2Icon.classList.add('text-white/40');
+        }
+
+        // Animate stroke sweep with Apple power4.out
+        gsap.to(circle, {
+          strokeDashoffset: 5, // ~98% of 251
+          duration: 1.8,
+          ease: 'power4.out'
+        });
+
+        // Animate counter text
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: 98,
+          duration: 1.6,
+          ease: 'power3.out',
+          onUpdate: () => {
+            counter.textContent = Math.round(obj.val) + '%';
+          },
+          onComplete: () => {
+            if (check1 && check2 && check2Icon) {
+              gsap.timeline()
+                .to(check1, { opacity: 1, scale: 1, duration: 0.35, ease: 'back.out(1.5)' })
+                .to(check2, { opacity: 1, scale: 1, duration: 0.35, ease: 'back.out(1.5)' }, '-=0.18')
+                .call(() => {
+                  check2Icon.classList.remove('text-white/40');
+                  check2Icon.classList.add('text-emerald-400');
+                });
+            }
+          }
+        });
+      }
+    };
+
+    // Panel 1: Q&A Question Typing & Answer Reveal
+    const runQAAnimation = () => {
+      const q1 = document.getElementById('qa-msg-q1');
+      const a1 = document.getElementById('qa-msg-a1');
+      const qText = document.getElementById('qa-q1-text');
+      
+      if (q1 && a1 && qText) {
+        gsap.killTweensOf([q1, a1, qText]);
+        
+        // Reset
+        qText.textContent = '';
+        gsap.set([q1, a1], { opacity: 0, y: 15 });
+
+        const questionStr = "Is there a money back guarantee?";
+        const tl = gsap.timeline();
+        
+        tl.to(q1, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+
+        // Type question letter-by-letter
+        questionStr.split('').forEach((char, i) => {
+          tl.to(qText, {
+            text: questionStr.substring(0, i + 1),
+            duration: 0.04,
+            ease: 'none'
+          }, (i * 0.04) + 0.4);
+        });
+
+        // Reveal answer bubble
+        tl.to(a1, {
+          opacity: 1,
+          y: 0,
+          duration: 0.55,
+          ease: 'back.out(1.15)'
+        }, `+=${0.1}`);
+      }
+    };
+
+    // Panel 2: Credit Card slide friction pay + Receipt Output
+    const runCardAnimation = () => {
+      const card = document.getElementById('pos-credit-card');
+      const success = document.getElementById('card-success-glow');
+      const receipt = document.getElementById('pos-receipt');
+      if (card && success && receipt) {
+        gsap.killTweensOf([card, success, receipt]);
+
+        // Reset
+        gsap.set(card, { transform: 'translateY(120px) scale(0.9)', opacity: 0 });
+        gsap.set(success, { opacity: 0 });
+        gsap.set(receipt, { opacity: 0, transform: 'translateY(0px)' });
+
+        const tl = gsap.timeline();
+        
+        // Slide card up to slots
+        tl.to(card, {
+          opacity: 1,
+          transform: 'translateY(24px) scale(1)',
+          duration: 0.7,
+          ease: 'power3.out'
+        })
+        // Push card slightly into slot
+        .to(card, {
+          transform: 'translateY(4px) scale(1)',
+          duration: 0.4,
+          ease: 'sine.inOut'
+        })
+        // Trigger verification glow overlay
+        .to(success, {
+          opacity: 1,
+          duration: 0.3
+        }, '+=0.1')
+        // Printout receipt (slides down in front of card)
+        .to(receipt, {
+          opacity: 1,
+          transform: 'translateY(100px)',
+          duration: 0.8,
+          ease: 'power2.out'
+        }, '+=0.15');
+      }
+    };
+
+    // Panel 3: Countdown Timer ticking down + progress bar decrease
+    const runTimerAnimation = () => {
+      const minEl = document.getElementById('pos-timer-min');
+      const secEl = document.getElementById('pos-timer-sec');
+      const bar = document.getElementById('scarcity-bar');
+      const slotLabel = document.getElementById('scarcity-slots');
+      
+      if (minEl && secEl && bar && slotLabel) {
+        clearInterval(timerInterval);
+        
+        let min = 9;
+        let sec = 59;
+        minEl.textContent = '09';
+        secEl.textContent = '59';
+        
+        gsap.set(bar, { width: '80%' });
+        slotLabel.textContent = '2 Slots Left';
+
+        // Animate timer tick-down
+        timerInterval = setInterval(() => {
+          sec--;
+          if (sec < 0) {
+            sec = 59;
+            min--;
+          }
+          if (min < 0) {
+            clearInterval(timerInterval);
+            return;
+          }
+          minEl.textContent = min < 10 ? '0' + min : '' + min;
+          secEl.textContent = sec < 10 ? '0' + sec : '' + sec;
+          
+          // Micro-tick progress bar decrement
+          const totalSecs = (min * 60) + sec;
+          const percentage = (totalSecs / 600) * 80;
+          bar.style.width = `${percentage}%`;
+        }, 1000);
+      }
+    };
+
+    // Panel 4: Vault Padlock locks & text badge rotates
+    const runLockAnimation = () => {
+      const shackle = document.getElementById('lock-shackle');
+      const lockBody = document.getElementById('pos-padlock');
+      const rotator = document.getElementById('pos-rotator-badge');
+      const w1 = document.getElementById('lock-wave-1');
+      const w2 = document.getElementById('lock-wave-2');
+      
+      if (shackle && lockBody && rotator && w1 && w2) {
+        gsap.killTweensOf([shackle, lockBody, rotator, w1, w2]);
+
+        // Reset
+        gsap.set(shackle, { transform: 'translateY(-14px)' }); // shackle open state
+        gsap.set(lockBody, { scale: 1 });
+        gsap.set([w1, w2], { scale: 0.5, opacity: 0 });
+
+        // Spin certificate seal badge
+        gsap.to(rotator, {
+          rotation: 360,
+          duration: 20,
+          ease: 'none',
+          repeat: -1
+        });
+
+        // Snap closed timeline
+        const tl = gsap.timeline();
+        tl.to(shackle, {
+          transform: 'translateY(0)',
+          duration: 0.35,
+          ease: 'power3.in',
+          delay: 0.3
+        })
+        // Lock body impact scaling
+        .to(lockBody, {
+          scaleY: 0.94,
+          scaleX: 1.04,
+          duration: 0.08,
+          ease: 'sine.inOut'
+        })
+        .to(lockBody, {
+          scale: 1,
+          duration: 0.12,
+          ease: 'sine.out'
+        })
+        // Radiate glowing waves
+        .fromTo([w1, w2],
+          { scale: 0.5, opacity: 0 },
+          {
+            scale: 1.3,
+            opacity: 0.8,
+            stagger: 0.18,
+            duration: 0.85,
+            ease: 'power2.out',
+            onComplete: () => {
+              gsap.set([w1, w2], { opacity: 0 });
+            }
+          },
+          '-=0.08'
+        );
+      }
+    };
+
+    // Panel 5: Button glare, simulated click + custom particle burst
+    const runCTAAnimation = () => {
+      const btn = document.getElementById('pos-action-btn');
+      const glare = document.getElementById('pos-btn-glare');
+      const cursor = document.getElementById('pos-mock-cursor');
+      if (btn && glare && cursor) {
+        gsap.killTweensOf([btn, glare, cursor]);
+
+        // Reset
+        gsap.set(glare, { x: '-100%' });
+        gsap.set(cursor, { transform: 'translate(120px, 90px)' });
+
+        const tl = gsap.timeline();
+
+        // 1. Move mock cursor to click center
+        tl.to(cursor, {
+          transform: 'translate(25px, 20px)',
+          duration: 1.0,
+          ease: 'power3.out',
+          delay: 0.3
+        })
+        // 2. Press CTA button down
+        .to(btn, {
+          scale: 0.94,
+          duration: 0.12,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            // Trigger particle burst at the exact button center!
+            const x = btn.offsetLeft + btn.offsetWidth / 2;
+            const y = btn.offsetTop + btn.offsetHeight / 2;
+            triggerBurst(x, y, btn.parentElement!);
+          }
+        })
+        // 3. Release button & sweep glare shine
+        .to(btn, {
+          scale: 1,
+          duration: 0.15,
+          ease: 'power2.out'
+        })
+        .fromTo(glare, 
+          { x: '-100%' },
+          { x: '180%', duration: 0.7, ease: 'power2.inOut' },
+          '-=0.05'
+        )
+        // 4. Move cursor out of view
+        .to(cursor, {
+          transform: 'translate(130px, 110px)',
+          duration: 0.7,
+          ease: 'power2.in'
+        }, '+=0.2');
+      }
+    };
+
+    // Spawn 20+ glowing circles radiating from click point
+    const triggerBurst = (x: number, y: number, container: HTMLElement) => {
+      const colors = ['#1400ff', '#d44df0', '#6a4cf5', '#ff7a3d', '#ff5577', '#10b981'];
+      for (let i = 0; i < 24; i++) {
+        const p = document.createElement('div');
+        p.className = 'absolute w-2.5 h-2.5 rounded-full pointer-events-none z-30';
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        p.style.backgroundColor = color;
+        p.style.boxShadow = `0 0 10px ${color}`;
+        p.style.left = `${x}px`;
+        p.style.top = `${y}px`;
+        container.appendChild(p);
+
+        const fontColor = color;
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 40 + Math.random() * 100;
+        const destX = Math.cos(angle) * velocity;
+        const destY = Math.sin(angle) * velocity;
+
+        gsap.to(p, {
+          x: destX,
+          y: destY,
+          opacity: 0,
+          scale: 0.1,
+          duration: 0.75 + Math.random() * 0.4,
+          ease: 'power2.out',
+          onComplete: () => p.remove()
+        });
+      }
+    };
+
+    // Panel 6: Apple-like speed sweep (Simple and Premium)
+    const runSpeedAnimation = () => {
+      const circle = document.getElementById('speed-gauge-circle');
+      const counter = document.getElementById('speed-counter');
+      if (circle && counter) {
+        gsap.killTweensOf([circle, counter]);
+        
+        // Reset
+        gsap.set(circle, { strokeDashoffset: 264 });
+        counter.textContent = '0';
+
+        // Animate stroke sweep with Apple-like power4.out ease
+        gsap.to(circle, {
+          strokeDashoffset: 0,
+          duration: 1.8,
+          ease: 'power4.out'
+        });
+
+        // Animate speed counter text to 100
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: 100,
+          duration: 1.5,
+          ease: 'power3.out',
+          onUpdate: () => {
+            counter.textContent = String(Math.round(obj.val));
+          }
+        });
+      }
+    };
+
+    // Trigger correct sub-animations depending on the active slide index
+    const triggerInnerAnimation = (idx: number) => {
+      if (idx === 0) runTrustAnimation();
+      else if (idx === 1) runQAAnimation();
+      else if (idx === 2) runCardAnimation();
+      else if (idx === 3) runTimerAnimation();
+      else if (idx === 4) runLockAnimation();
+      else if (idx === 5) runCTAAnimation();
+      else if (idx === 6) runSpeedAnimation();
+    };
+
+    // ── Click and selector controls for Pillars ──
+    const switchSandbox = (idx: number) => {
+      if (activeIndex === idx) return;
+
+      // Get color tokens
+      const activeTheme = colorThemes[idx];
+
+      // 1. Update active button classes for desktop
+      desktopButtons.forEach((btn, i) => {
+        const bullet = btn.querySelector('span.w-3\\.5');
+        const tag = btn.querySelector('span.text-\\[8px\\]');
+        const titleText = btn.querySelector('span.text-\\[13px\\]');
+        const descText = btn.querySelector('span.font-normal');
+        
+        if (i === idx) {
+          btn.classList.add('pos-active', 'bg-surface-1', 'border-white/30', 'shadow-[0_8px_24px_rgba(20,0,255,0.1)]', 'translate-x-1.5');
+          btn.classList.remove('bg-surface-1/40', 'border-white/10', 'hover:border-white/20', 'hover:bg-white/[0.02]');
+          if (bullet) {
+            bullet.classList.add('bg-brand-blue', 'border-brand-blue', 'shadow-[0_0_8px_rgba(20,0,255,0.7)]');
+            bullet.classList.remove('bg-[#0f0f13]', 'border-white/10');
+          }
+          if (tag) {
+            tag.classList.add('text-white', 'bg-brand-blue/30', 'border-brand-blue/30');
+            tag.classList.remove('text-white/40', 'bg-white/5', 'border-white/5');
+          }
+          if (titleText) {
+            titleText.classList.add('text-white');
+            titleText.classList.remove('text-white/60');
+          }
+          if (descText) {
+            descText.classList.add('text-white/45');
+            descText.classList.remove('text-white/30');
+          }
+        } else {
+          btn.classList.remove('pos-active', 'bg-surface-1', 'border-white/30', 'shadow-[0_8px_24px_rgba(20,0,255,0.1)]', 'translate-x-1.5');
+          btn.classList.add('bg-surface-1/40', 'border-white/10', 'hover:border-white/20', 'hover:bg-white/[0.02]');
+          if (bullet) {
+            bullet.classList.remove('bg-brand-blue', 'border-brand-blue', 'shadow-[0_0_8px_rgba(20,0,255,0.7)]');
+            bullet.classList.add('bg-[#0f0f13]', 'border-white/10');
+          }
+          if (tag) {
+            tag.classList.remove('text-white', 'bg-brand-blue/30', 'border-brand-blue/30');
+            tag.classList.add('text-white/40', 'bg-white/5', 'border-white/5');
+          }
+          if (titleText) {
+            titleText.classList.remove('text-white');
+            titleText.classList.add('text-white/60');
+          }
+          if (descText) {
+            descText.classList.remove('text-white/45');
+            descText.classList.add('text-white/30');
+          }
+        }
+      });
+
+      // 2. Update active button classes for mobile horizontal scroll
+      const mobColors = [
+        { active: 'bg-emerald-500/20 border-emerald-500/40 text-white shadow-[0_0_12px_rgba(16,185,129,0.25)]', inactive: 'bg-surface-1/40 border-white/5 text-white/40' },
+        { active: 'bg-blue-500/20 border-blue-500/40 text-white shadow-[0_0_12px_rgba(20,0,255,0.25)]', inactive: 'bg-surface-1/40 border-white/5 text-white/40' },
+        { active: 'bg-violet-500/20 border-violet-500/40 text-white shadow-[0_0_12px_rgba(168,85,247,0.25)]', inactive: 'bg-surface-1/40 border-white/5 text-white/40' },
+        { active: 'bg-amber-500/20 border-amber-500/40 text-white shadow-[0_0_12px_rgba(245,158,11,0.25)]', inactive: 'bg-surface-1/40 border-white/5 text-white/40' },
+        { active: 'bg-cyan-500/20 border-cyan-500/40 text-white shadow-[0_0_12px_rgba(6,182,212,0.25)]', inactive: 'bg-surface-1/40 border-white/5 text-white/40' },
+        { active: 'bg-pink-500/20 border-pink-500/40 text-white shadow-[0_0_12px_rgba(236,72,153,0.25)]', inactive: 'bg-surface-1/40 border-white/5 text-white/40' },
+        { active: 'bg-blue-500/20 border-blue-500/40 text-white shadow-[0_0_12px_rgba(59,130,246,0.25)]', inactive: 'bg-surface-1/40 border-white/5 text-white/40' }
+      ];
+
+      mobileButtons.forEach((btn, i) => {
+        if (i === idx) {
+          btn.className = `pos-btn-mob px-3.5 py-1.5 rounded-full border text-[10px] font-mono tracking-tight transition-all duration-300 flex items-center gap-1.5 font-bold cursor-pointer ${mobColors[i].active}`;
+        } else {
+          btn.className = `pos-btn-mob px-3.5 py-1.5 rounded-full border text-[10px] font-mono tracking-tight transition-all duration-300 flex items-center gap-1.5 font-bold cursor-pointer ${mobColors[i].inactive}`;
+        }
+      });
+
+      // Update indicators
+      if (modeLabel) modeLabel.textContent = `Mode: ${activeTheme.mode}`;
+      updateLaserLine();
+
+      // Adjust Dynamic Blurs & Colors of parent console and bg spotlights
+      if (consoleGlow) {
+        consoleGlow.className = `absolute inset-0 bg-radial ${activeTheme.glow} via-transparent to-transparent opacity-60 z-0 pointer-events-none transition-all duration-500`;
+      }
+      if (bgGlow) {
+        // Shift ambient glow spotlight color to match active index theme
+        if (idx === 0) bgGlow.style.backgroundColor = 'rgba(16, 185, 129, 0.05)';
+        else if (idx === 1) bgGlow.style.backgroundColor = 'rgba(20, 0, 255, 0.05)';
+        else if (idx === 2) bgGlow.style.backgroundColor = 'rgba(168, 85, 247, 0.05)';
+        else if (idx === 3) bgGlow.style.backgroundColor = 'rgba(245, 158, 11, 0.05)';
+        else if (idx === 4) bgGlow.style.backgroundColor = 'rgba(6, 182, 212, 0.05)';
+        else if (idx === 5) bgGlow.style.backgroundColor = 'rgba(236, 72, 153, 0.05)';
+        else if (idx === 6) bgGlow.style.backgroundColor = 'rgba(59, 130, 246, 0.05)';
+      }
+
+      // 3. Cross-fade simulation cards
+      const prevCard = cards[activeIndex];
+      const nextCard = cards[idx];
+
+      gsap.killTweensOf([prevCard, nextCard]);
+
+      // Hide previous card
+      gsap.fromTo(prevCard, 
+        { opacity: 1, scale: 1 },
+        {
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.35,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            (prevCard as HTMLElement).style.pointerEvents = 'none';
+            (prevCard as HTMLElement).style.zIndex = '0';
+          }
+        }
+      );
+
+      // Show new card
+      gsap.fromTo(nextCard, 
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          ease: 'power3.out',
+          delay: 0.15,
+          onStart: () => {
+            (nextCard as HTMLElement).style.pointerEvents = 'auto';
+            (nextCard as HTMLElement).style.zIndex = '10';
+          },
+          onComplete: () => {
+            triggerInnerAnimation(idx);
+          }
+        }
+      );
+
+      activeIndex = idx;
+    };
+
+    // ── Autoplay Slideshow Mode ──
+    const startAutoplay = () => {
+      stopAutoplay();
+      autoPlayTimer = setInterval(() => {
+        const nextIdx = (activeIndex + 1) % desktopButtons.length;
+        switchSandbox(nextIdx);
+      }, 7000); // Shift slide every 7 seconds
+    };
+
+    const stopAutoplay = () => {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    };
+
+    // Listen to manual button clicks - autoplay continues
+    desktopButtons.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        playClickSound();
+        switchSandbox(idx);
+        startAutoplay();
+      });
+    });
+    mobileButtons.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        playClickSound();
+        switchSandbox(idx);
+        startAutoplay();
+      });
+    });
+
+    // Click burst handler for manual user clicks on the CTA button
+    const actionBtn = document.getElementById('pos-action-btn');
+    if (actionBtn) {
+      actionBtn.addEventListener('click', () => {
+        playClickSound();
+        
+        // Scale bounce animation
+        gsap.killTweensOf(actionBtn);
+        gsap.timeline()
+          .to(actionBtn, { scale: 0.92, duration: 0.1, ease: 'power2.out' })
+          .to(actionBtn, { scale: 1, duration: 0.2, ease: 'back.out(1.5)' });
+        
+        // Trigger particle burst at the center of the button relative to parent
+        const rect = actionBtn.getBoundingClientRect();
+        const parentRect = actionBtn.parentElement!.getBoundingClientRect();
+        const x = rect.left - parentRect.left + rect.width / 2;
+        const y = rect.top - parentRect.top + rect.height / 2;
+        triggerBurst(x, y, actionBtn.parentElement!);
+      });
+    }
+
+    // Handle laser repositioning on screen resize
+    window.addEventListener('resize', updateLaserLine);
+
+    // Refresh ScrollTrigger to ensure correct placement calculations
+    ScrollTrigger.refresh();
+  };
+
+  // Prevent race condition if loaderComplete has already fired
+  const preloader = document.getElementById('preloader');
+  if (!preloader || preloader.style.display === 'none') {
+    initPositioningAnimations();
+  } else {
+    window.addEventListener('loaderComplete', initPositioningAnimations);
+  }
+</script>

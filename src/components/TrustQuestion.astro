@@ -1,0 +1,265 @@
+---
+// src/components/TrustQuestion.astro
+---
+
+<section id="trust-question-section" class="relative bg-canvas py-24 md:py-32 px-6 md:px-16 overflow-hidden select-none">
+  <!-- Dynamic glow in section background -->
+  <div class="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-brand-blue/5 blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-4xl mx-auto card-perspective relative z-10">
+    <!-- Interactive Center Spotlight Panel (The Core Question) — Glass Metal Card -->
+    <div id="trust-card" class="why-question relative p-12 md:p-20 rounded-xxl text-center overflow-hidden flex flex-col items-center justify-center gap-6
+                border border-white/10 bg-white/[0.03] backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.08),inset_0_-1px_0_rgba(0,0,0,0.2)] group transition-all duration-500 hover:border-white/20 hover:shadow-[0_40px_100px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.25),0_0_60px_rgba(20,0,255,0.08)] card-3d cursor-grab active:cursor-grabbing opacity-0 translate-y-8"
+         style="touch-action: pan-y;">
+      <!-- Metal edge (glass-metal frame) -->
+      <div class="absolute inset-0 pointer-events-none opacity-80"
+           style="background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 35%, rgba(20,0,255,0.10));
+                  -webkit-mask-image: linear-gradient(#000, #000), radial-gradient(ellipse at center, transparent 0%, #000 60%);
+                  -webkit-mask-composite: xor;">
+      </div>
+
+      <!-- Glow spotlight -->
+      <div class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_var(--x,_50%)_var(--y,_50%),rgba(20,0,255,0.12)_0%,transparent_50%)]" aria-hidden="true"></div>
+
+      <!-- Specular sweep -->
+      <div class="absolute inset-0 pointer-events-none opacity-60 why-metalSheen" aria-hidden="true"></div>
+
+      <!-- Micro glass refraction -->
+      <div class="absolute inset-0 pointer-events-none opacity-30"
+           style="background:
+             radial-gradient(900px 200px at 15% 0%, rgba(255,255,255,0.20), transparent 55%),
+             radial-gradient(700px 240px at 85% 35%, rgba(20,0,255,0.12), transparent 60%),
+             linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.00) 45%, rgba(16,185,129,0.06));">
+      </div>
+
+      <!-- Top edge shine -->
+      <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+      <!-- Content container supporting 3D perspective layers -->
+      <div class="relative z-10 flex flex-col items-center justify-center gap-6 content-3d pointer-events-none">
+        <p class="text-caption font-medium tracking-[0.15em] text-brand-blue uppercase select-none">The Only Question We Ask</p>
+
+        <h2 class="text-display-lg md:text-display-xl text-white font-bold leading-[0.9] tracking-[-0.05em] select-none">
+          <span class="block overflow-hidden py-1">
+            <span class="why-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:0">Will</span>
+            <span class="why-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:1">This</span>
+            <span class="why-word inline-block opacity-0 translate-y-12 relative py-1" style="--d:2">
+              <span class="relative z-10 font-black text-red-500">Increase</span>
+              <!-- Double Red Scribble Underline -->
+              <svg class="absolute left-[-10%] bottom-[-8px] w-[120%] h-[0.3em] overflow-visible pointer-events-none" viewBox="0 0 100 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path id="why-scribble-1" class="stroke-red-500 stroke-[3.5] stroke-linecap-round" d="M1 9 C30 2, 70 2, 99 6" stroke-dasharray="100" stroke-dashoffset="100"></path>
+                <path id="why-scribble-2" class="stroke-red-500/70 stroke-[1.5] stroke-linecap-round" d="M5 12 C35 6, 65 6, 95 10" stroke-dasharray="100" stroke-dashoffset="100"></path>
+              </svg>
+            </span>
+          </span>
+          <span class="block overflow-hidden py-1">
+            <span class="why-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:3">Trust?</span>
+          </span>
+        </h2>
+
+        <p class="text-body-lg text-white/55 max-w-[480px] select-none">Because when trust increases, everything else follows.</p>
+      </div>
+    </div>
+
+    <style>
+      .card-perspective {
+        perspective: 1500px;
+      }
+      .card-3d {
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        will-change: transform;
+      }
+      .content-3d {
+        transform-style: preserve-3d;
+      }
+      .content-3d > * {
+        transform: translateZ(40px);
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .content-3d h2 {
+        transform: translateZ(75px);
+      }
+
+      .why-metalSheen{
+        background: linear-gradient(115deg,
+          transparent 0%,
+          rgba(255,255,255,0.08) 35%,
+          rgba(20,0,255,0.14) 50%,
+          rgba(255,255,255,0.02) 65%,
+          transparent 100%);
+        transform: translateX(-60%);
+        animation: why-sheen 3.6s ease-in-out infinite;
+        mix-blend-mode: screen;
+      }
+
+      @keyframes why-sheen{
+        0%, 55% { transform: translateX(-65%); opacity: 0.35; }
+        70% { opacity: 0.85; }
+        100% { transform: translateX(65%); opacity: 0.45; }
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        .why-metalSheen{ animation: none !important; opacity: 0.5; transform: translateX(0); }
+        .card-3d { transition: none !important; transform: none !important; }
+        .content-3d > * { transform: none !important; transition: none !important; }
+        .content-3d h2 { transform: none !important; }
+      }
+    </style>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initTrustCard = () => {
+    const card = document.getElementById('trust-card');
+    if (!card) return;
+
+    // Scroll reveal animation
+    gsap.to(card, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        onEnter: () => {
+          // Animate words
+          gsap.to(card.querySelectorAll('.why-word'), {
+            opacity: 1,
+            y: 0,
+            stagger: 0.05,
+            duration: 0.5,
+            ease: 'power2.out',
+            delay: 0.1
+          });
+          // Animate scribbles
+          const scribble1 = document.getElementById('why-scribble-1');
+          const scribble2 = document.getElementById('why-scribble-2');
+          if (scribble1 && scribble2) {
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              gsap.set([scribble1, scribble2], { strokeDashoffset: 0 });
+            } else {
+              gsap.to(scribble1, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out', delay: 0.3 });
+              gsap.to(scribble2, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out', delay: 0.45 });
+            }
+          }
+        }
+      }
+    });
+
+    // Interactive 3D Rotator state
+    let isTracking = false;
+    let rect = card.getBoundingClientRect();
+
+    const updateRect = () => {
+      rect = card.getBoundingClientRect();
+    };
+
+    window.addEventListener('resize', updateRect);
+    window.addEventListener('scroll', updateRect, { passive: true });
+
+    const startTilt = () => {
+      isTracking = true;
+      card.style.transition = 'transform 0.1s ease-out';
+      const childs = card.querySelectorAll('.content-3d > *');
+      childs.forEach((c: any) => {
+        c.style.transition = 'transform 0.1s ease-out';
+      });
+    };
+
+    const stopTilt = () => {
+      isTracking = false;
+      card.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      
+      const childs = card.querySelectorAll('.content-3d > *');
+      childs.forEach((c: any) => {
+        c.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+        if (c.tagName === 'H2') {
+          c.style.transform = 'translateZ(75px) translate3d(0px, 0px, 0px)';
+        } else {
+          c.style.transform = 'translateZ(40px) translate3d(0px, 0px, 0px)';
+        }
+      });
+    };
+
+    const handleTilt = (clientX: number, clientY: number) => {
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+
+      // Update spotlight position
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Coordinate normalization (-1 to 1)
+      const rx = (x - centerX) / centerX;
+      const ry = (y - centerY) / centerY;
+
+      // Limit max tilt angle for aesthetics
+      const maxAngle = 15;
+
+      const rotX = -ry * maxAngle;
+      const rotY = rx * maxAngle;
+
+      card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(20px)`;
+
+      // Parallax depth amplification on children
+      const childs = card.querySelectorAll('.content-3d > *');
+      childs.forEach((c: any) => {
+        const baseZ = c.tagName === 'H2' ? 75 : 40;
+        const extraX = rx * 15;
+        const extraY = ry * 15;
+        c.style.transform = `translate3d(${extraX}px, ${extraY}px, ${baseZ}px)`;
+      });
+    };
+
+    // Desktop mouse events
+    card.addEventListener('mouseenter', () => {
+      updateRect();
+      startTilt();
+    });
+
+    card.addEventListener('mousemove', (e: MouseEvent) => {
+      if (!isTracking) startTilt();
+      handleTilt(e.clientX, e.clientY);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      stopTilt();
+    });
+
+    // Touch device events
+    card.addEventListener('touchstart', (e: TouchEvent) => {
+      updateRect();
+      startTilt();
+      if (e.touches.length > 0) {
+        handleTilt(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    card.addEventListener('touchmove', (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        handleTilt(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    card.addEventListener('touchend', () => {
+      stopTilt();
+    });
+
+    card.addEventListener('touchcancel', () => {
+      stopTilt();
+    });
+  };
+
+  window.addEventListener('loaderComplete', initTrustCard);
+</script>

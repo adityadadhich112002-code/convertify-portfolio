@@ -59,7 +59,18 @@
       </div>
 
       <!-- Premium, self-contained vanilla Conversion Flow (Traffic → Convertify Engine → Lift) -->
-      <div id="hero-graphic" class="conversionFlowCard opacity-0" aria-label="Conversion flow visualization">
+      <div id="hero-graphic" class="conversionFlowCard opacity-0 relative" aria-label="Conversion flow visualization">
+        <!-- Ambient Sound Toggle Button -->
+        <button id="hero-sound-toggle" class="absolute top-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-black/40 hover:bg-black/60 backdrop-blur-md transition-all active:scale-95 duration-300 text-white/80 hover:text-white group" aria-label="Toggle ambient soundtrack">
+          <div id="hero-sound-wave" class="flex items-end gap-[2px] h-3.5 w-4.5">
+            <span class="w-[2px] bg-brand-blue rounded-full bar bar-1"></span>
+            <span class="w-[2px] bg-brand-blue rounded-full bar bar-2"></span>
+            <span class="w-[2px] bg-brand-blue rounded-full bar bar-3"></span>
+            <span class="w-[2px] bg-brand-blue rounded-full bar bar-4"></span>
+          </div>
+          <span class="text-[9px] font-mono tracking-widest uppercase font-bold text-white/90" id="hero-sound-label">ON</span>
+        </button>
+
         <div class="conversionFlowCard__panels" aria-hidden="true">
           <!-- LEFT PANEL: TRAFFIC -->
           <section class="conversionFlowCard__panel conversionFlowCard__panel--left">
@@ -705,10 +716,39 @@
     .bolt{ animation: none !important; }
     .spark{ animation: none !important; }
   }
+
+  /* Ambient Sound Toggle Wave Animation */
+  #hero-sound-wave .bar {
+    display: inline-block;
+    height: 100%;
+    animation: soundWavePlay 1.2s ease-in-out infinite alternate;
+    transform-origin: bottom;
+  }
+  #hero-sound-wave .bar-1 { animation-delay: 0.15s; height: 35%; }
+  #hero-sound-wave .bar-2 { animation-delay: 0.4s; height: 70%; }
+  #hero-sound-wave .bar-3 { animation-delay: 0.0s; height: 100%; }
+  #hero-sound-wave .bar-4 { animation-delay: 0.25s; height: 50%; }
+
+  @keyframes soundWavePlay {
+    0% { transform: scaleY(0.25); }
+    100% { transform: scaleY(1); }
+  }
+
+  #hero-sound-toggle.is-muted #hero-sound-wave .bar {
+    animation-play-state: paused;
+    transform: scaleY(0.15) !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  #hero-sound-toggle.is-muted {
+    opacity: 0.6;
+  }
 </style>
 
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
 
   const animateHero = () => {
     const tl = gsap.timeline();
@@ -899,6 +939,284 @@
     }, { threshold: 0.35 });
 
     io.observe(card);
+
+    // === Ambient Majestic Cinematic Space Synthesizer ===
+    let audioCtx = null;
+    let masterGain = null;
+    let padOscillators = [];
+    let noiseSource = null;
+    let lfoOscillators = [];
+    let movingPads = [];
+    let driftInterval = null;
+    let isPlaying = false;
+    let isMuted = false;
+    
+    // Ambient sound theme parameters (clear, spatial, and focus-inducing)
+    const BASE_VOLUME = 0.35;
+    const volumeObj = { val: BASE_VOLUME };
+
+    const initSpaceSynth = () => {
+      if (audioCtx) return;
+
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContextClass();
+        
+        masterGain = audioCtx.createGain();
+        // Start with 0 volume, we will fade in
+        masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+        masterGain.connect(audioCtx.destination);
+
+        // 1. Space Wind / Cosmic Breeze (Warm, lowpass noise)
+        const bufferSize = audioCtx.sampleRate * 2;
+        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = Math.random() * 2 - 1;
+        }
+
+        noiseSource = audioCtx.createBufferSource();
+        noiseSource.buffer = noiseBuffer;
+        noiseSource.loop = true;
+
+        const noiseFilter = audioCtx.createBiquadFilter();
+        noiseFilter.type = 'lowpass';
+        noiseFilter.Q.value = 0.8;
+        noiseFilter.frequency.value = 250; // warm rumble
+
+        // Modulate filter frequency slowly (breathing effect)
+        const noiseLFO = audioCtx.createOscillator();
+        noiseLFO.frequency.value = 0.04; // slow wind sweep
+        const noiseLFOGain = audioCtx.createGain();
+        noiseLFOGain.gain.value = 100; // swing filter cutoff +/- 100Hz
+        
+        noiseLFO.connect(noiseLFOGain);
+        noiseLFOGain.connect(noiseFilter.frequency);
+
+        const noiseGain = audioCtx.createGain();
+        noiseGain.gain.value = 0.03; // low wind volume
+
+        noiseSource.connect(noiseFilter);
+        noiseFilter.connect(noiseGain);
+        noiseGain.connect(masterGain);
+
+        noiseSource.start(0);
+        noiseLFO.start(0);
+        lfoOscillators.push(noiseLFO);
+
+        // 2. Cosmic Generative Pads (Deep cinematic warm sound)
+        const synthGain = audioCtx.createGain();
+        synthGain.gain.value = 0.12; // sum of pads volume cap
+
+        // A. Constants: Deep drones for grounding
+        const droneFreqs = [77.78, 116.54]; // Eb2, Bb2
+        droneFreqs.forEach((freq) => {
+          const osc = audioCtx.createOscillator();
+          osc.type = 'sine'; // pure sub-bass
+          osc.frequency.value = freq;
+          
+          const oscGain = audioCtx.createGain();
+          oscGain.gain.value = 0.06; // soft grounding
+          
+          osc.connect(oscGain);
+          oscGain.connect(synthGain);
+          osc.start(0);
+          padOscillators.push(osc);
+        });
+
+        // B. Moving pads (Drifting notes in Eb Pentatonic)
+        const PENTATONIC_SCALE = [233.08, 311.13, 392.00, 466.16, 587.33, 698.46, 932.33]; // Bb3, Eb4, G4, Bb4, D5, F5, Bb5
+        const initialMoving = [392.00, 587.33, 932.33]; // G4, D5, Bb5
+        
+        initialMoving.forEach((freq, index) => {
+          const osc = audioCtx.createOscillator();
+          osc.type = 'triangle'; // warm harmonic voice
+          osc.frequency.value = freq;
+          
+          const oscGain = audioCtx.createGain();
+          oscGain.gain.value = 0.05;
+          
+          // Add slow swell modulation to each moving voice
+          const voiceLFO = audioCtx.createOscillator();
+          voiceLFO.frequency.value = 0.03 + Math.random() * 0.03;
+          const voiceLFOGain = audioCtx.createGain();
+          voiceLFOGain.gain.value = 0.03;
+          
+          voiceLFO.connect(voiceLFOGain);
+          voiceLFOGain.connect(oscGain.gain);
+          
+          osc.connect(oscGain);
+          oscGain.connect(synthGain);
+          
+          osc.start(0);
+          voiceLFO.start(0);
+          
+          padOscillators.push(osc);
+          lfoOscillators.push(voiceLFO);
+          movingPads.push(osc);
+        });
+
+        // 3. Space Tape Delay Loop (adds massive professional space and depth)
+        const delayNode = audioCtx.createDelay(2.0);
+        delayNode.delayTime.value = 0.8; // 800ms spacing
+
+        const delayFilter = audioCtx.createBiquadFilter();
+        delayFilter.type = 'lowpass';
+        delayFilter.frequency.value = 800; // filter echoes high-frequencies (warm repeats)
+
+        const feedbackGain = audioCtx.createGain();
+        feedbackGain.gain.value = 0.45; // feedback echo loop level
+
+        // Feedback loop routing
+        synthGain.connect(delayNode);
+        delayNode.connect(delayFilter);
+        delayFilter.connect(feedbackGain);
+        feedbackGain.connect(delayNode);
+
+        // Connect dry synth and wet delay to masterGain
+        synthGain.connect(masterGain);
+        delayFilter.connect(masterGain);
+
+        isPlaying = true;
+        
+        // Initial fade-in when unlocked
+        const currentTargetVol = isMuted ? 0 : volumeObj.val;
+        masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+        masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+        masterGain.gain.linearRampToValueAtTime(currentTargetVol, audioCtx.currentTime + 2.0);
+
+        // Start generative drift loop (smoothly shifts chord tones to maintain focus)
+        driftInterval = setInterval(() => {
+          if (!audioCtx || audioCtx.state === 'suspended' || isMuted) return;
+          const now = audioCtx.currentTime;
+          const usedNotes = [];
+          movingPads.forEach((pad) => {
+            let nextNote;
+            do {
+              nextNote = PENTATONIC_SCALE[Math.floor(Math.random() * PENTATONIC_SCALE.length)];
+            } while (usedNotes.includes(nextNote));
+            usedNotes.push(nextNote);
+            pad.frequency.exponentialRampToValueAtTime(nextNote, now + 6.0); // smooth 6-second slide
+          });
+        }, 10000);
+
+      } catch (e) {
+        console.warn('Web Audio API synth failed to initialize:', e);
+      }
+    };
+
+    const setMuteState = (mute) => {
+      isMuted = mute;
+      localStorage.setItem('ambient-muted', isMuted ? 'true' : 'false');
+      
+      const toggleBtn = document.getElementById('hero-sound-toggle');
+      const soundLabel = document.getElementById('hero-sound-label');
+      
+      if (isMuted) {
+        if (toggleBtn) toggleBtn.classList.add('is-muted');
+        if (soundLabel) soundLabel.textContent = 'OFF';
+        
+        // Fade sound down
+        if (masterGain && audioCtx) {
+          masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+          masterGain.gain.setValueAtTime(masterGain.gain.value, audioCtx.currentTime);
+          masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.4);
+          setTimeout(() => {
+            if (isMuted && audioCtx && audioCtx.state === 'running') {
+              audioCtx.suspend();
+            }
+          }, 450);
+        }
+      } else {
+        if (toggleBtn) toggleBtn.classList.remove('is-muted');
+        if (soundLabel) soundLabel.textContent = 'ON';
+        
+        // Resume context and fade sound back up
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        
+        if (masterGain && audioCtx) {
+          masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+          masterGain.gain.setValueAtTime(masterGain.gain.value, audioCtx.currentTime);
+          masterGain.gain.linearRampToValueAtTime(volumeObj.val, audioCtx.currentTime + 0.6);
+        }
+      }
+    };
+
+    const toggleMute = () => {
+      setMuteState(!isMuted);
+    };
+
+    // Scroll mapping via GSAP ScrollTrigger
+    const initScrollTrigger = () => {
+      const portfolioSection = document.getElementById('portfolio');
+      if (!portfolioSection) return;
+
+      ScrollTrigger.create({
+        trigger: '#hero',
+        start: 'top top',
+        endTrigger: '#portfolio',
+        end: 'top top',
+        scrub: true,
+        onUpdate: (self) => {
+          // Progress goes from 0 (top of page) to 1 (reaches Portfolio)
+          const scale = 1 - self.progress;
+          volumeObj.val = BASE_VOLUME * scale;
+
+          if (masterGain && audioCtx && !isMuted) {
+            // Apply volume update smoothly
+            masterGain.gain.value = volumeObj.val;
+            
+            // Suspend context if scrolled past boundary to save resources
+            if (scale <= 0.01 && audioCtx.state === 'running') {
+              audioCtx.suspend();
+            } else if (scale > 0.01 && audioCtx.state === 'suspended') {
+              audioCtx.resume();
+            }
+          }
+        }
+      });
+    };
+
+    // Auto-unlock handlers
+    const unlockAmbient = () => {
+      if (audioCtx) return;
+      
+      // Load saved preferences
+      isMuted = localStorage.getItem('ambient-muted') === 'true';
+      
+      initSpaceSynth();
+      initScrollTrigger();
+      
+      // Sync UI state
+      setMuteState(isMuted);
+
+      // Clean up event listeners
+      window.removeEventListener('click', unlockAmbient);
+      window.removeEventListener('scroll', unlockAmbient);
+      window.removeEventListener('mousemove', unlockAmbient);
+      window.removeEventListener('touchstart', unlockAmbient);
+    };
+
+    // Listen to user interactions to unlock context
+    window.addEventListener('click', unlockAmbient);
+    window.addEventListener('scroll', unlockAmbient);
+    window.addEventListener('mousemove', unlockAmbient);
+    window.addEventListener('touchstart', unlockAmbient);
+
+    // Mute/unmute button interaction
+    const soundToggleBtn = document.getElementById('hero-sound-toggle');
+    if (soundToggleBtn) {
+      soundToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (!audioCtx) {
+          unlockAmbient();
+        } else {
+          toggleMute();
+        }
+      });
+    }
   });
 
 </script>

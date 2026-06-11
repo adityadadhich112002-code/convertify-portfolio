@@ -1,0 +1,521 @@
+---
+---
+
+<section id="why" class="relative bg-surface-1 py-24 md:py-32 px-6 md:px-16 overflow-visible select-none">
+  <!-- Dynamic glow in section -->
+  <div class="absolute top-[30%] right-[10%] w-[400px] h-[400px] bg-brand-blue/5 blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="why-header flex flex-col gap-4 mb-16 relative z-20">
+      <p id="why-eyebrow" class="opacity-0 flex items-center gap-3 text-[10px] md:text-[11px] font-display font-semibold tracking-[0.25em] uppercase text-brand-blue">
+        <span class="w-5 h-[1px] bg-brand-blue"></span>
+        Our Difference
+      </p>
+      
+      <h2 class="text-[40px] sm:text-display-lg md:text-display-xl text-white font-bold leading-[0.95] tracking-[-0.04em] max-w-[24ch]">
+        <span class="block overflow-hidden py-1">
+          <span class="why-header-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:0">Most</span>
+          <span class="why-header-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:1">Agencies</span>
+          <span class="why-header-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:2">Build</span>
+          <span class="why-header-word inline-block relative py-1 opacity-0 translate-y-12 text-white/95" style="--d:3">
+            <span class="relative z-10">Websites.</span>
+            <!-- Double Blue Underline Scribbles -->
+            <svg class="absolute left-[-20%] bottom-[-8px] w-[140%] h-[0.35em] overflow-visible pointer-events-none" viewBox="0 0 100 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path id="why-header-scribble-1" class="stroke-red-500 stroke-[3.5] stroke-linecap-round" d="M1 9 C30 2, 70 2, 99 6" stroke-dasharray="100" stroke-dashoffset="100"></path>
+              <path id="why-header-scribble-2" class="stroke-red-500/70 stroke-[2] stroke-linecap-round" d="M5 12 C35 6, 65 6, 95 10" stroke-dasharray="100" stroke-dashoffset="100"></path>
+            </svg>
+          </span>
+        </span>
+        <span class="block overflow-hidden py-3">
+          <span class="why-header-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:4">We</span>
+          <span class="why-header-word inline-block opacity-0 translate-y-12 text-white/95" style="--d:5">Build</span>
+          <span class="why-header-highlight inline-block relative py-1 opacity-0" style="--d:6">
+            <span class="relative z-10 font-script font-bold italic text-brand-blue text-[1.12em] tracking-normal not-italic">Buying Confidence.</span>
+          </span>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Grid with Interactive Spotlight Cards -->
+    <div class="why-grid-container relative mb-16">
+      <!-- Animated Aura Line behind cards (z-0 = behind glass cards) -->
+      <svg id="why-web-svg" class="absolute inset-0 w-full h-full pointer-events-none overflow-visible z-0" aria-hidden="true">
+        <!-- Rail Path (Faint guide line ahead) -->
+        <path id="web-rail-path" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+        <!-- Glowing Aura Path (Underneath, 3x wider glow, Blurred) -->
+        <path id="web-aura-glow-path" fill="none" stroke="rgba(255, 255, 255, 0.25)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" style="filter: blur(12px);" />
+        <!-- Sharp Core Path (On Top, 3x wider core) -->
+        <path id="web-aura-core-path" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      <!-- Arrow head SVG sits at z-0 behind the glass cards -->
+      <svg id="why-arrow-svg" class="absolute inset-0 w-full h-full pointer-events-none overflow-visible z-0" aria-hidden="true">
+        <!-- Glowing arrow head at the drawing tip -->
+        <g id="web-arrow-head" style="opacity:0; transition: opacity 0.3s ease;">
+          <!-- Outer glow blur layer -->
+          <polygon points="-18,-8 8,0 -18,8" fill="rgba(255,255,255,0.35)" style="filter: blur(6px);" />
+          <!-- Mid glow layer -->
+          <polygon points="-15,-6 5,0 -15,6" fill="rgba(255,255,255,0.6)" style="filter: blur(2px);" />
+          <!-- Sharp solid core tip -->
+          <polygon points="-13,-5 6,0 -13,5" fill="#ffffff" />
+        </g>
+      </svg>
+
+      <!-- Grid with Interactive Spotlight Cards -->
+      <div class="why-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+      
+      <!-- Card 1 -->
+      <div class="why-card relative group p-8 bg-canvas border border-hairline rounded-xl overflow-hidden hover:border-brand-blue/30 transition-colors duration-500 flex flex-col gap-6 select-none opacity-0 translate-y-12">
+        <div class="spotlight-layer absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--x,_50%)_var(--y,_50%),rgba(20,0,255,0.08)_0%,transparent_60%)]" aria-hidden="true"></div>
+        <div class="why-icon-wrap w-12 h-12 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center text-brand-blue group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+          <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 stroke-[1.5] stroke-current" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-2 relative z-10">
+          <h3 class="font-display text-[20px] font-bold text-white tracking-tight">Designers &amp; Developers</h3>
+          <p class="text-body-sm text-white/50 leading-relaxed">Visuals that stop the scroll and code that performs at enterprise level, both under one roof.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="why-card relative group p-8 bg-canvas border border-hairline rounded-xl overflow-hidden hover:border-brand-blue/30 transition-colors duration-500 flex flex-col gap-6 select-none opacity-0 translate-y-12">
+        <div class="spotlight-layer absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--x,_50%)_var(--y,_50%),rgba(20,0,255,0.08)_0%,transparent_60%)]" aria-hidden="true"></div>
+        <div class="why-icon-wrap w-12 h-12 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center text-brand-blue group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+          <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 stroke-[1.5] stroke-current" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-2 relative z-10">
+          <h3 class="font-display text-[20px] font-bold text-white tracking-tight">Shopify &amp; WordPress Specialists</h3>
+          <p class="text-body-sm text-white/50 leading-relaxed">Deep platform expertise so every build is optimized for the way your customers actually shop.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="why-card relative group p-8 bg-canvas border border-hairline rounded-xl overflow-hidden hover:border-brand-blue/30 transition-colors duration-500 flex flex-col gap-6 select-none opacity-0 translate-y-12">
+        <div class="spotlight-layer absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--x,_50%)_var(--y,_50%),rgba(20,0,255,0.08)_0%,transparent_60%)]" aria-hidden="true"></div>
+        <div class="why-icon-wrap w-12 h-12 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center text-brand-blue group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+          <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 stroke-[1.5] stroke-current" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-2 relative z-10">
+          <h3 class="font-display text-[20px] font-bold text-white tracking-tight">Conversion Strategists</h3>
+          <p class="text-body-sm text-white/50 leading-relaxed">Every layout, headline, and button placement is tested against one metric: does it increase trust?</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="why-card relative group p-8 bg-canvas border border-hairline rounded-xl overflow-hidden hover:border-brand-blue/30 transition-colors duration-500 flex flex-col gap-6 select-none opacity-0 translate-y-12">
+        <div class="spotlight-layer absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--x,_50%)_var(--y,_50%),rgba(20,0,255,0.08)_0%,transparent_60%)]" aria-hidden="true"></div>
+        <div class="why-icon-wrap w-12 h-12 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center text-brand-blue group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+          <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 stroke-[1.5] stroke-current" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-2 relative z-10">
+          <h3 class="font-display text-[20px] font-bold text-white tracking-tight">Brand Positioning Experts</h3>
+          <p class="text-body-sm text-white/50 leading-relaxed">We don't just make your website look better. We make your brand compete at a higher level.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="why-card relative group p-8 bg-canvas border border-hairline rounded-xl overflow-hidden hover:border-brand-blue/30 transition-colors duration-500 flex flex-col gap-6 select-none opacity-0 translate-y-12">
+        <div class="spotlight-layer absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--x,_50%)_var(--y,_50%),rgba(20,0,255,0.08)_0%,transparent_60%)]" aria-hidden="true"></div>
+        <div class="why-icon-wrap w-12 h-12 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center text-brand-blue group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+          <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 stroke-[1.5] stroke-current" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-2 relative z-10">
+          <h3 class="font-display text-[20px] font-bold text-white tracking-tight">12+ Agency Partners</h3>
+          <p class="text-body-sm text-white/50 leading-relaxed">A collaboration of specialists, not generalists. When you work with Convertify, you get India's best.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="why-card relative group p-8 bg-canvas border border-hairline rounded-xl overflow-hidden hover:border-brand-blue/30 transition-colors duration-500 flex flex-col gap-6 select-none opacity-0 translate-y-12">
+        <div class="spotlight-layer absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--x,_50%)_var(--y,_50%),rgba(20,0,255,0.08)_0%,transparent_60%)]" aria-hidden="true"></div>
+        <div class="why-icon-wrap w-12 h-12 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center text-brand-blue group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+          <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 stroke-[1.5] stroke-current" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-2 relative z-10">
+          <h3 class="font-display text-[20px] font-bold text-white tracking-tight">437+ Websites Delivered</h3>
+          <p class="text-body-sm text-white/50 leading-relaxed">Proven at scale across Ecommerce, SaaS, Agencies, Consultants, Startups, and Personal Brands.</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<style>
+  .why-card {
+    background-color: rgba(9, 9, 9, 0.4) !important;
+    backdrop-filter: blur(16px) saturate(2) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    transition: background-color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease !important;
+  }
+  .why-card:hover {
+    background-color: rgba(15, 15, 15, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+  }
+  .why-card.active {
+    background-color: rgba(15, 15, 15, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.1) !important;
+  }
+  .why-card.active .why-icon-wrap {
+    background-color: #1400ff !important;
+    color: #ffffff !important;
+    border-color: #1400ff !important;
+  }
+  .why-icon-wrap {
+    background-color: rgba(15, 15, 20, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    color: #1400ff !important;
+    transition: background-color 0.8s ease, border-color 0.8s ease, color 0.8s ease !important;
+  }
+  .why-card:hover .why-icon-wrap {
+    background-color: #1400ff !important;
+    color: #ffffff !important;
+    border-color: #1400ff !important;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initWhyAnimations = () => {
+    let webInitialized = false;
+
+    // Header trigger & word staggered animation
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#why',
+        start: 'top 75%'
+      }
+    })
+    .to('#why-eyebrow', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    })
+    .to('.why-header-word', {
+      opacity: 1,
+      y: 0,
+      stagger: 0.05,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .to('.why-header-highlight', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'back.out(1.2)'
+    }, '-=0.4')
+    .to('#why-header-scribble-1', {
+      strokeDashoffset: 0,
+      duration: 0.5,
+      ease: 'power2.out'
+    }, '-=0.3')
+    .to('#why-header-scribble-2', {
+      strokeDashoffset: 0,
+      duration: 0.5,
+      ease: 'power2.out'
+    }, '-=0.4');
+
+    // Cards staggered reveal
+    gsap.fromTo('.why-card',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.why-grid',
+          start: 'top 75%'
+        },
+        onComplete: () => {
+          if (!webInitialized) {
+            updateWeb();
+            webInitialized = true;
+          }
+        }
+      }
+    );
+
+    // Spotlight cursor tracking inside cards
+    const spotlightCards = document.querySelectorAll('.why-card');
+    const isTouch = window.matchMedia('(hover: none)').matches;
+
+    if (!isTouch) {
+      spotlightCards.forEach(card => {
+        card.addEventListener('mousemove', (e: any) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          card.style.setProperty('--x', `${x}px`);
+          card.style.setProperty('--y', `${y}px`);
+        });
+      });
+    }
+
+    // --- Winding White Aura Line Logic (Astro Typesafe) ---
+    let pulseTimeline: gsap.core.Timeline | null = null;
+
+    const updateWeb = (isResize = false) => {
+      const gridContainer = document.querySelector('.why-grid-container');
+      const grid = document.querySelector('.why-grid');
+      const railPath = document.getElementById('web-rail-path') as SVGPathElement | null;
+      const glowPath = document.getElementById('web-aura-glow-path') as SVGPathElement | null;
+      const corePath = document.getElementById('web-aura-core-path') as SVGPathElement | null;
+      
+      if (!gridContainer || !grid || !railPath || !glowPath || !corePath) return;
+      
+      const cards = Array.from(grid.querySelectorAll('.why-card')) as HTMLElement[];
+      if (cards.length < 6) return;
+      
+      const gridRect = gridContainer.getBoundingClientRect();
+      const centers = cards.map(card => {
+        const rect = card.getBoundingClientRect();
+        return {
+          x: rect.left - gridRect.left + rect.width / 2,
+          y: rect.top - gridRect.top + rect.height / 2
+        };
+      });
+
+      // Retrieve Confidence anchor word — start 6px below the bottom so the line never overlaps the text
+      const confidenceSpan = document.querySelector('.why-header-highlight');
+      let startPoint = { x: gridRect.width * 0.65, y: -65 };
+      if (confidenceSpan) {
+        const confRect = confidenceSpan.getBoundingClientRect();
+        startPoint = {
+          x: confRect.left - gridRect.left + confRect.width / 2,
+          y: confRect.bottom - gridRect.top + 6
+        };
+      }
+
+      // Line ends just below the last grid card on ALL layouts — before the Trust section begins
+      const lastCardRect = cards[5].getBoundingClientRect();
+      const gridFinal = {
+        x: lastCardRect.left - gridRect.left + lastCardRect.width / 2,
+        y: lastCardRect.bottom - gridRect.top + 80   // 80px below the card's bottom edge
+      };
+
+      // Determine winding path dynamically based on columns
+      let points = [];
+      let cardOrder = [];
+      const isMobile = window.innerWidth < 768;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
+      if (isMobile) {
+        // Mobile: 1 column, line ends below last card
+        points = [
+          startPoint,
+          { x: centers[0].x - 20, y: centers[0].y }, // Designers
+          { x: centers[1].x + 20, y: centers[1].y }, // Shopify
+          { x: centers[2].x - 20, y: centers[2].y }, // Conversion
+          { x: centers[3].x + 20, y: centers[3].y }, // Brand
+          { x: centers[4].x - 20, y: centers[4].y }, // Partners
+          { x: centers[5].x + 20, y: centers[5].y }, // Websites
+          gridFinal
+        ];
+        cardOrder = [ cards[0], cards[1], cards[2], cards[3], cards[4], cards[5] ];
+      } else if (isTablet) {
+        // Tablet: 2 columns, line ends below last card
+        points = [
+          startPoint,
+          centers[1],  // Shopify
+          centers[0],  // Designers
+          centers[2],  // Conversion
+          centers[3],  // Brand
+          centers[5],  // Websites
+          centers[4],  // Partners
+          gridFinal
+        ];
+        cardOrder = [ cards[1], cards[0], cards[2], cards[3], cards[5], cards[4] ];
+      } else {
+        // Desktop: 3 columns, line ends below last card
+        points = [
+          startPoint,
+          centers[2],  // Conversion
+          centers[1],  // Shopify
+          centers[0],  // Designers
+          centers[3],  // Brand
+          centers[4],  // Partners
+          centers[5],  // Websites
+          gridFinal
+        ];
+        cardOrder = [ cards[2], cards[1], cards[0], cards[3], cards[4], cards[5] ];
+      }
+
+      // Spline curve builder using midpoints and quadratic curves
+      const getSmoothPath = (pts: { x: number; y: number }[]) => {
+        if (pts.length < 2) return '';
+        let d = `M ${pts[0].x} ${pts[0].y}`;
+        
+        const firstMid = {
+          x: (pts[0].x + pts[1].x) / 2,
+          y: (pts[0].y + pts[1].y) / 2
+        };
+        d += ` L ${firstMid.x} ${firstMid.y}`;
+        
+        for (let i = 1; i < pts.length - 1; i++) {
+          const nextMid = {
+            x: (pts[i].x + pts[i + 1].x) / 2,
+            y: (pts[i].y + pts[i + 1].y) / 2
+          };
+          d += ` Q ${pts[i].x} ${pts[i].y} ${nextMid.x} ${nextMid.y}`;
+        }
+        
+        d += ` L ${pts[pts.length - 1].x} ${pts[pts.length - 1].y}`;
+        return d;
+      };
+
+      const pathData = getSmoothPath(points);
+
+      // Apply path d attribute
+      railPath.setAttribute('d', pathData);
+      glowPath.setAttribute('d', pathData);
+      corePath.setAttribute('d', pathData);
+
+      // Path length
+      const L = railPath.getTotalLength();
+      
+      // Stop old timeline and tweens
+      if (pulseTimeline) {
+        pulseTimeline.kill();
+        pulseTimeline = null;
+      }
+      gsap.killTweensOf([glowPath, corePath]);
+
+      // Make sure paths are visible
+      glowPath.style.opacity = '1';
+      corePath.style.opacity = '1';
+
+      // Set dash values to the path length L so it draws in as a solid glowing path that stays visible once passed
+      glowPath.style.strokeDasharray = `${L}`;
+      corePath.style.strokeDasharray = `${L}`;
+
+      // Calculate cumulative distances along the points array
+      let distances = [0];
+      let totalDist = 0;
+      for (let i = 1; i < points.length; i++) {
+        const dx = points[i].x - points[i - 1].x;
+        const dy = points[i].y - points[i - 1].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        totalDist += dist;
+        distances.push(totalDist);
+      }
+
+      // Create scroll-scrubbed timeline triggered by the grid container for perfect card scroll sync
+      pulseTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#why',
+          // Mobile: top 25% = header at 75% from bottom | Desktop: top 20% = header at 80% from bottom
+          start: isMobile ? 'top 25%' : 'top 20%',
+          end: isMobile ? 'bottom 60%' : 'bottom 55%',
+          scrub: true,           // Instant scrub: lock-step with scrollbar with no catch-up delay
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            // Toggle active state for cards
+            cardOrder.forEach((card, idx) => {
+              const startTime = distances[idx] / totalDist;
+              const endTime = distances[idx + 1] / totalDist;
+              // The boundary of the box is touched at about 55% of the distance from previous node to current node
+              const boundaryTime = startTime + 0.55 * (endTime - startTime);
+
+              if (self.progress >= boundaryTime) {
+                card.classList.add('active');
+              } else {
+                card.classList.remove('active');
+              }
+            });
+
+            // Animate arrow head to follow the tip of the line
+            const arrowHead = document.getElementById('web-arrow-head');
+            if (arrowHead) {
+              const pathLength = corePath.getTotalLength();
+              const currentLength = self.progress * pathLength;
+              
+              if (currentLength > 8) {
+                // Sample two close points to get the tangent direction
+                const p = corePath.getPointAtLength(currentLength);
+                const pPrev = corePath.getPointAtLength(Math.max(0, currentLength - 6));
+                const angle = Math.atan2(p.y - pPrev.y, p.x - pPrev.x) * 180 / Math.PI;
+                arrowHead.setAttribute('transform', `translate(${p.x}, ${p.y}) rotate(${angle})`);
+                (arrowHead as SVGElement).style.opacity = '1';
+              } else {
+                (arrowHead as SVGElement).style.opacity = '0';
+              }
+            }
+          }
+        }
+      });
+
+      // Kill any previous tweens on cards/icons to prevent conflicts
+      gsap.killTweensOf(cards);
+      cards.forEach(card => {
+        const iconWrap = card.querySelector('.why-icon-wrap');
+        if (iconWrap) gsap.killTweensOf(iconWrap);
+      });
+
+      pulseTimeline.fromTo(glowPath,
+        { strokeDashoffset: L },
+        { strokeDashoffset: 0, ease: 'none' },
+        0
+      ).fromTo(corePath,
+        { strokeDashoffset: L },
+        { strokeDashoffset: 0, ease: 'none' },
+        0
+      );
+    };
+
+    let resizeTimer: any;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (webInitialized) {
+          updateWeb(true);
+        }
+      }, 250);
+    });
+  };
+
+  // Bulletproof preloader integration
+  let initialized = false;
+  const safeInit = () => {
+    if (initialized) return;
+    initialized = true;
+    initWhyAnimations();
+  };
+
+  const preloader = document.getElementById('preloader');
+  const isPreloaderActive = preloader && preloader.style.display !== 'none' && !preloader.classList.contains('hidden');
+
+  if (isPreloaderActive) {
+    window.addEventListener('loaderComplete', safeInit);
+    // Fallback: trigger after window loads (in case custom event is missed)
+    window.addEventListener('load', () => setTimeout(safeInit, 1500));
+  } else {
+    safeInit();
+  }
+</script>
