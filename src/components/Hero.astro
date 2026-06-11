@@ -1,0 +1,904 @@
+------
+
+<section id="hero" class="relative min-h-screen flex flex-col items-center justify-between pt-36 pb-12 px-6 md:px-16 bg-canvas overflow-hidden select-none">
+  <!-- Stripe-like Moving Mesh Gradient Background -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="noise-bg"></div>
+    <div class="stripe-container absolute inset-0">
+      <div class="mesh-sphere absolute w-[140%] h-[140%] -top-[20%] -left-[20%] opacity-40 blur-[90px]"></div>
+    </div>
+    <!-- Central dynamic glow spotlight -->
+    <div id="hero-glow-spot" class="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[720px] h-[60vh] max-h-[520px] bg-radial from-brand-blue/15 via-brand-blue/4 to-transparent blur-[60px] will-change-transform"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 w-full max-w-[1080px] mx-auto flex-1 flex flex-col justify-center items-center text-center gap-8 md:gap-10">
+    <!-- Eyebrow -->
+    <p id="hero-eyebrow" class="opacity-0 flex items-center gap-4 text-[10px] md:text-[11px] font-display font-semibold tracking-[0.25em] uppercase text-brand-blue">
+      <span class="w-6 h-[1px] bg-brand-blue/40"></span>
+      India's Fastest-Growing Web Design Collaboration
+      <span class="w-6 h-[1px] bg-brand-blue/40"></span>
+    </p>
+
+    <!-- Super Creative Title (2 Fonts Limit: Display & Accent Script) -->
+    <h1 id="hero-title" class="text-display-xl md:text-display-xxl text-white font-bold leading-[0.9] tracking-[-0.05em] max-w-[15ch] text-wrap">
+      <span class="block mb-2 overflow-hidden py-1">
+        <span class="hero-word inline-block relative py-1" style="--d:0">
+          <span class="relative z-10 font-bold">90%</span>
+          <!-- Dynamic Double Underline Red Scribbles -->
+          <svg class="absolute left-[-6%] bottom-[-14%] w-[112%] h-[0.38em] overflow-visible pointer-events-none" viewBox="0 0 100 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="scribble-path-1" class="stroke-red-600 stroke-[3.5] stroke-linecap-round" d="M1 9 C30 2, 70 2, 99 6" stroke-dasharray="100" stroke-dashoffset="100"></path>
+            <path id="scribble-path-2" class="stroke-red-600/80 stroke-[2] stroke-linecap-round" d="M5 12 C35 6, 65 6, 95 10" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          </svg>
+        </span>
+        <span class="hero-word inline-block font-bold text-white/95" style="--d:1">Of</span>
+        <span class="hero-word inline-block font-bold text-white/95" style="--d:2">Founders</span>
+      </span>
+      <span class="block mb-2 overflow-hidden py-1">
+        <span class="hero-word inline-block font-bold text-white/95" style="--d:3">Are</span>
+        <span class="hero-word inline-block font-bold text-white/95" style="--d:4">Losing</span>
+        <span class="hero-word inline-block font-bold text-white/95" style="--d:5">Money</span>
+        <span class="hero-word inline-block font-bold text-white/95" style="--d:6">Because</span>
+      </span>
+      <span class="block overflow-hidden py-1">
+        <span class="hero-word inline-block font-bold text-white/95" style="--d:7">Their</span>
+        <span class="hero-word inline-block font-bold text-white/95" style="--d:8">Website</span>
+        <span class="hero-highlight inline-block font-script font-bold italic text-brand-blue text-[1.12em] tracking-normal not-italic opacity-0" style="--d:9">Doesn't Convert.</span>
+      </span>
+    </h1>
+
+    <div class="flex flex-col items-center gap-8 w-full">
+      <!-- Condensed Subhead Copy (Exactly 2 lines total) -->
+      <div id="hero-description" class="opacity-0 flex flex-col items-center gap-2 max-w-[620px]">
+        <p class="text-body-lg text-white font-medium tracking-tight">
+          You don't have a traffic problem. You have a website conversion problem.
+        </p>
+        <p class="text-[13px] md:text-[14px] text-white/40 leading-relaxed max-w-[500px]">
+          Convertify unites 12+ global web design specialists across India, USA, and UK to build high-converting, trust-first client experiences.
+        </p>
+      </div>
+
+      <!-- Premium, self-contained vanilla Conversion Flow (Traffic → Convertify Engine → Lift) -->
+      <div id="hero-graphic" class="conversionFlowCard opacity-0" aria-label="Conversion flow visualization">
+        <div class="conversionFlowCard__panels" aria-hidden="true">
+          <!-- LEFT PANEL: TRAFFIC -->
+          <section class="conversionFlowCard__panel conversionFlowCard__panel--left">
+            <div class="conversionFlowCard__label">TRAFFIC</div>
+            <div class="conversionFlowCard__mainText">Ready to Convert</div>
+
+            <!-- Incoming traffic dots/particles -->
+            <div class="conversionFlowCard__stream conversionFlowCard__stream--incoming">
+              <span class="dot d1"></span>
+              <span class="dot d2"></span>
+              <span class="dot d3"></span>
+              <span class="dot d4"></span>
+              <span class="dot d5"></span>
+              <span class="dot d6"></span>
+              <span class="dot d7"></span>
+              <span class="dot d8"></span>
+            </div>
+
+            <div class="conversionFlowCard__microStat">Visitors/day</div>
+
+            <!-- soft fade to connect -->
+            <div class="conversionFlowCard__panelFadeRight" aria-hidden="true"></div>
+          </section>
+
+          <!-- MIDDLE PANEL: CONVERTIFY'S CONVERSION ENGINE -->
+          <section class="conversionFlowCard__panel conversionFlowCard__panel--mid">
+            <div class="conversionFlowCard__engine">
+              <!-- gears behind text -->
+              <div class="conversionFlowCard__gearWrap" aria-hidden="true">
+                <div class="gear"></div>
+                <div class="gear gear--small"></div>
+              </div>
+
+              <div class="conversionFlowCard__engineText">
+                <div class="conversionFlowCard__engineCompany">Convertify</div>
+                <div class="conversionFlowCard__engineSub">Conversion Engine</div>
+              </div>
+
+              <!-- throughput relay dots -->
+              <div class="conversionFlowCard__throughput" aria-hidden="true">
+                <span class="tp tp1"></span>
+                <span class="tp tp2"></span>
+                <span class="tp tp3"></span>
+                <span class="tp tp4"></span>
+                <span class="tp tp5"></span>
+                <span class="tp tp6"></span>
+              </div>
+            </div>
+          </section>
+
+          <!-- RIGHT PANEL: LIFT -->
+          <section class="conversionFlowCard__panel conversionFlowCard__panel--right">
+            <div class="conversionFlowCard__label conversionFlowCard__label--right">LIFT</div>
+
+            <div class="conversionFlowCard__engineText" style="gap:6px;">
+              <div class="conversionFlowCard__resultWrap">
+                <div class="conversionFlowCard__bigNumber" data-final="184">+0%</div>
+              </div>
+              <div class="conversionFlowCard__resultSub">Avg conversion hike</div>
+            </div>
+
+            <div class="conversionFlowCard__sparkles" aria-hidden="true">
+              <span class="spark s1"></span>
+              <span class="spark s2"></span>
+              <span class="spark s3"></span>
+              <span class="spark s4"></span>
+            </div>
+
+            <div class="conversionFlowCard__microStat">Across 1000+ websites</div>
+          </section>
+        </div>
+
+        <!-- OVERLAID ARROWS on joins -->
+        <div class="conversionFlowCard__arrows" aria-hidden="true">
+          <div class="conversionFlowCard__arrow conversionFlowCard__arrow--left">
+            <span class="bolt">→</span>
+          </div>
+          <div class="conversionFlowCard__arrow conversionFlowCard__arrow--right">
+            <span class="bolt bolt--green">→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div id="hero-btns" class="opacity-0 flex flex-col sm:flex-row items-center justify-center gap-4 mt-2 w-full sm:w-auto">
+        <a href="#portfolio" class="magnetic-btn w-full sm:w-auto relative inline-flex items-center justify-center px-8 py-4 bg-brand-blue text-white text-body-sm font-semibold rounded-pill overflow-hidden shadow-[0_4px_20px_rgba(20,0,255,0.25)] hover:shadow-[0_12px_36px_rgba(20,0,255,0.45)] transition-all duration-300 group">
+          <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-pill"></span>
+          <span class="relative z-10 flex items-center gap-2">View Portfolio <span class="group-hover:translate-x-1.5 transition-transform duration-300">→</span></span>
+        </a>
+        <a href="https://wa.me/918290258775" target="_blank" class="magnetic-btn w-full sm:w-auto relative inline-flex items-center justify-center px-8 py-4 bg-surface-1 hover:bg-surface-2 border border-hairline text-white text-body-sm font-semibold rounded-pill transition-all duration-300 group">
+          <span class="relative z-10">Get Free Website Audit</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Stripe-like Mesh Gradient styling */
+  .mesh-gradient {
+    background: radial-gradient(circle at 20% 30%, rgba(20, 0, 255, 0.16) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(106, 76, 245, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 30% 80%, rgba(212, 77, 240, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(20, 0, 255, 0.1) 0%, transparent 35%);
+  }
+
+  .stripe-container {
+    background-color: #090909;
+  }
+
+  .mesh-sphere {
+    background: radial-gradient(circle at 25% 35%, rgba(20, 0, 255, 0.18) 0%, transparent 35%),
+                radial-gradient(circle at 75% 25%, rgba(106, 76, 245, 0.15) 0%, transparent 35%),
+                radial-gradient(circle at 35% 75%, rgba(212, 77, 240, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(20, 0, 255, 0.12) 0%, transparent 30%);
+    animation: mesh-rotate 35s infinite alternate ease-in-out;
+    filter: saturate(1.15);
+  }
+
+  @keyframes mesh-rotate {
+    0% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(4%, -4%) rotate(180deg) scale(1.06);
+    }
+    100% {
+      transform: translate(-3%, 3%) rotate(360deg) scale(0.96);
+    }
+  }
+
+  /* ===========================
+     Conversion Flow Card (vanilla)
+     =========================== */
+  .conversionFlowCard{
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    will-change: transform, opacity;
+  }
+
+  .conversionFlowCard__panels{
+    display:flex;
+    flex-direction: row;
+    border-radius: 20px;
+    overflow: hidden;
+    align-items: stretch;
+    height: 190px;
+    position: relative;
+  }
+
+  .conversionFlowCard__panel{
+    flex: 0 0 33.33%;
+    width: 33.33%;
+    position: relative;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    padding: 14px 14px 12px 14px;
+  }
+
+  .conversionFlowCard__panel--left{
+    background: linear-gradient(135deg, #8B0000 0%, #C0392B 50%, #922B21 100%);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  .conversionFlowCard__panel--mid{
+    background: linear-gradient(160deg, #0a00cc 0%, #1400FF 45%, #2D00F7 100%);
+  }
+
+  .conversionFlowCard__panel--right{
+    background: linear-gradient(135deg, #0D5C36 0%, #1B8C52 50%, #27AE60 100%);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  /* Left edge soft fade to visually blend panels */
+  .conversionFlowCard__panelFadeRight{
+    position:absolute;
+    top:0;
+    right:-1px;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+    pointer-events:none;
+  }
+
+  .conversionFlowCard__label{
+    font-family: var(--font-body);
+    font-size: clamp(10px, 1.05vw, 11px);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    font-weight: 700;
+  }
+
+  .conversionFlowCard__label--right{
+    color: rgba(255,255,255,0.58);
+  }
+
+  .conversionFlowCard__mainText{
+    margin-top: 12px;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 700;
+    color: rgba(255,255,255,0.98);
+  }
+
+  .conversionFlowCard__microStat{
+    margin-top: auto;
+    font-size: clamp(12px, 1.6vw, 12px);
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Engine inner glow pulse */
+  .conversionFlowCard__engine{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    transform: translateZ(0);
+  }
+
+  .conversionFlowCard__engine::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at 50% 50%, rgba(80,60,255,0.4) 0%, transparent 70%);
+    animation: engineGlow 2s ease-in-out infinite alternate;
+    transform: scale(1);
+    pointer-events:none;
+  }
+
+  @keyframes engineGlow{
+    0%{ transform: scale(0.8); opacity: 0.75; }
+    100%{ transform: scale(1.2); opacity: 0.95; }
+  }
+
+  .conversionFlowCard__engineText{
+    position: relative;
+    z-index: 2;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 2px;
+  }
+
+  .conversionFlowCard__engineCompany{
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: clamp(24px, 3vw, 28px);
+    font-style: italic;
+    font-weight: 700;
+    color: rgba(255,255,255,0.98);
+    text-shadow: 0 0 20px rgba(90,90,255,0.35);
+  }
+
+  .conversionFlowCard__engineSub{
+    font-family: var(--font-body);
+    font-size: clamp(12px, 1.15vw, 13px);
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+  }
+
+  /* RIGHT panel result typography */
+  .conversionFlowCard__resultWrap{
+    margin-top: 10px;
+  }
+
+  .conversionFlowCard__bigNumber{
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(44px, 5vw, 56px);
+    line-height: 1;
+    color: rgba(255,255,255,0.98);
+    text-shadow:
+      0 0 18px rgba(39,174,96,0.30),
+      0 0 52px rgba(39,174,96,0.10);
+    filter: blur(2px);
+    will-change: transform, filter;
+  }
+
+  .conversionFlowCard__resultSub{
+    margin-top: 8px;
+    font-size: clamp(12px, 1.5vw, 14px);
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.01em;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  /* CSS-only gear */
+  .conversionFlowCard__gearWrap{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index: 1;
+    pointer-events:none;
+  }
+
+  .gear{
+    position:absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    opacity: 0.12;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.0) 55%),
+      repeating-conic-gradient(from 0deg,
+        rgba(255,255,255,0.95) 0 10deg,
+        rgba(255,255,255,0.0) 10deg 20deg);
+    filter: drop-shadow(0 0 10px rgba(210,210,255,0.25));
+    animation: spin 8s linear infinite;
+    will-change: transform;
+  }
+
+  .gear--small{
+    width: 40px;
+    height: 40px;
+    opacity: 0.14;
+    border-radius: 14px;
+    animation-duration: 12s;
+    animation-direction: reverse;
+  }
+
+  @keyframes spin{
+    to{ transform: rotate(360deg); }
+  }
+
+  /* Throughput dots */
+  .conversionFlowCard__throughput{
+    position:absolute;
+    left: 18px;
+    right: 18px;
+    top: 50%;
+    height: 22px;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events:none;
+  }
+
+  .tp{
+    position:absolute;
+    left: 0%;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px rgba(255,100,80,0.8);
+    opacity: 0;
+    will-change: transform, opacity, background-color;
+    animation: tpRelay 1.05s ease-in-out infinite;
+  }
+
+  .tp1{ animation-delay: 0s;  }
+  .tp2{ animation-delay: 0.22s; }
+  .tp3{ animation-delay: 0.44s; }
+  .tp4{ animation-delay: 0.66s; }
+  .tp5{ animation-delay: 0.88s; }
+  .tp6{ animation-delay: 1.10s; }
+
+  @keyframes tpRelay{
+    0%{
+      opacity: 0;
+      transform: translate(-50%, -50%) translateX(-8px);
+      background: #ff6a5a;
+      box-shadow: 0 0 10px rgba(255,100,80,0.9);
+      filter: saturate(1);
+    }
+    12%{
+      opacity: 1;
+    }
+    45%{
+      background: #1400ff;
+      box-shadow: 0 0 12px rgba(70,90,255,0.95);
+      filter: saturate(1.25);
+    }
+    75%{
+      background: #27AE60;
+      box-shadow: 0 0 12px rgba(39,174,96,0.9);
+    }
+    95%{
+      opacity: 0;
+      transform: translate(-50%, -50%) translateX(150px);
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+
+  /* Incoming traffic dots */
+  .conversionFlowCard__stream{
+    position:absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 36px;
+    height: 22px;
+    pointer-events:none;
+  }
+
+  .conversionFlowCard__stream--incoming{
+    /* no-op hook for readability */
+  }
+
+  .dot{
+    position:absolute;
+    left: 0px;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) translateX(-10px);
+    opacity: 0;
+    box-shadow: 0 0 6px rgba(255,100,80,0.8);
+    background: rgba(255,255,255,0.9);
+    will-change: transform, opacity;
+    animation-name: trafficWave;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  /* Vary speeds + delays */
+  .d1{ animation-duration: 1.35s; animation-delay: 0s;   }
+  .d2{ animation-duration: 1.15s; animation-delay: 0.2s; }
+  .d3{ animation-duration: 1.30s; animation-delay: 0.4s; }
+  .d4{ animation-duration: 0.95s; animation-delay: 0.6s; }
+  .d5{ animation-duration: 1.20s; animation-delay: 0.8s; }
+  .d6{ animation-duration: 1.40s; animation-delay: 1.0s; }
+  .d7{ animation-duration: 1.05s; animation-delay: 1.2s; }
+  .d8{ animation-duration: 1.25s; animation-delay: 1.4s; }
+
+  @keyframes trafficWave{
+    0%{
+      opacity: 0;
+      transform: translate(-50%, -50%) translateX(-14px);
+    }
+    10%{ opacity: 1; }
+    60%{
+      opacity: 1;
+      transform: translate(-50%, -50%) translateX(88px) translateY(-6px);
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 0 6px rgba(255,100,80,0.85);
+    }
+    85%{
+      opacity: 0;
+      transform: translate(-50%, -50%) translateX(118px) translateY(5px);
+    }
+    100%{
+      opacity: 0;
+      transform: translate(-50%, -50%) translateX(118px) translateY(5px);
+    }
+  }
+
+  /* Arrows overlay */
+  .conversionFlowCard__arrows{
+    position:absolute;
+    inset:0;
+    z-index: 5;
+    pointer-events:none;
+  }
+
+  .conversionFlowCard__arrow{
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity: 1;
+  }
+
+  .conversionFlowCard__arrow--left{
+    left: calc(33.333% - 10px);
+  }
+
+  .conversionFlowCard__arrow--right{
+    left: calc(66.666% - 10px);
+  }
+
+  .bolt{
+    font-size: 20px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.92);
+    text-shadow:
+      0 0 10px rgba(255,255,255,0.35),
+      0 0 22px rgba(255,70,70,0.45);
+    animation: boltPulse 0.8s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+
+  .bolt--green{
+    font-size: 24px;
+    color: rgba(39,174,96,0.95);
+    text-shadow:
+      0 0 10px rgba(255,255,255,0.18),
+      0 0 24px rgba(39,174,96,0.45);
+    animation-duration: 0.5s;
+  }
+
+  @keyframes boltPulse{
+    0%{ opacity: 0.4; transform: translateY(-1px); }
+    50%{ opacity: 1; transform: translateY(0px); }
+    100%{ opacity: 0.4; transform: translateY(-1px); }
+  }
+
+  /* Rising sparkles */
+  .conversionFlowCard__sparkles{
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 18px;
+    height: 54px;
+    pointer-events:none;
+    z-index: 2;
+  }
+
+  .spark{
+    position:absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    opacity: 0;
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px rgba(255,255,255,0.35);
+    animation: sparkleFloat 2s ease-out infinite;
+  }
+
+  .s1{ left: 22%; animation-delay: 0s; }
+  .s2{ left: 44%; animation-delay: 0.4s; }
+  .s3{ left: 66%; animation-delay: 0.8s; }
+  .s4{ left: 82%; animation-delay: 1.2s; }
+
+  @keyframes sparkleFloat{
+    0%{ opacity: 0; transform: translateX(-50%) translateY(0px) scale(0.85); }
+    10%{ opacity: 0.6; }
+    80%{ opacity: 0.25; }
+    100%{ opacity: 0; transform: translateX(-50%) translateY(-54px) scale(1); }
+  }
+
+  /* Entry animation (vanilla JS adds classes) */
+  .conversionFlowCard[data-state="hidden"]{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .conversionFlowCard[data-state="visible"]{
+    opacity: 1;
+    transform: translateY(0px);
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.7s ease;
+  }
+
+  .conversionFlowCard__panel{
+    will-change: transform, opacity;
+  }
+
+  .conversionFlowCard__panel[data-anim="none"]{
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 639px){
+    /* Keep the 3 panels in ONE ROW (same as laptop) */
+    .conversionFlowCard{
+      border-radius: 16px;
+    }
+
+    .conversionFlowCard__panels{
+      flex-direction: row;
+      height: 140px;
+      border-radius: 16px;
+    }
+
+    .conversionFlowCard__panel{
+      min-height: 0;
+      padding: 12px 12px 10px 12px;
+    }
+
+    /* Typography scale down */
+    .conversionFlowCard__label{
+      font-size: 9px;
+      letter-spacing: 0.18em;
+    }
+
+    .conversionFlowCard__mainText{
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .conversionFlowCard__engineCompany{
+      font-size: 20px;
+    }
+    .conversionFlowCard__engineSub{
+      font-size: 11px;
+    }
+
+    .conversionFlowCard__bigNumber{
+      font-size: 40px;
+    }
+
+    .conversionFlowCard__resultSub{
+      font-size: 12px;
+    }
+
+    .conversionFlowCard__microStat{
+      font-size: 10.5px;
+    }
+
+    /* Arrows stay between panels (left: join 33%, right: join 66%) */
+    .conversionFlowCard__arrow--left{
+      left: calc(33.333% - 10px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .conversionFlowCard__arrow--right{
+      left: calc(66.666% - 10px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .bolt, .bolt--green{
+      font-size: 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .conversionFlowCard__engine::before{ animation: none !important; }
+    .gear{ animation: none !important; }
+    .tp{ animation: none !important; opacity: 0.2; }
+    .dot{ animation: none !important; opacity: 0.4; }
+    .bolt{ animation: none !important; }
+    .spark{ animation: none !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const animateHero = () => {
+    const tl = gsap.timeline();
+
+    tl.to('#hero-eyebrow', { opacity: 1, duration: 0.5, y: 0, ease: 'power3.out' })
+      .to('.hero-word', {
+        opacity: 1,
+        y: 0,
+        stagger: 0.04,
+        duration: 0.5,
+        ease: 'power3.out'
+      }, '-=0.4')
+      .to('#scribble-path-1', {
+        strokeDashoffset: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3')
+      .to('#scribble-path-2', {
+        strokeDashoffset: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.5')
+      .to('.hero-highlight', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'back.out(1.2)'
+      }, '-=0.6')
+      .to('#hero-description', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.4')
+      .to('#hero-graphic', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.4')
+      .to('#hero-btns', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.4');
+  };
+
+  window.addEventListener('loaderComplete', () => {
+    animateHero();
+
+    // Preserve the existing hero parallax (glow + mesh sphere)
+    const hero = document.getElementById('hero');
+    const glowSpot = document.getElementById('hero-glow-spot');
+    const meshSphere = document.querySelector('.mesh-sphere');
+    if (hero) {
+      const prefersReducedMotion = () =>
+        window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const glowX = glowSpot ? gsap.quickTo(glowSpot, 'x', { duration: 0.65, ease: 'power2.out' }) : null;
+      const glowY = glowSpot ? gsap.quickTo(glowSpot, 'y', { duration: 0.65, ease: 'power2.out' }) : null;
+
+      const meshX = meshSphere ? gsap.quickTo(meshSphere, 'x', { duration: 0.75, ease: 'power1.out' }) : null;
+      const meshY = meshSphere ? gsap.quickTo(meshSphere, 'y', { duration: 0.75, ease: 'power1.out' }) : null;
+
+      const onMove = (e) => {
+        if (prefersReducedMotion()) return;
+        const rect = hero.getBoundingClientRect();
+        const mx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const my = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        if (glowX) glowX(mx * 18);
+        if (glowY) glowY(my * 12);
+        if (meshX) meshX(mx * 20);
+        if (meshY) meshY(my * 15);
+      };
+
+      const onLeave = () => {
+        if (prefersReducedMotion()) return;
+        if (glowSpot) gsap.to(glowSpot, { x: 0, y: 0, duration: 0.6, ease: 'power2.out' });
+        if (meshSphere) gsap.to(meshSphere, { x: 0, y: 0, duration: 0.7, ease: 'power1.out' });
+      };
+
+      hero.addEventListener('mousemove', onMove);
+      hero.addEventListener('mouseleave', onLeave);
+    }
+
+    // === Vanilla-only entry animation + count-up for the conversion flow card ===
+    const card = document.getElementById('hero-graphic');
+    if (!card) return;
+
+    const prefersReducedMotion = () =>
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const panels = card.querySelectorAll('.conversionFlowCard__panel');
+    const numberEl = card.querySelector('.conversionFlowCard__bigNumber');
+    const final = numberEl ? Number(numberEl.getAttribute('data-final') || '184') : 184;
+
+    // Hidden by default state (CSS uses data-state)
+    card.dataset.state = 'hidden';
+
+    const countUp = () => {
+      if (!numberEl) return;
+      if (prefersReducedMotion()) {
+        numberEl.textContent = `+${final}%`;
+        return;
+      }
+
+      const duration = 2200;
+      const start = performance.now();
+      const from = 0;
+      const to = final;
+
+      const blurStep = (val) => {
+        // blur→sharp as it settles
+        const p = Math.min(1, Math.max(0, val / to));
+        const blur = 2 * (1 - p);
+        numberEl.style.filter = `blur(${blur.toFixed(2)}px)`;
+      };
+
+      const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = easeOutCubic(t);
+        const current = Math.round(from + (to - from) * eased);
+
+        numberEl.textContent = `+${current}%`;
+        blurStep(current);
+
+        if (t < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          // brief scale pulse
+          numberEl.style.transition = 'transform 200ms ease-out, filter 220ms ease-out';
+          numberEl.style.transform = 'scale(1.08)';
+          numberEl.offsetHeight; // force reflow
+          setTimeout(() => {
+            numberEl.style.transform = 'scale(1)';
+          }, 200);
+        }
+      };
+
+      // reset
+      numberEl.style.filter = 'blur(2px)';
+      numberEl.style.transform = 'scale(1)';
+      numberEl.style.transition = 'none';
+      requestAnimationFrame(tick);
+    };
+
+    const runEntry = () => {
+      if (card.dataset.state === 'visible') return;
+
+      card.dataset.state = 'visible';
+
+      const reduced = prefersReducedMotion();
+
+      if (panels && panels.length) {
+        // Panel entry sequence: left 100ms, mid scale 200ms, right 300ms
+        panels[0].style.transition = reduced ? 'none' : 'transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.55s ease';
+        panels[0].style.opacity = '0';
+        panels[0].style.transform = 'translateX(-18px)';
+
+        panels[1].style.transition = reduced ? 'none' : 'transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.55s ease';
+        panels[1].style.opacity = '0';
+        panels[1].style.transform = 'scale(0.9)';
+
+        panels[2].style.transition = reduced ? 'none' : 'transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.55s ease';
+        panels[2].style.opacity = '0';
+        panels[2].style.transform = 'translateX(18px)';
+
+        const leftDelay = reduced ? 0 : 100;
+        const midDelay = reduced ? 0 : 200;
+        const rightDelay = reduced ? 0 : 300;
+
+        setTimeout(() => {
+          panels[0].style.opacity = '1';
+          panels[0].style.transform = 'translateX(0)';
+        }, leftDelay);
+
+        setTimeout(() => {
+          panels[1].style.opacity = '1';
+          panels[1].style.transform = 'scale(1)';
+        }, midDelay);
+
+        setTimeout(() => {
+          panels[2].style.opacity = '1';
+          panels[2].style.transform = 'translateX(0)';
+        }, rightDelay);
+      }
+
+      // Count-up starts at 500ms delay
+      setTimeout(() => countUp(), reduced ? 0 : 500);
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          runEntry();
+          io.disconnect();
+          break;
+        }
+      }
+    }, { threshold: 0.35 });
+
+    io.observe(card);
+  });
+
+</script>
