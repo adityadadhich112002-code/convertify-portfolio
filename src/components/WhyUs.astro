@@ -274,7 +274,6 @@
     }
 
     // --- Winding White Aura Line Logic (Astro Typesafe) ---
-    let animationCompleted = false;
     let pulseTimeline: gsap.core.Timeline | null = null;
 
     const updateWeb = (_isResize = false) => {
@@ -434,26 +433,6 @@
       glowPath.style.opacity = '1';
       corePath.style.opacity = '1';
 
-      if (animationCompleted) {
-        // If already completed, just draw the full line and active states without animating
-        glowPath.style.strokeDasharray = `${L}`;
-        glowPath.style.strokeDashoffset = '0';
-        corePath.style.strokeDasharray = `${L}`;
-        corePath.style.strokeDashoffset = '0';
-        
-        cardOrder.forEach(card => card.classList.add('active'));
-        
-        const arrowHead = document.getElementById('web-arrow-head');
-        if (arrowHead) {
-          const p = corePath.getPointAtLength(L);
-          const pPrev = corePath.getPointAtLength(Math.max(0, L - 6));
-          const angle = Math.atan2(p.y - pPrev.y, p.x - pPrev.x) * 180 / Math.PI;
-          arrowHead.setAttribute('transform', `translate(${p.x}, ${p.y}) rotate(${angle})`);
-          (arrowHead as any).style.opacity = '1';
-        }
-        return;
-      }
-
       // Set dash values to the path length L so it draws in as a solid glowing path that stays visible once passed
       glowPath.style.strokeDasharray = `${L}`;
       corePath.style.strokeDasharray = `${L}`;
@@ -469,13 +448,14 @@
         distances.push(totalDist);
       }
 
-      // Create timeline triggered by the grid container that plays automatically once reached
+      // Create scroll-scrubbed timeline with smooth catch-up
       pulseTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: '.why-grid-container',
-          start: 'top 75%',
-          toggleActions: 'play none none none',
-          once: true
+          start: isMobile ? 'top 85%' : 'top 80%',
+          end: isMobile ? 'bottom 70%' : 'bottom 60%',
+          scrub: 1, // Smooth catch-up over 1 second, allows proceeding and coming back
+          invalidateOnRefresh: true
         },
         onUpdate: function() {
           const progress = this.progress();
@@ -509,9 +489,6 @@
               (arrowHead as any).style.opacity = '0';
             }
           }
-        },
-        onComplete: () => {
-          animationCompleted = true;
         }
       });
 
@@ -524,11 +501,11 @@
 
       pulseTimeline.fromTo(glowPath,
         { strokeDashoffset: L },
-        { strokeDashoffset: 0, duration: 1.0, ease: 'power2.out' },
+        { strokeDashoffset: 0, ease: 'none' },
         0
       ).fromTo(corePath,
         { strokeDashoffset: L },
-        { strokeDashoffset: 0, duration: 1.0, ease: 'power2.out' },
+        { strokeDashoffset: 0, ease: 'none' },
         0
       );
     };
