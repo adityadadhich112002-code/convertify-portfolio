@@ -1,7 +1,7 @@
 ---
 ---
 
-<section id="why" class="relative bg-canvas py-24 md:py-32 px-6 md:px-16 overflow-visible select-none">
+<section id="why" class="relative bg-canvas py-[55px] md:py-32 px-6 md:px-16 overflow-visible select-none">
   <!-- Dynamic glow in section -->
   <div class="absolute top-[30%] right-[10%] w-[400px] h-[400px] bg-brand-blue/5 blur-[120px] pointer-events-none" aria-hidden="true"></div>
 
@@ -158,7 +158,7 @@
 
 <style>
   .why-card {
-    background-color: rgba(9, 9, 9, 0.4) !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
     backdrop-filter: blur(16px) saturate(2) !important;
     -webkit-backdrop-filter: blur(16px) saturate(2) !important;
     border: 1px solid rgba(255, 255, 255, 0.06) !important;
@@ -251,12 +251,6 @@
         scrollTrigger: {
           trigger: '.why-grid',
           start: 'top 75%'
-        },
-        onComplete: () => {
-          if (!webInitialized) {
-            updateWeb();
-            webInitialized = true;
-          }
         }
       }
     );
@@ -266,7 +260,8 @@
     const isTouch = window.matchMedia('(hover: none)').matches;
 
     if (!isTouch) {
-      spotlightCards.forEach(card => {
+      spotlightCards.forEach(cardNode => {
+        const card = cardNode as HTMLElement;
         card.addEventListener('mousemove', (e: any) => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
@@ -279,9 +274,10 @@
     }
 
     // --- Winding White Aura Line Logic (Astro Typesafe) ---
+    let animationCompleted = false;
     let pulseTimeline: gsap.core.Timeline | null = null;
 
-    const updateWeb = (isResize = false) => {
+    const updateWeb = (_isResize = false) => {
       const gridContainer = document.querySelector('.why-grid-container');
       const grid = document.querySelector('.why-grid');
       const railPath = document.getElementById('web-rail-path') as SVGPathElement | null;
@@ -292,6 +288,12 @@
       
       const cards = Array.from(grid.querySelectorAll('.why-card')) as HTMLElement[];
       if (cards.length < 6) return;
+
+      // Temporarily override transforms to get static layout positions
+      const originalTransforms = cards.map(card => card.style.transform);
+      cards.forEach(card => {
+        card.style.setProperty('transform', 'none', 'important');
+      });
       
       const gridRect = gridContainer.getBoundingClientRect();
       const centers = cards.map(card => {
@@ -302,29 +304,47 @@
         };
       });
 
+      // Restore original transforms
+      cards.forEach((card, idx) => {
+        card.style.transform = originalTransforms[idx];
+      });
+
       // Retrieve Confidence anchor word — start 6px below the bottom so the line never overlaps the text
-      const confidenceSpan = document.querySelector('.why-header-highlight');
+      const confidenceSpan = document.querySelector('.why-header-highlight') as HTMLElement | null;
       let startPoint = { x: gridRect.width * 0.65, y: -65 };
       if (confidenceSpan) {
+        const originalSpanTransform = confidenceSpan.style.transform;
+        confidenceSpan.style.setProperty('transform', 'none', 'important');
+        
         const confRect = confidenceSpan.getBoundingClientRect();
         startPoint = {
           x: confRect.left - gridRect.left + confRect.width / 2,
           y: confRect.bottom - gridRect.top + 6
         };
+        
+        confidenceSpan.style.transform = originalSpanTransform;
       }
 
-      // Line ends just below the last grid card on ALL layouts — before the Trust section begins
+      const isMobile = window.innerWidth < 768;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
+      // Line ends in the horizontal center of the grid container (trust card center)
       const lastCardRect = cards[5].getBoundingClientRect();
+      const bottomOffset = isMobile ? 35 : 65;
       const gridFinal = {
-        x: lastCardRect.left - gridRect.left + lastCardRect.width / 2,
-        y: lastCardRect.bottom - gridRect.top + 80   // 80px below the card's bottom edge
+        x: gridRect.width / 2,
+        y: lastCardRect.bottom - gridRect.top + bottomOffset
+      };
+
+      const verticalSegmentLength = isMobile ? 20 : 30;
+      const penultimatePoint = {
+        x: gridFinal.x,
+        y: gridFinal.y - verticalSegmentLength
       };
 
       // Determine winding path dynamically based on columns
       let points = [];
       let cardOrder = [];
-      const isMobile = window.innerWidth < 768;
-      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
 
       if (isMobile) {
         // Mobile: 1 column, line ends below last card
@@ -336,6 +356,7 @@
           { x: centers[3].x + 20, y: centers[3].y }, // Brand
           { x: centers[4].x - 20, y: centers[4].y }, // Partners
           { x: centers[5].x + 20, y: centers[5].y }, // Websites
+          penultimatePoint,
           gridFinal
         ];
         cardOrder = [ cards[0], cards[1], cards[2], cards[3], cards[4], cards[5] ];
@@ -349,6 +370,7 @@
           centers[3],  // Brand
           centers[5],  // Websites
           centers[4],  // Partners
+          penultimatePoint,
           gridFinal
         ];
         cardOrder = [ cards[1], cards[0], cards[2], cards[3], cards[5], cards[4] ];
@@ -362,6 +384,7 @@
           centers[3],  // Brand
           centers[4],  // Partners
           centers[5],  // Websites
+          penultimatePoint,
           gridFinal
         ];
         cardOrder = [ cards[2], cards[1], cards[0], cards[3], cards[4], cards[5] ];
@@ -411,6 +434,26 @@
       glowPath.style.opacity = '1';
       corePath.style.opacity = '1';
 
+      if (animationCompleted) {
+        // If already completed, just draw the full line and active states without animating
+        glowPath.style.strokeDasharray = `${L}`;
+        glowPath.style.strokeDashoffset = '0';
+        corePath.style.strokeDasharray = `${L}`;
+        corePath.style.strokeDashoffset = '0';
+        
+        cardOrder.forEach(card => card.classList.add('active'));
+        
+        const arrowHead = document.getElementById('web-arrow-head');
+        if (arrowHead) {
+          const p = corePath.getPointAtLength(L);
+          const pPrev = corePath.getPointAtLength(Math.max(0, L - 6));
+          const angle = Math.atan2(p.y - pPrev.y, p.x - pPrev.x) * 180 / Math.PI;
+          arrowHead.setAttribute('transform', `translate(${p.x}, ${p.y}) rotate(${angle})`);
+          (arrowHead as any).style.opacity = '1';
+        }
+        return;
+      }
+
       // Set dash values to the path length L so it draws in as a solid glowing path that stays visible once passed
       glowPath.style.strokeDasharray = `${L}`;
       corePath.style.strokeDasharray = `${L}`;
@@ -426,48 +469,49 @@
         distances.push(totalDist);
       }
 
-      // Create scroll-scrubbed timeline triggered by the grid container for perfect card scroll sync
+      // Create timeline triggered by the grid container that plays automatically once reached
       pulseTimeline = gsap.timeline({
         scrollTrigger: {
-          trigger: '#why',
-          // Mobile: top 25% = header at 75% from bottom | Desktop: top 20% = header at 80% from bottom
-          start: isMobile ? 'top 25%' : 'top 20%',
-          end: isMobile ? 'bottom 60%' : 'bottom 55%',
-          scrub: true,           // Instant scrub: lock-step with scrollbar with no catch-up delay
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            // Toggle active state for cards
-            cardOrder.forEach((card, idx) => {
-              const startTime = distances[idx] / totalDist;
-              const endTime = distances[idx + 1] / totalDist;
-              // The boundary of the box is touched at about 55% of the distance from previous node to current node
-              const boundaryTime = startTime + 0.55 * (endTime - startTime);
+          trigger: '.why-grid-container',
+          start: 'top 75%',
+          toggleActions: 'play none none none',
+          once: true
+        },
+        onUpdate: function() {
+          const progress = this.progress();
+          
+          // Toggle active state for cards
+          cardOrder.forEach((card, idx) => {
+            const startTime = distances[idx] / totalDist;
+            const endTime = distances[idx + 1] / totalDist;
+            const boundaryTime = startTime + 0.55 * (endTime - startTime);
 
-              if (self.progress >= boundaryTime) {
-                card.classList.add('active');
-              } else {
-                card.classList.remove('active');
-              }
-            });
+            if (progress >= boundaryTime) {
+              card.classList.add('active');
+            } else {
+              card.classList.remove('active');
+            }
+          });
 
-            // Animate arrow head to follow the tip of the line
-            const arrowHead = document.getElementById('web-arrow-head');
-            if (arrowHead) {
-              const pathLength = corePath.getTotalLength();
-              const currentLength = self.progress * pathLength;
-              
-              if (currentLength > 8) {
-                // Sample two close points to get the tangent direction
-                const p = corePath.getPointAtLength(currentLength);
-                const pPrev = corePath.getPointAtLength(Math.max(0, currentLength - 6));
-                const angle = Math.atan2(p.y - pPrev.y, p.x - pPrev.x) * 180 / Math.PI;
-                arrowHead.setAttribute('transform', `translate(${p.x}, ${p.y}) rotate(${angle})`);
-                (arrowHead as SVGElement).style.opacity = '1';
-              } else {
-                (arrowHead as SVGElement).style.opacity = '0';
-              }
+          // Animate arrow head to follow the tip of the line
+          const arrowHead = document.getElementById('web-arrow-head');
+          if (arrowHead) {
+            const pathLength = corePath.getTotalLength();
+            const currentLength = progress * pathLength;
+            
+            if (currentLength > 8) {
+              const p = corePath.getPointAtLength(currentLength);
+              const pPrev = corePath.getPointAtLength(Math.max(0, currentLength - 6));
+              const angle = Math.atan2(p.y - pPrev.y, p.x - pPrev.x) * 180 / Math.PI;
+              arrowHead.setAttribute('transform', `translate(${p.x}, ${p.y}) rotate(${angle})`);
+              (arrowHead as any).style.opacity = '1';
+            } else {
+              (arrowHead as any).style.opacity = '0';
             }
           }
+        },
+        onComplete: () => {
+          animationCompleted = true;
         }
       });
 
@@ -480,14 +524,18 @@
 
       pulseTimeline.fromTo(glowPath,
         { strokeDashoffset: L },
-        { strokeDashoffset: 0, ease: 'none' },
+        { strokeDashoffset: 0, duration: 1.0, ease: 'power2.out' },
         0
       ).fromTo(corePath,
         { strokeDashoffset: L },
-        { strokeDashoffset: 0, ease: 'none' },
+        { strokeDashoffset: 0, duration: 1.0, ease: 'power2.out' },
         0
       );
     };
+
+    // Initialize line immediately
+    updateWeb();
+    webInitialized = true;
 
     let resizeTimer: any;
     window.addEventListener('resize', () => {

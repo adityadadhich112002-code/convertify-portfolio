@@ -1,7 +1,7 @@
 ---
 ---
 
-<section id="pain" class="relative bg-canvas py-24 md:py-32 px-6 md:px-16 overflow-hidden select-none flex items-center justify-center">
+<section id="pain" class="relative bg-canvas py-[55px] md:py-32 px-6 md:px-16 overflow-hidden select-none flex items-center justify-center">
   <!-- Glowing spot in pain section (Pure Red color theme for problem context) -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px] h-[80%] bg-radial from-red-600/7 via-red-600/1.5 to-transparent blur-[120px] pointer-events-none" aria-hidden="true"></div>
 
@@ -60,17 +60,17 @@
     <!-- Right Column: Interactive Diagnostic Funnel Console -->
     <div class="pain-right lg:col-span-6 flex justify-center opacity-0 translate-y-8">
       <!-- Terminal-style glass console -->
-      <div class="w-full max-w-[450px] bg-surface-2/10 backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden relative group">
+      <div class="w-full max-w-[450px] bg-[#0f0f13]/85 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.85)] overflow-hidden relative group">
         
         <!-- Header bar -->
-        <div class="px-5 py-3.5 border-b border-white/5 bg-white/3 flex items-center justify-between">
+        <div class="px-5 py-3.5 border-b border-white/20 bg-white/[0.02] flex items-center justify-between relative z-20">
           <div class="flex items-center gap-1.5">
-            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
           </div>
-          <span class="text-[9px] font-mono tracking-wider text-white/30 uppercase">funnel_leak_diagnostic.sh</span>
-          <div class="w-10"></div> <!-- spacing -->
+          <span class="text-[11px] font-mono text-white/40 tracking-wider">funnel_leak_diagnostic.sh</span>
+          <div class="w-10"></div>
         </div>
 
         <!-- Diagnostic Screen Info -->

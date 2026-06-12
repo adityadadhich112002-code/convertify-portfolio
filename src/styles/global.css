@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #090909;
+  --color-canvas: #000000;
   --color-surface-1: #141414;
   --color-surface-2: #1c1c1c;
   --color-hairline: #262626;
@@ -46,7 +46,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #090909;
+    background-color: #000000;
     color: #ffffff;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
@@ -54,7 +54,7 @@
   }
 
   body {
-    background-color: #090909;
+    background-color: #000000;
     color: #ffffff;
     overflow-x: hidden;
   }
@@ -65,13 +65,13 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #090909;
+    background: #000000;
   }
 
   ::-webkit-scrollbar-thumb {
     background: #1c1c1c;
     border-radius: 4px;
-    border: 2px solid #090909;
+    border: 2px solid #000000;
   }
 
   ::-webkit-scrollbar-thumb:hover {
