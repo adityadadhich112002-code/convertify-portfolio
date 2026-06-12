@@ -1,6 +1,6 @@
 ------
 
-<section id="hero" class="relative min-h-screen flex flex-col items-center justify-between pt-[115px] md:pt-36 pb-[37px] px-6 md:px-16 bg-black md:bg-canvas overflow-hidden select-none">
+<section id="hero" class="relative min-h-screen flex flex-col items-center justify-between pt-[92px] md:pt-[115px] pb-[37px] px-6 md:px-16 bg-black md:bg-canvas overflow-hidden select-none">
   <!-- Stripe-like Moving Mesh Gradient Background -->
   <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
     <div class="noise-bg"></div>
@@ -52,101 +52,104 @@
     </h1>
 
     <div class="flex flex-col items-center gap-8 w-full">
-      <!-- Condensed Subhead Copy (Exactly 2 lines total) -->
-      <div id="hero-description" class="opacity-0 flex flex-col items-center gap-2 max-w-[620px]">
-        <p class="text-body-lg text-white font-medium tracking-tight">
+      <!-- Condensed Subhead Copy (Exactly 2 lines total) and Graphic -->
+      <div id="hero-description" class="opacity-0 flex flex-col items-center w-full max-w-[1080px]">
+        <!-- Subheading Line 1 -->
+        <p class="order-1 text-[15.3px] md:text-body-lg text-white font-medium tracking-tight max-w-[620px] text-center mb-6 md:mb-2">
           You don't have a traffic problem. You have a website conversion problem.
         </p>
-        <p class="text-[13px] md:text-[14px] text-white/40 leading-relaxed max-w-[500px]">
+
+        <!-- Premium, self-contained vanilla Conversion Flow (Traffic → Convertify Engine → Lift) -->
+        <div id="hero-graphic" class="order-2 md:order-3 conversionFlowCard opacity-0 relative w-full mb-6 md:mb-0" aria-label="Conversion flow visualization">
+
+
+          <div class="conversionFlowCard__panels" aria-hidden="true">
+            <!-- LEFT PANEL: TRAFFIC -->
+            <section class="conversionFlowCard__panel conversionFlowCard__panel--left">
+              <div class="conversionFlowCard__label">TRAFFIC</div>
+              <div class="conversionFlowCard__mainText">Ready to Convert</div>
+
+              <!-- Incoming traffic dots/particles -->
+              <div class="conversionFlowCard__stream conversionFlowCard__stream--incoming">
+                <span class="dot d1"></span>
+                <span class="dot d2"></span>
+                <span class="dot d3"></span>
+                <span class="dot d4"></span>
+                <span class="dot d5"></span>
+                <span class="dot d6"></span>
+                <span class="dot d7"></span>
+                <span class="dot d8"></span>
+              </div>
+
+              <div class="conversionFlowCard__microStat">Visitors/day</div>
+
+              <!-- soft fade to connect -->
+              <div class="conversionFlowCard__panelFadeRight" aria-hidden="true"></div>
+            </section>
+
+            <!-- MIDDLE PANEL: CONVERTIFY'S CONVERSION ENGINE -->
+            <section class="conversionFlowCard__panel conversionFlowCard__panel--mid">
+              <div class="conversionFlowCard__engine">
+                <!-- gears behind text -->
+                <div class="conversionFlowCard__gearWrap" aria-hidden="true">
+                  <div class="gear"></div>
+                  <div class="gear gear--small"></div>
+                </div>
+
+                <div class="conversionFlowCard__engineText">
+                  <div class="conversionFlowCard__engineCompany">Convertify</div>
+                  <div class="conversionFlowCard__engineSub">Conversion Engine</div>
+                </div>
+
+                <!-- throughput relay dots -->
+                <div class="conversionFlowCard__throughput" aria-hidden="true">
+                  <span class="tp tp1"></span>
+                  <span class="tp tp2"></span>
+                  <span class="tp tp3"></span>
+                  <span class="tp tp4"></span>
+                  <span class="tp tp5"></span>
+                  <span class="tp tp6"></span>
+                </div>
+              </div>
+            </section>
+
+            <!-- RIGHT PANEL: LIFT -->
+            <section class="conversionFlowCard__panel conversionFlowCard__panel--right">
+              <div class="conversionFlowCard__label conversionFlowCard__label--right">LIFT</div>
+
+              <div class="conversionFlowCard__engineText" style="gap:6px;">
+                <div class="conversionFlowCard__resultWrap">
+                  <div class="conversionFlowCard__bigNumber" data-final="184">+0%</div>
+                </div>
+                <div class="conversionFlowCard__resultSub">Avg conversion hike</div>
+              </div>
+
+              <div class="conversionFlowCard__sparkles" aria-hidden="true">
+                <span class="spark s1"></span>
+                <span class="spark s2"></span>
+                <span class="spark s3"></span>
+                <span class="spark s4"></span>
+              </div>
+
+              <div class="conversionFlowCard__microStat">Across 1000+ websites</div>
+            </section>
+          </div>
+
+          <!-- OVERLAID ARROWS on joins -->
+          <div class="conversionFlowCard__arrows" aria-hidden="true">
+            <div class="conversionFlowCard__arrow conversionFlowCard__arrow--left">
+              <span class="bolt">→</span>
+            </div>
+            <div class="conversionFlowCard__arrow conversionFlowCard__arrow--right">
+              <span class="bolt bolt--green">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subheading Line 2 -->
+        <p class="order-3 md:order-2 text-[13px] md:text-[14px] text-white/40 leading-relaxed max-w-[500px] text-center md:mb-8">
           Convertify unites 12+ global web design specialists across India, USA, and UK to build high-converting, trust-first client experiences.
         </p>
-      </div>
-
-      <!-- Premium, self-contained vanilla Conversion Flow (Traffic → Convertify Engine → Lift) -->
-      <div id="hero-graphic" class="conversionFlowCard opacity-0 relative" aria-label="Conversion flow visualization">
-
-
-        <div class="conversionFlowCard__panels" aria-hidden="true">
-          <!-- LEFT PANEL: TRAFFIC -->
-          <section class="conversionFlowCard__panel conversionFlowCard__panel--left">
-            <div class="conversionFlowCard__label">TRAFFIC</div>
-            <div class="conversionFlowCard__mainText">Ready to Convert</div>
-
-            <!-- Incoming traffic dots/particles -->
-            <div class="conversionFlowCard__stream conversionFlowCard__stream--incoming">
-              <span class="dot d1"></span>
-              <span class="dot d2"></span>
-              <span class="dot d3"></span>
-              <span class="dot d4"></span>
-              <span class="dot d5"></span>
-              <span class="dot d6"></span>
-              <span class="dot d7"></span>
-              <span class="dot d8"></span>
-            </div>
-
-            <div class="conversionFlowCard__microStat">Visitors/day</div>
-
-            <!-- soft fade to connect -->
-            <div class="conversionFlowCard__panelFadeRight" aria-hidden="true"></div>
-          </section>
-
-          <!-- MIDDLE PANEL: CONVERTIFY'S CONVERSION ENGINE -->
-          <section class="conversionFlowCard__panel conversionFlowCard__panel--mid">
-            <div class="conversionFlowCard__engine">
-              <!-- gears behind text -->
-              <div class="conversionFlowCard__gearWrap" aria-hidden="true">
-                <div class="gear"></div>
-                <div class="gear gear--small"></div>
-              </div>
-
-              <div class="conversionFlowCard__engineText">
-                <div class="conversionFlowCard__engineCompany">Convertify</div>
-                <div class="conversionFlowCard__engineSub">Conversion Engine</div>
-              </div>
-
-              <!-- throughput relay dots -->
-              <div class="conversionFlowCard__throughput" aria-hidden="true">
-                <span class="tp tp1"></span>
-                <span class="tp tp2"></span>
-                <span class="tp tp3"></span>
-                <span class="tp tp4"></span>
-                <span class="tp tp5"></span>
-                <span class="tp tp6"></span>
-              </div>
-            </div>
-          </section>
-
-          <!-- RIGHT PANEL: LIFT -->
-          <section class="conversionFlowCard__panel conversionFlowCard__panel--right">
-            <div class="conversionFlowCard__label conversionFlowCard__label--right">LIFT</div>
-
-            <div class="conversionFlowCard__engineText" style="gap:6px;">
-              <div class="conversionFlowCard__resultWrap">
-                <div class="conversionFlowCard__bigNumber" data-final="184">+0%</div>
-              </div>
-              <div class="conversionFlowCard__resultSub">Avg conversion hike</div>
-            </div>
-
-            <div class="conversionFlowCard__sparkles" aria-hidden="true">
-              <span class="spark s1"></span>
-              <span class="spark s2"></span>
-              <span class="spark s3"></span>
-              <span class="spark s4"></span>
-            </div>
-
-            <div class="conversionFlowCard__microStat">Across 1000+ websites</div>
-          </section>
-        </div>
-
-        <!-- OVERLAID ARROWS on joins -->
-        <div class="conversionFlowCard__arrows" aria-hidden="true">
-          <div class="conversionFlowCard__arrow conversionFlowCard__arrow--left">
-            <span class="bolt">→</span>
-          </div>
-          <div class="conversionFlowCard__arrow conversionFlowCard__arrow--right">
-            <span class="bolt bolt--green">→</span>
-          </div>
-        </div>
       </div>
 
       <!-- Buttons -->
