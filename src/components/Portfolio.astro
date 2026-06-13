@@ -6,7 +6,12 @@
   <!-- ─── SECTION HEADER ──────────────────────────────────────────── -->
   <div class="portfolio-header px-6 md:px-16 pt-24 md:pt-32 pb-6 md:pb-8 max-w-7xl mx-auto relative z-10">
 
-
+    <!-- Eyebrow -->
+    <span class="portfolio-eyebrow opacity-0 translate-y-4 flex items-center gap-3 text-[10px] md:text-[11px] font-display font-medium tracking-[0.25em] uppercase text-brand-blue mb-6">
+      <span class="w-5 h-[1px] bg-brand-blue/50"></span>
+      Our Work
+      <span class="w-5 h-[1px] bg-brand-blue/50"></span>
+    </span>
 
     <!-- MOBILE-ONLY: Click indicator helper (very subtle animating arrows, borderless and fast-loading) -->
     <div
@@ -746,14 +751,13 @@
       // ── Reusable play function (called on scroll + on click) ──
       const playReelAnimation = () => {
         // Kill any running tweens on these elements
-        gsap.killTweensOf([portfolioWord, portfolioShimmer, photoReel, ...Array.from(reelPhotos), '#portfolio-click-helper']);
+        gsap.killTweensOf([portfolioWord, portfolioShimmer, photoReel, ...Array.from(reelPhotos)]);
 
         // Reset state
         gsap.set(photoReel,       { opacity: 1 });
         gsap.set(reelPhotos,      { opacity: 0 });
         gsap.set(portfolioWord,   { opacity: 0, scaleY: 0.82, letterSpacing: '0.55em' });
         gsap.set(portfolioShimmer,{ opacity: 0, x: '-110%' });
-        gsap.set('#portfolio-click-helper', { opacity: 0, y: 10 });
 
         const tl = gsap.timeline({
           onComplete: () => {
@@ -764,14 +768,6 @@
               ease: 'sine.inOut',
               yoyo: true,
               repeat: -1
-            });
-            // Fade in click helper
-            gsap.to('#portfolio-click-helper', {
-              opacity: 0.85,
-              y: 0,
-              duration: 0.6,
-              ease: 'power2.out',
-              delay: 0.2
             });
           }
         });
