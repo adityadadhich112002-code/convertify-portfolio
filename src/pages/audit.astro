@@ -29,7 +29,7 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <!-- Terminal Window -->
-      <div class="pos-terminal-window w-full rounded-2xl overflow-hidden border border-white/12 shadow-[0_30px_80px_rgba(0,0,0,0.85)] relative bg-[#0f0f13]/85 backdrop-blur-2xl transition-all duration-500 min-h-[500px] md:min-h-[580px] flex flex-col justify-between shrink-0">
+      <div class="pos-terminal-window w-full rounded-2xl overflow-hidden border border-white/12 shadow-[0_30px_80px_rgba(0,0,0,0.85)] relative bg-[#0f0f13]/85 backdrop-blur-2xl transition-all duration-500 min-h-[440px] md:min-h-[560px] flex flex-col justify-between shrink-0">
         
         <!-- Specular reflection glare overlay -->
         <div class="glass-reflection absolute inset-0 pointer-events-none z-10 opacity-70"></div>
@@ -55,10 +55,10 @@ import Footer from '../components/Footer.astro';
         </div>
 
         <!-- Terminal Body / Steps Container -->
-        <div class="relative flex-1 p-6 md:p-10 flex flex-col justify-between overflow-hidden relative z-10">
+        <div class="relative flex-1 p-6 md:py-8 md:px-10 flex flex-col justify-start overflow-hidden relative z-10">
           
           <!-- Back button and step counter header -->
-          <div class="flex items-center justify-between font-mono text-[11px] text-white/40 mb-6">
+          <div class="flex items-center justify-between font-mono text-[11px] text-white/40 mb-5">
             <button id="back-btn" class="flex items-center gap-1.5 text-white/40 hover:text-white transition-colors py-1 px-2.5 rounded bg-white/5 border border-white/5 hover:border-white/15 opacity-0 pointer-events-none">
               <span>&larr;</span> <span>PREV_STEP</span>
             </button>
@@ -66,7 +66,7 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Wizard Forms Wrapper -->
-          <div id="wizard-steps-container" class="relative flex-grow flex items-center justify-center min-h-[280px]">
+          <div id="wizard-steps-container" class="relative flex-grow min-h-[280px]">
 
             <!-- STEP 1: INITIAL BRANCHING -->
             <div id="step-1" class="wizard-step active w-full flex flex-col gap-6">
@@ -74,14 +74,14 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#00ff88]">// INITIAL_QUALIFICATION</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Do you have a website?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                <button type="button" data-value="yes" class="step-option flex items-center justify-between p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.02] transition-all duration-300 text-left group">
-                  <span class="text-white font-bold text-lg group-hover:text-[#00ff88] transition-colors">Yes, I have a website</span>
-                  <span class="text-white/20 group-hover:text-white/50">&rarr;</span>
+              <div class="flex flex-col gap-4 mt-2">
+                <button type="button" data-value="yes" class="step-option flex flex-col items-start p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.02] transition-all duration-300 text-left group w-full">
+                  <span class="text-white font-bold text-lg mb-1 group-hover:text-[#00ff88] transition-colors">Yes, I have a website</span>
+                  <span class="text-white/40 text-xs font-mono">Run analysis on your existing domain & traffic.</span>
                 </button>
-                <button type="button" data-value="no" class="step-option flex items-center justify-between p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.02] transition-all duration-300 text-left group">
-                  <span class="text-white font-bold text-lg group-hover:text-[#ff007f] transition-colors">No, I'm starting fresh</span>
-                  <span class="text-white/20 group-hover:text-white/50">&rarr;</span>
+                <button type="button" data-value="no" class="step-option flex flex-col items-start p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.02] transition-all duration-300 text-left group w-full">
+                  <span class="text-white font-bold text-lg mb-1 group-hover:text-[#ff007f] transition-colors">No, I'm starting fresh</span>
+                  <span class="text-white/40 text-xs font-mono">Evaluate pre-launch structure & audience readiness.</span>
                 </button>
               </div>
             </div>
@@ -110,9 +110,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#00ff88]">// STACK_DETERMINATION</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What platform is your website built on?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
+              <div class="flex flex-col gap-2.5 mt-2">
                 {['Shopify', 'WordPress', 'Custom', 'Other'].map((platform) => (
-                  <button type="button" data-value={platform} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                  <button type="button" data-value={platform} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{platform}</span>
                     <span class="text-white/20 group-hover:text-white/50">&rarr;</span>
                   </button>
@@ -126,9 +126,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#00ff88]">// BUDGET_EXPOSURE</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your monthly ad spend?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
-                {['₹0 (Organic)', '₹10k–50k', '₹50k–2L', '₹2L–10L', '₹10L–50L'].map((spend, idx) => (
-                  <button type="button" data-value={spend} class={`step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white ${idx === 4 ? 'sm:col-span-2' : ''}`}>
+              <div class="flex flex-col gap-2.5 mt-2">
+                {['₹0 (Organic)', '₹10k–50k', '₹50k–2L', '₹2L–10L', '₹10L–50L'].map((spend) => (
+                  <button type="button" data-value={spend} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{spend}</span>
                     <span class="text-white/20">&rarr;</span>
                   </button>
@@ -143,15 +143,15 @@ import Footer from '../components/Footer.astro';
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What are your biggest website problems?</h2>
               </div>
               <div class="flex flex-col gap-3 mt-2">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="problems-multiselect-group">
+                <div class="flex flex-col gap-2.5" id="problems-multiselect-group">
                   {[
                     'Getting traffic but no sales',
                     'Website looks outdated',
                     'Poor mobile experience',
                     'Low trust / high bounce rate',
                     'Slow page speed'
-                  ].map((problem, idx) => (
-                    <button type="button" data-value={problem} class={`multiselect-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-white/20 transition-all text-left font-mono text-xs text-white/70 hover:text-white ${idx === 4 ? 'sm:col-span-2' : ''}`}>
+                  ].map((problem) => (
+                    <button type="button" data-value={problem} class="multiselect-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-white/20 transition-all text-left font-mono text-xs text-white/70 hover:text-white">
                       <span>{problem}</span>
                       <div class="w-4 h-4 rounded border border-white/30 flex items-center justify-center bg-transparent shrink-0">
                         <div class="w-2 h-2 rounded-sm bg-transparent check-fill"></div>
@@ -174,9 +174,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#00ff88]">// HORIZON_PARAMETERS</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">When do you want to start this project?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
+              <div class="flex flex-col gap-2.5 mt-2">
                 {['ASAP', '1–3 Days', 'This Month', 'Just Exploring'].map((timeline) => (
-                  <button type="button" data-value={timeline} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                  <button type="button" data-value={timeline} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{timeline}</span>
                     <span class="text-white/20">&rarr;</span>
                   </button>
@@ -190,9 +190,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#00ff88]">// INVESTMENT_ALLOCATION</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your planned website budget?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
+              <div class="flex flex-col gap-2.5 mt-2">
                 {['Less than ₹30k', '₹30k–60k', '₹60k–1L', '₹1L+'].map((budget) => (
-                  <button type="button" data-value={budget} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                  <button type="button" data-value={budget} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{budget}</span>
                     <span class="text-white/20">&rarr;</span>
                   </button>
@@ -206,9 +206,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#ff007f]">// BUSINESS_MODEL</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your business type?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
-                {['Ecommerce', 'Offline Business', 'Service', 'Personal Brand', 'Other'].map((btype, idx) => (
-                  <button type="button" data-value={btype} class={`step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white ${idx === 4 ? 'sm:col-span-2' : ''}`}>
+              <div class="flex flex-col gap-2.5 mt-2">
+                {['Ecommerce', 'Offline Business', 'Service', 'Personal Brand', 'Other'].map((btype) => (
+                  <button type="button" data-value={btype} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{btype}</span>
                     <span class="text-white/20">&rarr;</span>
                   </button>
@@ -222,9 +222,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#ff007f]">// MERCHANDISE_STATUS</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Do you currently sell online?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+              <div class="flex flex-col gap-2.5 mt-2">
                 {['Yes (Instagram)', 'No', 'Planning To'].map((sell) => (
-                  <button type="button" data-value={sell} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                  <button type="button" data-value={sell} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{sell}</span>
                     <span class="text-white/20">&rarr;</span>
                   </button>
@@ -232,21 +232,6 @@ import Footer from '../components/Footer.astro';
               </div>
             </div>
 
-            <!-- PATH B - STEP 4: PLANNED AD SPEND -->
-            <div id="step-4-b" class="wizard-step enter-right w-full flex flex-col gap-6">
-              <div class="flex flex-col gap-2">
-                <span class="font-mono text-xs text-[#ff007f]">// AD_BUDGET_PROJECTIONS</span>
-                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your planned monthly ad spend?</h2>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
-                {['₹0', '₹10k–50k', '₹50k–2L', '₹2L–10L', '₹10L–50L'].map((spend, idx) => (
-                  <button type="button" data-value={spend} class={`step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white ${idx === 4 ? 'sm:col-span-2' : ''}`}>
-                    <span>{spend}</span>
-                    <span class="text-white/20">&rarr;</span>
-                  </button>
-                ))}
-              </div>
-            </div>
 
             <!-- PATH B - STEP 5: TARGET AUDIENCE -->
             <div id="step-5-b" class="wizard-step enter-right w-full flex flex-col gap-6">
@@ -254,9 +239,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#ff007f]">// TARGET_GEOGRAPHICS</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Who is your target audience?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-2">
+              <div class="flex flex-col gap-2.5 mt-2">
                 {['India Only', 'International', 'Both'].map((audience) => (
-                  <button type="button" data-value={audience} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                  <button type="button" data-value={audience} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{audience}</span>
                     <span class="text-white/20">&rarr;</span>
                   </button>
@@ -270,9 +255,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#ff007f]">// TARGET_LAUNCH_HORIZON</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">When is your launch timeline?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
+              <div class="flex flex-col gap-2.5 mt-2">
                 {['ASAP', 'Within 2 Weeks', 'This Month', '1–3 Months'].map((timeline) => (
-                  <button type="button" data-value={timeline} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                  <button type="button" data-value={timeline} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{timeline}</span>
                     <span class="text-white/20">&rarr;</span>
                   </button>
@@ -286,9 +271,9 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#ff007f]">// INVESTMENT_BRACKET</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your planned website budget?</h2>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
+              <div class="flex flex-col gap-2.5 mt-2">
                 {['Less than ₹30k', '₹30k–60k', '₹60k–1L', '₹1L+'].map((budget) => (
-                  <button type="button" data-value={budget} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                  <button type="button" data-value={budget} class="step-option flex items-center justify-between py-3 px-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
                     <span>{budget}</span>
                     <span class="text-white/20">&rarr;</span>
                   </button>
@@ -300,16 +285,18 @@ import Footer from '../components/Footer.astro';
             <div id="step-8" class="wizard-step enter-right w-full flex flex-col gap-5">
               <div class="flex flex-col gap-1.5">
                 <span class="font-mono text-xs text-[#00ff88]">// LEAD_IDENTITY_LOCK</span>
-                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Where should we send your report?</h2>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What's your name and number?</h2>
               </div>
               <div class="flex flex-col gap-4 mt-2">
-                <div>
-                  <label for="lead-name" class="font-mono text-[10px] text-white/40 uppercase block mb-1">Your Name</label>
-                  <input type="text" id="lead-name" placeholder="John Smith" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] text-white text-sm font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_15px_rgba(0,255,136,0.08)] transition-all" />
-                </div>
-                <div>
-                  <label for="lead-whatsapp" class="font-mono text-[10px] text-white/40 uppercase block mb-1">WhatsApp Number</label>
-                  <input type="tel" id="lead-whatsapp" placeholder="E.g., 9876543210" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] text-white text-sm font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_15px_rgba(0,255,136,0.08)] transition-all" />
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="lead-name" class="font-mono text-[10px] text-white/40 uppercase block mb-1">Your Name</label>
+                    <input type="text" id="lead-name" placeholder="John Smith" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] text-white text-sm font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_15px_rgba(0,255,136,0.08)] transition-all" />
+                  </div>
+                  <div>
+                    <label for="lead-whatsapp" class="font-mono text-[10px] text-white/40 uppercase block mb-1">WhatsApp Number</label>
+                    <input type="tel" id="lead-whatsapp" placeholder="E.g., 9876543210" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] text-white text-sm font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_15px_rgba(0,255,136,0.08)] transition-all" />
+                  </div>
                 </div>
                 <div>
                   <label for="lead-brand" class="font-mono text-[10px] text-white/40 uppercase block mb-1">Brand Name / Project Name</label>
@@ -318,23 +305,23 @@ import Footer from '../components/Footer.astro';
                 <p id="capture-error" class="text-red-500 font-mono text-xs opacity-0 transition-opacity">Please complete all fields with valid information</p>
                 
                 <button type="button" id="submit-audit-btn" class="w-full py-4 bg-white text-black font-semibold rounded-xl hover:bg-[#00ff88] transition-all flex items-center justify-center gap-2 font-mono mt-2">
-                  RUN_ENGINE_SIMULATION &rarr;
+                  LAST STEP &rarr;
                 </button>
               </div>
             </div>
 
             <!-- SCORE REVEAL EXPERIENCE (APPLE PRODUCT REVEAL SCREEN) -->
-            <div id="step-reveal" class="wizard-step enter-right w-full flex flex-col items-center justify-center text-center gap-6 py-4">
+            <div id="step-reveal" class="wizard-step enter-right w-full flex flex-col items-center justify-start text-center gap-4 py-2">
               <!-- Animated Header Status -->
               <div class="flex flex-col gap-1 items-center">
                 <span class="font-mono text-[10px] text-white/30 uppercase tracking-[0.2em] animate-pulse">// GENERATING_CONVERSION_MATRICES</span>
-                <h3 id="reveal-title" class="text-white/60 font-mono text-xs uppercase tracking-widest mt-1">Website Health Audit</h3>
+                <h3 id="reveal-title" class="text-white/60 font-mono text-xs uppercase tracking-widest mt-0.5">Website Health Audit</h3>
               </div>
 
               <!-- Premium Gauge Area (Circle Ring & Large Score) -->
-              <div class="relative w-44 h-44 flex items-center justify-center shrink-0">
+              <div class="relative w-40 h-40 flex items-center justify-center shrink-0">
                 <!-- Outer glows -->
-                <div id="reveal-glow" class="absolute inset-4 rounded-full blur-[30px] opacity-40 z-0"></div>
+                <div id="reveal-glow" class="absolute inset-3 rounded-full blur-[24px] opacity-40 z-0"></div>
                 
                 <!-- Circular SVG Progress -->
                 <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -350,19 +337,19 @@ import Footer from '../components/Footer.astro';
                 </svg>
 
                 <div class="flex flex-col items-center justify-center z-10">
-                  <span id="reveal-score-text" class="text-white font-display text-5xl font-black leading-none tracking-tight">0</span>
-                  <span class="text-[9px] font-mono text-white/30 tracking-widest uppercase mt-1">/ 100</span>
+                  <span id="reveal-score-text" class="text-white font-display text-4xl font-black leading-none tracking-tight">0</span>
+                  <span class="text-[8px] font-mono text-white/30 tracking-widest uppercase mt-0.5">/ 100</span>
                 </div>
               </div>
 
               <!-- Rating Badge & Message -->
-              <div class="flex flex-col gap-2 items-center max-w-md">
-                <span id="reveal-badge" class="px-3.5 py-1 text-[10px] font-mono font-bold tracking-wider rounded-full border">CRITICAL</span>
+              <div class="flex flex-col gap-1.5 items-center max-w-md">
+                <span id="reveal-badge" class="px-3 py-0.5 text-[9px] font-mono font-bold tracking-wider rounded-full border">CRITICAL</span>
                 <p id="reveal-msg" class="text-white/90 text-sm font-semibold tracking-tight leading-snug px-4"></p>
               </div>
 
               <!-- Personalized Insights & Revenue Leakage Dashboard -->
-              <div class="w-full border border-white/5 bg-white/[0.01] rounded-xl p-4 text-left font-mono text-xs flex flex-col gap-2.5 max-w-md mx-auto">
+              <div class="w-full border border-white/5 bg-white/[0.01] rounded-xl p-3.5 text-left font-mono text-xs flex flex-col gap-2 max-w-md mx-auto">
                 <div class="flex justify-between border-b border-white/5 pb-2">
                   <span class="text-white/40">AUDIT_TYPE:</span>
                   <span id="reveal-type-val" class="text-white/80">Website Audit</span>
@@ -417,12 +404,12 @@ import Footer from '../components/Footer.astro';
   }
 
   /* Multi-step animations & transitions styling */
+  /* Multi-step animations & transitions styling */
   .wizard-step {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
     right: 0;
-    transform: translateY(-50%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -434,34 +421,34 @@ import Footer from '../components/Footer.astro';
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateY(-50%) translateX(0);
+    transform: translateX(0);
     z-index: 10;
   }
 
   /* Slide right out, slide left in classes */
   .wizard-step.exit-left {
-    transform: translateY(-50%) translateX(-120px);
+    transform: translateX(-120px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 
   .wizard-step.exit-right {
-    transform: translateY(-50%) translateX(120px);
+    transform: translateX(120px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 
   .wizard-step.enter-right {
-    transform: translateY(-50%) translateX(120px);
+    transform: translateX(120px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 
   .wizard-step.enter-left {
-    transform: translateY(-50%) translateX(-120px);
+    transform: translateX(-120px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -575,7 +562,6 @@ import Footer from '../components/Footer.astro';
     'step-1',
     'step-2-b',
     'step-3-b',
-    'step-4-b',
     'step-5-b',
     'step-6-b',
     'step-7-b',
@@ -610,9 +596,10 @@ import Footer from '../components/Footer.astro';
     // Update Step Counter & Progress bar
     if (stepCounter && progressBar && modeLabel) {
       if (currentStepId !== 'step-reveal') {
+        const totalSteps = stepsList.length - 1; // exclude step-reveal
         const stepNum = currentIndex + 1;
-        stepCounter.textContent = `// STEP_0${stepNum} OF 08`;
-        const progressPercent = ((currentIndex + 1) / 8) * 100;
+        stepCounter.textContent = `// STEP_0${stepNum} OF 0${totalSteps}`;
+        const progressPercent = ((currentIndex + 1) / totalSteps) * 100;
         progressBar.style.width = `${progressPercent}%`;
         modeLabel.textContent = isPathA ? 'MODE: WEBSITE_AUDIT' : 'MODE: FRESH_LAUNCH';
       } else {
@@ -782,19 +769,6 @@ import Footer from '../components/Footer.astro';
         document.querySelectorAll('#step-3-b .step-option').forEach(el => el.classList.remove('selected'));
         btn.classList.add('selected');
 
-        setTimeout(() => navigateTo('step-4-b'), 300);
-      });
-    });
-
-    // Path B - Step 4: Planned Ad spend selection
-    document.querySelectorAll('#step-4-b .step-option').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const val = btn.getAttribute('data-value') || '';
-        state.plannedAdSpend = val;
-
-        document.querySelectorAll('#step-4-b .step-option').forEach(el => el.classList.remove('selected'));
-        btn.classList.add('selected');
-
         setTimeout(() => navigateTo('step-5-b'), 300);
       });
     });
@@ -958,6 +932,7 @@ import Footer from '../components/Footer.astro';
     let targetScore = 0;
 
     const revealTypeVal = document.getElementById('reveal-type-val');
+    const revealSpendLabel = document.getElementById('reveal-spend-label');
     const revealSpendVal = document.getElementById('reveal-spend-val');
     const revealRecoVal = document.getElementById('reveal-reco-val');
 
@@ -1020,6 +995,7 @@ import Footer from '../components/Footer.astro';
 
       // Update Reveal dashboard values
       if (revealTypeVal) revealTypeVal.textContent = 'Website Audit';
+      if (revealSpendLabel) revealSpendLabel.textContent = 'AD_SPEND_RISK:';
       if (revealSpendVal) {
         revealSpendVal.textContent = state.adSpend;
         revealSpendVal.style.color = '#ffffff';
@@ -1027,37 +1003,32 @@ import Footer from '../components/Footer.astro';
       if (revealRecoVal) revealRecoVal.textContent = `${insightStr} Recommendation: ${state.recommendation}`;
     } else {
       // PATH B - Launch Readiness Score Calculation
-      // Base: 10 points
-      let score = 10;
+      // Base: 15 points
+      let score = 15;
 
       // Business Clarity / Type
-      if (state.businessType === 'Ecommerce') score += 15;
-      else if (state.businessType === 'Service') score += 15;
-      else if (state.businessType === 'Personal Brand') score += 10;
-      else if (state.businessType === 'Offline Business') score += 10;
-      else score += 5;
+      if (state.businessType === 'Ecommerce') score += 20;
+      else if (state.businessType === 'Service') score += 20;
+      else if (state.businessType === 'Personal Brand') score += 15;
+      else if (state.businessType === 'Offline Business') score += 15;
+      else score += 10;
 
       // Selling status
-      if (state.currentlySelling === 'Yes (Instagram)') score += 15;
-      else if (state.currentlySelling === 'Planning To') score += 10;
-
-      // Planned spend
-      if (state.plannedAdSpend.includes('10L')) score += 20;
-      else if (state.plannedAdSpend.includes('2L')) score += 20;
-      else if (state.plannedAdSpend.includes('50k')) score += 15;
-      else if (state.plannedAdSpend.includes('10k')) score += 10;
-      else score += 5;
+      if (state.currentlySelling === 'Yes (Instagram)') score += 20;
+      else if (state.currentlySelling === 'Planning To') score += 15;
+      else score += 10;
 
       // Launch timeline
-      if (state.timelineB === 'ASAP') score += 15;
-      else if (state.timelineB === 'Within 2 Weeks') score += 15;
-      else if (state.timelineB === 'This Month') score += 10;
-      else score += 5;
+      if (state.timelineB === 'ASAP') score += 20;
+      else if (state.timelineB === 'Within 2 Weeks') score += 20;
+      else if (state.timelineB === 'This Month') score += 15;
+      else score += 10;
 
       // Budget
-      if (state.budgetB === '₹1L+') score += 20;
-      else if (state.budgetB === '₹60k–1L') score += 15;
-      else if (state.budgetB === '₹30k–60k') score += 10;
+      if (state.budgetB === '₹1L+') score += 25;
+      else if (state.budgetB === '₹60k–1L') score += 20;
+      else if (state.budgetB === '₹30k–60k') score += 15;
+      else score += 10;
 
       targetScore = Math.min(100, score);
 
@@ -1075,7 +1046,7 @@ import Footer from '../components/Footer.astro';
         state.bracketMessage = "You're ready. Let's build your high-converting store.";
       }
 
-      const insightStr = `Your planned ad spend is ${state.plannedAdSpend} but you currently have ${state.budgetB} budget and ${state.timelineB} timeline. A structured conversion layout is needed before scaling.`;
+      const insightStr = `You're launching with a budget of ${state.budgetB} and want to start ${state.timelineB}. A structured conversion layout is needed before scaling.`;
       
       const recos = [];
       if (state.budgetB === 'Less than ₹30k') recos.push('Focus on building a high-converting single product page before scaling budget.');
@@ -1088,8 +1059,9 @@ import Footer from '../components/Footer.astro';
 
       // Update Reveal dashboard values
       if (revealTypeVal) revealTypeVal.textContent = 'Launch Readiness';
+      if (revealSpendLabel) revealSpendLabel.textContent = 'LAUNCH_BUDGET:';
       if (revealSpendVal) {
-        revealSpendVal.textContent = state.plannedAdSpend;
+        revealSpendVal.textContent = state.budgetB;
         revealSpendVal.style.color = '#ffffff';
       }
       if (revealRecoVal) revealRecoVal.textContent = `${insightStr} Recommendation: ${state.recommendation}`;
@@ -1196,7 +1168,6 @@ Website Health Score:
 ${state.calculatedScore}/100
 
 I'd like to discuss improving my conversions.`;
-    } else {
       // Path B prefilled text template
       messageText = `Hi Aditya,
 
@@ -1212,9 +1183,6 @@ ${state.businessType}
 
 Currently Selling Online:
 ${state.currentlySelling}
-
-Planned Ad Spend:
-${state.plannedAdSpend}
 
 Target Audience:
 ${state.targetAudience}
