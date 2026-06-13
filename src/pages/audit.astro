@@ -1,0 +1,1250 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Preloader from '../components/Preloader.astro';
+import CustomCursor from '../components/CustomCursor.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Let's Talk | Free Conversion Audit" description="Take our interactive conversion audit to identify conversion leaks, calculate your health score, and get qualified insights directly sent to WhatsApp.">
+  <!-- Global interactive overlay elements -->
+  <Preloader />
+  <CustomCursor />
+  <Navbar />
+
+  <!-- Main content wrapper -->
+  <main class="relative min-h-screen bg-[#0a0a0a] pt-[120px] md:pt-[150px] pb-[80px] px-4 sm:px-6 md:px-16 overflow-hidden flex flex-col justify-between select-none">
+    <!-- Background grid & spotlight glows -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div class="noise-bg"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"></div>
+      <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-radial from-[#00ff88]/5 via-transparent to-transparent blur-[120px]"></div>
+      <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-radial from-[#ff007f]/5 via-transparent to-transparent blur-[120px]"></div>
+    </div>
+
+    <!-- Core Interactive Window Container -->
+    <div class="relative z-10 w-full max-w-3xl md:max-w-7xl mx-auto my-auto flex-1 flex flex-col justify-center items-center shrink-0">
+      <!-- Title & Subtitle Header -->
+      <div class="flex flex-col items-center justify-center text-center mb-8 w-full max-w-md md:max-w-2xl md:mb-12 mx-auto">
+        <h1 class="text-center text-white font-display text-3xl sm:text-4xl md:text-6xl font-black tracking-[-0.04em] leading-tight whitespace-nowrap">Let's Talk</h1>
+        <p class="text-center text-white/40 text-xs sm:text-sm font-mono mt-2 md:text-lg whitespace-nowrap">// FREE_CONVERSION_AUDIT</p>
+      </div>
+
+      <!-- Terminal Window -->
+      <div class="pos-terminal-window w-full rounded-2xl overflow-hidden border border-white/12 shadow-[0_30px_80px_rgba(0,0,0,0.85)] relative bg-[#0f0f13]/85 backdrop-blur-2xl transition-all duration-500 min-h-[500px] md:min-h-[560px] flex flex-col justify-between shrink-0">
+        
+        <!-- Specular reflection glare overlay -->
+        <div class="glass-reflection absolute inset-0 pointer-events-none z-10 opacity-70"></div>
+        
+        <!-- Terminal Header Bar -->
+        <div class="flex items-center justify-between px-5 py-3.5 border-b border-white/10 bg-white/[0.02] relative z-20">
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#00ff88] shadow-[0_0_8px_rgba(0,255,136,0.6)]"></span>
+          </div>
+          <span class="text-[11px] font-mono text-white/40 tracking-wider">convertify_audit_cli_v1.0.0</span>
+          
+          <div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white/5 border border-white/5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse"></span>
+            <span id="terminal-mode" class="text-[9px] font-mono text-white/50 tracking-tight uppercase">MODE: QUALIFYING</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar Indicator -->
+        <div class="w-full h-[3px] bg-white/5 relative z-20">
+          <div id="audit-progress-bar" class="h-full bg-gradient-to-r from-[#00ff88] to-[#ff007f] shadow-[0_0_8px_rgba(0,255,136,0.6)] w-[12.5%] transition-all duration-500 ease-out"></div>
+        </div>
+
+        <!-- Terminal Body / Steps Container -->
+        <div class="relative flex-1 p-6 md:p-10 flex flex-col justify-between overflow-hidden relative z-10">
+          
+          <!-- Back button and step counter header -->
+          <div class="flex items-center justify-between font-mono text-[11px] text-white/40 mb-6">
+            <button id="back-btn" class="flex items-center gap-1.5 text-white/40 hover:text-white transition-colors py-1 px-2.5 rounded bg-white/5 border border-white/5 hover:border-white/15 opacity-0 pointer-events-none">
+              <span>&larr;</span> <span>PREV_STEP</span>
+            </button>
+            <span id="step-counter">// STEP_01 OF 08</span>
+          </div>
+
+          <!-- Wizard Forms Wrapper -->
+          <div id="wizard-steps-container" class="relative flex-grow flex items-center justify-center min-h-[280px]">
+
+            <!-- STEP 1: INITIAL BRANCHING -->
+            <div id="step-1" class="wizard-step active w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#00ff88]">// INITIAL_QUALIFICATION</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Do you have a website?</h2>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                <button type="button" data-value="yes" class="step-option flex flex-col items-start p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.02] transition-all duration-300 text-left group">
+                  <span class="text-white font-bold text-lg mb-1 group-hover:text-[#00ff88] transition-colors">Yes, I have a website</span>
+                  <span class="text-white/40 text-xs font-mono">Run analysis on your existing domain & traffic.</span>
+                </button>
+                <button type="button" data-value="no" class="step-option flex flex-col items-start p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.02] transition-all duration-300 text-left group">
+                  <span class="text-white font-bold text-lg mb-1 group-hover:text-[#ff007f] transition-colors">No, I'm starting fresh</span>
+                  <span class="text-white/40 text-xs font-mono">Evaluate pre-launch structure & audience readiness.</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- PATH A - STEP 2: WEBSITE URL -->
+            <div id="step-2-a" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#00ff88]">// DOMAIN_INPUT</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Enter your Website URL</h2>
+              </div>
+              <div class="flex flex-col gap-3 mt-2">
+                <div class="relative">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-white/30 text-sm">https://</span>
+                  <input type="url" id="website-url" placeholder="yourdomain.com" class="w-full pl-20 pr-4 py-4 rounded-xl border border-white/10 bg-white/[0.02] text-white text-base font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_20px_rgba(0,255,136,0.1)] transition-all" />
+                </div>
+                <p id="url-error" class="text-red-500 font-mono text-xs opacity-0 transition-opacity">Please enter a valid website URL</p>
+                <button type="button" id="url-continue-btn" class="mt-2 w-full py-4 bg-white text-black font-semibold rounded-xl hover:bg-[#00ff88] transition-all flex items-center justify-center gap-2 font-mono">
+                  CONTINUE_PROCESS &rarr;
+                </button>
+              </div>
+            </div>
+
+            <!-- PATH A - STEP 3: PLATFORM -->
+            <div id="step-3-a" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#00ff88]">// STACK_DETERMINATION</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What platform is your website built on?</h2>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-2">
+                {['Shopify', 'WordPress', 'Custom', 'Other'].map((platform) => (
+                  <button type="button" data-value={platform} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{platform}</span>
+                    <span class="text-white/20 group-hover:text-white/50">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH A - STEP 4: AD SPEND -->
+            <div id="step-4-a" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#00ff88]">// BUDGET_EXPOSURE</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your monthly ad spend?</h2>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                {['₹0 (Organic)', '₹10k–50k', '₹50k–2L', '₹2L–10L', '₹10L–50L'].map((spend) => (
+                  <button type="button" data-value={spend} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{spend}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH A - STEP 5: PROBLEMS (MULTI-SELECT) -->
+            <div id="step-5-a" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#00ff88]">// LEAKAGE_DIAGNOSTIC (MAX 2 SELECTIONS)</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What are your biggest website problems?</h2>
+              </div>
+              <div class="flex flex-col gap-3 mt-2">
+                <div class="grid grid-cols-1 gap-2.5" id="problems-multiselect-group">
+                  {[
+                    'Getting traffic but no sales',
+                    'Website looks outdated',
+                    'Poor mobile experience',
+                    'Low trust / high bounce rate',
+                    'Slow page speed'
+                  ].map((problem) => (
+                    <button type="button" data-value={problem} class="multiselect-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-white/20 transition-all text-left font-mono text-xs text-white/70 hover:text-white">
+                      <span>{problem}</span>
+                      <div class="w-4 h-4 rounded border border-white/30 flex items-center justify-center bg-transparent shrink-0">
+                        <div class="w-2 h-2 rounded-sm bg-transparent check-fill"></div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                <div class="flex items-center justify-between mt-3">
+                  <span id="multiselect-status" class="text-white/40 font-mono text-xs">Selected: 0/2</span>
+                  <button type="button" id="problems-continue-btn" class="py-3 px-6 bg-white text-black font-semibold rounded-xl hover:bg-[#00ff88] disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-black transition-all font-mono text-xs" disabled>
+                    SUBMIT_DIAGNOSTIC &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- PATH A - STEP 6: TIMELINE -->
+            <div id="step-6-a" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#00ff88]">// HORIZON_PARAMETERS</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">When do you want to start this project?</h2>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-2">
+                {['ASAP', '1–2 Weeks', 'This Month', 'Just Exploring'].map((timeline) => (
+                  <button type="button" data-value={timeline} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{timeline}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH A - STEP 7: BUDGET -->
+            <div id="step-7-a" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#00ff88]">// INVESTMENT_ALLOCATION</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your planned website budget?</h2>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-2">
+                {['Less than ₹30k', '₹30k–60k', '₹60k–1L', '₹1L+'].map((budget) => (
+                  <button type="button" data-value={budget} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{budget}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH B - STEP 2: BUSINESS TYPE -->
+            <div id="step-2-b" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#ff007f]">// BUSINESS_MODEL</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your business type?</h2>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-2">
+                {['Ecommerce', 'Offline Business', 'Service', 'Personal Brand', 'Other'].map((btype) => (
+                  <button type="button" data-value={btype} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{btype}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH B - STEP 3: CURRENTLY SELLING -->
+            <div id="step-3-b" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#ff007f]">// MERCHANDISE_STATUS</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Do you currently sell online?</h2>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+                {['Yes (Instagram)', 'No', 'Planning To'].map((sell) => (
+                  <button type="button" data-value={sell} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{sell}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH B - STEP 4: PLANNED AD SPEND -->
+            <div id="step-4-b" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#ff007f]">// AD_BUDGET_PROJECTIONS</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your planned monthly ad spend?</h2>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                {['₹0', '₹10k–50k', '₹50k–2L', '₹2L–10L', '₹10L–50L'].map((spend) => (
+                  <button type="button" data-value={spend} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{spend}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH B - STEP 5: TARGET AUDIENCE -->
+            <div id="step-5-b" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#ff007f]">// TARGET_GEOGRAPHICS</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Who is your target audience?</h2>
+              </div>
+              <div class="grid grid-cols-3 gap-3 mt-2">
+                {['India Only', 'International', 'Both'].map((audience) => (
+                  <button type="button" data-value={audience} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{audience}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH B - STEP 6: TIMELINE -->
+            <div id="step-6-b" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#ff007f]">// TARGET_LAUNCH_HORIZON</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">When is your launch timeline?</h2>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-2">
+                {['ASAP', 'Within 2 Weeks', 'This Month', '1–3 Months'].map((timeline) => (
+                  <button type="button" data-value={timeline} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{timeline}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- PATH B - STEP 7: BUDGET -->
+            <div id="step-7-b" class="wizard-step enter-right w-full flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-mono text-xs text-[#ff007f]">// INVESTMENT_BRACKET</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">What is your planned website budget?</h2>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-2">
+                {['Less than ₹30k', '₹30k–60k', '₹60k–1L', '₹1L+'].map((budget) => (
+                  <button type="button" data-value={budget} class="step-option flex items-center justify-between p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.01] transition-all text-left font-mono text-sm text-white/70 hover:text-white">
+                    <span>{budget}</span>
+                    <span class="text-white/20">&rarr;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- COMMON STEP 8: LEAD CAPTURE -->
+            <div id="step-8" class="wizard-step enter-right w-full flex flex-col gap-5">
+              <div class="flex flex-col gap-1.5">
+                <span class="font-mono text-xs text-[#00ff88]">// LEAD_IDENTITY_LOCK</span>
+                <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Where should we send your report?</h2>
+              </div>
+              <div class="flex flex-col gap-4 mt-2">
+                <div>
+                  <label for="lead-name" class="font-mono text-[10px] text-white/40 uppercase block mb-1">Your Name</label>
+                  <input type="text" id="lead-name" placeholder="John Smith" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] text-white text-sm font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_15px_rgba(0,255,136,0.08)] transition-all" />
+                </div>
+                <div>
+                  <label for="lead-whatsapp" class="font-mono text-[10px] text-white/40 uppercase block mb-1">WhatsApp Number</label>
+                  <input type="tel" id="lead-whatsapp" placeholder="E.g., 9876543210" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] text-white text-sm font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_15px_rgba(0,255,136,0.08)] transition-all" />
+                </div>
+                <div>
+                  <label for="lead-brand" class="font-mono text-[10px] text-white/40 uppercase block mb-1">Brand Name / Project Name</label>
+                  <input type="text" id="lead-brand" placeholder="XYZ Store" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] text-white text-sm font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_15px_rgba(0,255,136,0.08)] transition-all" />
+                </div>
+                <p id="capture-error" class="text-red-500 font-mono text-xs opacity-0 transition-opacity">Please complete all fields with valid information</p>
+                
+                <button type="button" id="submit-audit-btn" class="w-full py-4 bg-white text-black font-semibold rounded-xl hover:bg-[#00ff88] transition-all flex items-center justify-center gap-2 font-mono mt-2">
+                  RUN_ENGINE_SIMULATION &rarr;
+                </button>
+              </div>
+            </div>
+
+            <!-- SCORE REVEAL EXPERIENCE (APPLE PRODUCT REVEAL SCREEN) -->
+            <div id="step-reveal" class="wizard-step enter-right w-full flex flex-col items-center justify-center text-center gap-6 py-4">
+              <!-- Animated Header Status -->
+              <div class="flex flex-col gap-1 items-center">
+                <span class="font-mono text-[10px] text-white/30 uppercase tracking-[0.2em] animate-pulse">// GENERATING_CONVERSION_MATRICES</span>
+                <h3 id="reveal-title" class="text-white/60 font-mono text-xs uppercase tracking-widest mt-1">Website Health Audit</h3>
+              </div>
+
+              <!-- Premium Gauge Area (Circle Ring & Large Score) -->
+              <div class="relative w-44 h-44 flex items-center justify-center shrink-0">
+                <!-- Outer glows -->
+                <div id="reveal-glow" class="absolute inset-4 rounded-full blur-[30px] opacity-40 z-0"></div>
+                
+                <!-- Circular SVG Progress -->
+                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="44" stroke="rgba(255,255,255,0.02)" stroke-width="5" fill="none" />
+                  <circle id="reveal-ring" cx="50" cy="50" r="44" stroke="url(#reveal-gradient)" stroke-width="6" stroke-linecap="round" fill="none" stroke-dasharray="276.4" stroke-dashoffset="276.4" class="transition-all duration-300" />
+                  
+                  <defs>
+                    <linearGradient id="reveal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#00ff88" />
+                      <stop offset="100%" stop-color="#ff007f" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                <div class="flex flex-col items-center justify-center z-10">
+                  <span id="reveal-score-text" class="text-white font-display text-5xl font-black leading-none tracking-tight">0</span>
+                  <span class="text-[9px] font-mono text-white/30 tracking-widest uppercase mt-1">/ 100</span>
+                </div>
+              </div>
+
+              <!-- Rating Badge & Message -->
+              <div class="flex flex-col gap-2 items-center max-w-md">
+                <span id="reveal-badge" class="px-3.5 py-1 text-[10px] font-mono font-bold tracking-wider rounded-full border">CRITICAL</span>
+                <p id="reveal-msg" class="text-white/90 text-sm font-semibold tracking-tight leading-snug px-4"></p>
+              </div>
+
+              <!-- Personalized Insights & Revenue Leakage Dashboard -->
+              <div class="w-full border border-white/5 bg-white/[0.01] rounded-xl p-4 text-left font-mono text-xs flex flex-col gap-2.5 max-w-md mx-auto">
+                <div class="flex justify-between border-b border-white/5 pb-2">
+                  <span class="text-white/40">AUDIT_TYPE:</span>
+                  <span id="reveal-type-val" class="text-white/80">Website Audit</span>
+                </div>
+                <div class="flex justify-between border-b border-white/5 pb-2">
+                  <span class="text-white/40">AD_SPEND_RISK:</span>
+                  <span id="reveal-spend-val" class="text-white/80"></span>
+                </div>
+                <div class="flex flex-col gap-1.5 pt-1">
+                  <span class="text-white/40">KEY_RECOMMENDATION:</span>
+                  <span id="reveal-reco-val" class="text-white/90 leading-relaxed font-sans text-xs pt-0.5"></span>
+                </div>
+              </div>
+
+              <!-- WhatsApp CTA Deep Link -->
+              <div class="w-full max-w-md mt-2">
+                <a href="#" id="whatsapp-connect-cta" target="_blank" class="w-full py-4 bg-[#00ff88] text-black font-bold rounded-xl shadow-[0_10px_35px_rgba(0,255,136,0.3)] hover:shadow-[0_15px_40px_rgba(0,255,136,0.55)] transition-all flex items-center justify-center gap-2 text-sm">
+                  Let's Connect &rarr;
+                </a>
+                <p class="text-[10px] font-mono text-white/30 mt-2">// LOADS_COMPLETED_REPORT_INTO_WHATSAPP</p>
+              </div>
+            </div>
+
+          </div><!-- /wizard-steps-container -->
+
+        </div><!-- /terminal-body -->
+      </div><!-- /terminal-window -->
+    </div><!-- /container -->
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Base styles matching layout */
+  .pos-terminal-window {
+    background: rgba(15, 15, 20, 0.85) !important;
+    backdrop-filter: blur(40px) saturate(220%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(220%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .glass-reflection {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.02) 40%,
+      transparent 60%
+    );
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  /* Multi-step animations & transitions styling */
+  .wizard-step {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease, visibility 0.4s;
+    z-index: 1;
+  }
+
+  .wizard-step.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+    z-index: 10;
+  }
+
+  /* Slide right out, slide left in classes */
+  .wizard-step.exit-left {
+    transform: translateY(-50%) translateX(-120px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .wizard-step.exit-right {
+    transform: translateY(-50%) translateX(120px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .wizard-step.enter-right {
+    transform: translateY(-50%) translateX(120px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .wizard-step.enter-left {
+    transform: translateY(-50%) translateX(-120px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Selection styling for step options */
+  .step-option.selected {
+    border-color: #00ff88;
+    background-color: rgba(0, 255, 136, 0.04);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+  }
+
+  .step-option.selected span {
+    color: #00ff88 !important;
+  }
+
+  .multiselect-option.selected {
+    border-color: #00ff88;
+    background-color: rgba(0, 255, 136, 0.04);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+    color: #ffffff;
+  }
+
+  .multiselect-option.selected .check-fill {
+    background-color: #00ff88;
+    box-shadow: 0 0 8px #00ff88;
+  }
+
+  .multiselect-option.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  /* Focus effect for text inputs */
+  input:focus {
+    outline: none;
+  }
+
+  @media (max-width: 639px) {
+    .wizard-step {
+      position: relative;
+      top: 0;
+      transform: none !important;
+    }
+    .wizard-step.active {
+      transform: none !important;
+    }
+    .wizard-step.exit-left, 
+    .wizard-step.exit-right,
+    .wizard-step.enter-right,
+    .wizard-step.enter-left {
+      display: none;
+      transform: none !important;
+    }
+    #wizard-steps-container {
+      min-height: auto;
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Global wizard state management
+  const state = {
+    hasWebsite: null as string | null, // 'yes' or 'no'
+    // Path A details
+    websiteUrl: '',
+    platform: '',
+    adSpend: '',
+    problems: [] as string[], // Max 2 selected
+    timelineA: '',
+    budgetA: '',
+    // Path B details
+    businessType: '',
+    currentlySelling: '',
+    plannedAdSpend: '',
+    targetAudience: '',
+    timelineB: '',
+    budgetB: '',
+    // Personal details
+    name: '',
+    whatsapp: '',
+    brand: '',
+    // Score result
+    calculatedScore: 0,
+    ratingBracket: '',
+    bracketColor: '',
+    bracketMessage: '',
+    recommendation: ''
+  };
+
+  // Define Steps Flow map
+  // Step 1: Initial branching
+  // Path A: step-1 -> step-2-a -> step-3-a -> step-4-a -> step-5-a -> step-6-a -> step-7-a -> step-8 -> step-reveal
+  // Path B: step-1 -> step-2-b -> step-3-b -> step-4-b -> step-5-b -> step-6-b -> step-7-b -> step-8 -> step-reveal
+  const pathASteps = [
+    'step-1',
+    'step-2-a',
+    'step-3-a',
+    'step-4-a',
+    'step-5-a',
+    'step-6-a',
+    'step-7-a',
+    'step-8',
+    'step-reveal'
+  ];
+
+  const pathBSteps = [
+    'step-1',
+    'step-2-b',
+    'step-3-b',
+    'step-4-b',
+    'step-5-b',
+    'step-6-b',
+    'step-7-b',
+    'step-8',
+    'step-reveal'
+  ];
+
+  let currentHistory = ['step-1'];
+
+  // DOM Elements
+  const backBtn = document.getElementById('back-btn') as HTMLButtonElement;
+  const stepCounter = document.getElementById('step-counter') as HTMLElement;
+  const progressBar = document.getElementById('audit-progress-bar') as HTMLElement;
+  const modeLabel = document.getElementById('terminal-mode') as HTMLElement;
+
+  // Initialize navigation & back buttons
+  const updateWizardProgress = () => {
+    const currentStepId = currentHistory[currentHistory.length - 1];
+    const isPathA = state.hasWebsite === 'yes';
+    const stepsList = isPathA ? pathASteps : pathBSteps;
+    const currentIndex = stepsList.indexOf(currentStepId);
+    
+    // Toggle back button visibility
+    if (backBtn) {
+      if (currentIndex > 0 && currentStepId !== 'step-reveal') {
+        backBtn.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        backBtn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    // Update Step Counter & Progress bar
+    if (stepCounter && progressBar && modeLabel) {
+      if (currentStepId !== 'step-reveal') {
+        const stepNum = currentIndex + 1;
+        stepCounter.textContent = `// STEP_0${stepNum} OF 08`;
+        const progressPercent = ((currentIndex + 1) / 8) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+        modeLabel.textContent = isPathA ? 'MODE: WEBSITE_AUDIT' : 'MODE: FRESH_LAUNCH';
+      } else {
+        stepCounter.textContent = `// PROCESS_COMPLETE`;
+        progressBar.style.width = `100%`;
+        modeLabel.textContent = 'MODE: COMPILED';
+      }
+    }
+  };
+
+  const getTransitionElements = (currentId: string, targetId: string) => {
+    const currentEl = document.getElementById(currentId);
+    const targetEl = document.getElementById(targetId);
+    return { currentEl, targetEl };
+  };
+
+  const navigateTo = (targetId: string, direction: 'forward' | 'backward' = 'forward') => {
+    const currentId = currentHistory[currentHistory.length - 1];
+    if (currentId === targetId) return;
+
+    const { currentEl, targetEl } = getTransitionElements(currentId, targetId);
+    if (!currentEl || !targetEl) return;
+
+    // Remove potential enter/exit classes to avoid conflicts
+    currentEl.classList.remove('enter-left', 'enter-right', 'exit-left', 'exit-right');
+    targetEl.classList.remove('enter-left', 'enter-right', 'exit-left', 'exit-right');
+
+    if (direction === 'forward') {
+      // Current slides left and fades
+      currentEl.classList.add('exit-left');
+      currentEl.classList.remove('active');
+
+      // Target enters from right
+      targetEl.classList.add('enter-right');
+      // Trigger reflow
+      void targetEl.offsetWidth;
+      targetEl.classList.add('active');
+      targetEl.classList.remove('enter-right');
+      
+      currentHistory.push(targetId);
+    } else {
+      // Current slides right and fades
+      currentEl.classList.add('exit-right');
+      currentEl.classList.remove('active');
+
+      // Target enters from left
+      targetEl.classList.add('enter-left');
+      // Trigger reflow
+      void targetEl.offsetWidth;
+      targetEl.classList.add('active');
+      targetEl.classList.remove('enter-left');
+      
+      currentHistory.pop();
+    }
+
+    updateWizardProgress();
+
+    // If target is score reveal, run score and visual compiles
+    if (targetId === 'step-reveal') {
+      compileAndRevealReport();
+    }
+  };
+
+  // Back Button Event
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      if (currentHistory.length > 1) {
+        const prevStepId = currentHistory[currentHistory.length - 2];
+        navigateTo(prevStepId, 'backward');
+      }
+    });
+  }
+
+  // Set up event listeners for standard button selections
+  const initStepOptionListeners = () => {
+    // Step 1: Branching yes/no click
+    document.querySelectorAll('#step-1 .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.hasWebsite = val;
+
+        // Toggle selected state layout styles
+        document.querySelectorAll('#step-1 .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => {
+          if (val === 'yes') {
+            navigateTo('step-2-a');
+          } else {
+            navigateTo('step-2-b');
+          }
+        }, 300);
+      });
+    });
+
+    // Path A - Step 3: Platform selection
+    document.querySelectorAll('#step-3-a .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.platform = val;
+
+        document.querySelectorAll('#step-3-a .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-4-a'), 300);
+      });
+    });
+
+    // Path A - Step 4: Ad Spend selection
+    document.querySelectorAll('#step-4-a .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.adSpend = val;
+
+        document.querySelectorAll('#step-4-a .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-5-a'), 300);
+      });
+    });
+
+    // Path A - Step 6: Timeline selection
+    document.querySelectorAll('#step-6-a .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.timelineA = val;
+
+        document.querySelectorAll('#step-6-a .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-7-a'), 300);
+      });
+    });
+
+    // Path A - Step 7: Budget selection
+    document.querySelectorAll('#step-7-a .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.budgetA = val;
+
+        document.querySelectorAll('#step-7-a .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-8'), 300);
+      });
+    });
+
+    // Path B - Step 2: Business Type selection
+    document.querySelectorAll('#step-2-b .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.businessType = val;
+
+        document.querySelectorAll('#step-2-b .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-3-b'), 300);
+      });
+    });
+
+    // Path B - Step 3: Currently selling selection
+    document.querySelectorAll('#step-3-b .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.currentlySelling = val;
+
+        document.querySelectorAll('#step-3-b .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-4-b'), 300);
+      });
+    });
+
+    // Path B - Step 4: Planned Ad spend selection
+    document.querySelectorAll('#step-4-b .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.plannedAdSpend = val;
+
+        document.querySelectorAll('#step-4-b .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-5-b'), 300);
+      });
+    });
+
+    // Path B - Step 5: Target audience selection
+    document.querySelectorAll('#step-5-b .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.targetAudience = val;
+
+        document.querySelectorAll('#step-5-b .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-6-b'), 300);
+      });
+    });
+
+    // Path B - Step 6: Launch timeline selection
+    document.querySelectorAll('#step-6-b .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.timelineB = val;
+
+        document.querySelectorAll('#step-6-b .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-7-b'), 300);
+      });
+    });
+
+    // Path B - Step 7: Budget selection
+    document.querySelectorAll('#step-7-b .step-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-value') || '';
+        state.budgetB = val;
+
+        document.querySelectorAll('#step-7-b .step-option').forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        setTimeout(() => navigateTo('step-8'), 300);
+      });
+    });
+  };
+
+  // URL input validator (Step 2 - Path A)
+  const initUrlInput = () => {
+    const urlInput = document.getElementById('website-url') as HTMLInputElement;
+    const continueBtn = document.getElementById('url-continue-btn');
+    const errorMsg = document.getElementById('url-error');
+
+    if (continueBtn && urlInput && errorMsg) {
+      const validateAndContinue = () => {
+        const val = urlInput.value.trim();
+        // Regex to check basic URL/domain format
+        const domainRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/i;
+        if (val && domainRegex.test(val)) {
+          state.websiteUrl = val;
+          errorMsg.classList.add('opacity-0');
+          navigateTo('step-3-a');
+        } else {
+          errorMsg.classList.remove('opacity-0');
+          urlInput.focus();
+        }
+      };
+
+      continueBtn.addEventListener('click', validateAndContinue);
+      urlInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          validateAndContinue();
+        }
+      });
+    }
+  };
+
+  // Multi-select problems logic (Step 5 - Path A)
+  const initMultiSelect = () => {
+    const group = document.getElementById('problems-multiselect-group');
+    const continueBtn = document.getElementById('problems-continue-btn') as HTMLButtonElement;
+    const statusText = document.getElementById('multiselect-status');
+
+    if (group && continueBtn && statusText) {
+      const options = group.querySelectorAll('.multiselect-option');
+
+      options.forEach(opt => {
+        opt.addEventListener('click', () => {
+          const val = opt.getAttribute('data-value') || '';
+          const index = state.problems.indexOf(val);
+
+          if (index > -1) {
+            // Already selected, remove it
+            state.problems.splice(index, 1);
+            opt.classList.remove('selected');
+          } else {
+            // Check if limit of 2 is reached
+            if (state.problems.length < 2) {
+              state.problems.push(val);
+              opt.classList.add('selected');
+            }
+          }
+
+          // Disable remaining option items when 2 are selected
+          if (state.problems.length >= 2) {
+            options.forEach(el => {
+              const elVal = el.getAttribute('data-value') || '';
+              if (!state.problems.includes(elVal)) {
+                el.classList.add('disabled');
+              }
+            });
+          } else {
+            options.forEach(el => el.classList.remove('disabled'));
+          }
+
+          // Update Status Text & Continue button status
+          statusText.textContent = `Selected: ${state.problems.length}/2`;
+          continueBtn.disabled = state.problems.length === 0;
+        });
+      });
+
+      continueBtn.addEventListener('click', () => {
+        if (state.problems.length > 0) {
+          navigateTo('step-6-a');
+        }
+      });
+    }
+  };
+
+  // Lead capture screen validators (Step 8)
+  const initLeadCapture = () => {
+    const nameInput = document.getElementById('lead-name') as HTMLInputElement;
+    const phoneInput = document.getElementById('lead-whatsapp') as HTMLInputElement;
+    const brandInput = document.getElementById('lead-brand') as HTMLInputElement;
+    const submitBtn = document.getElementById('submit-audit-btn');
+    const errorMsg = document.getElementById('capture-error');
+
+    if (submitBtn && nameInput && phoneInput && brandInput && errorMsg) {
+      submitBtn.addEventListener('click', () => {
+        const nameVal = nameInput.value.trim();
+        const phoneVal = phoneInput.value.trim();
+        const brandVal = brandInput.value.trim();
+
+        // Check if values are valid
+        // Simple WhatsApp phone regex checking digit length of 10+ digits
+        const phoneRegex = /^\+?[\d\s-]{10,15}$/;
+
+        if (nameVal && brandVal && phoneRegex.test(phoneVal)) {
+          state.name = nameVal;
+          state.whatsapp = phoneVal;
+          state.brand = brandVal;
+          errorMsg.classList.add('opacity-0');
+          navigateTo('step-reveal');
+        } else {
+          errorMsg.classList.remove('opacity-0');
+        }
+      });
+    }
+  };
+
+  // Compile calculations and generate WhatsApp link
+  const compileAndRevealReport = () => {
+    const isPathA = state.hasWebsite === 'yes';
+    let targetScore = 0;
+
+    const revealTypeVal = document.getElementById('reveal-type-val');
+    const revealSpendVal = document.getElementById('reveal-spend-val');
+    const revealRecoVal = document.getElementById('reveal-reco-val');
+
+    if (isPathA) {
+      // PATH A - Website Health Score Calculation
+      // Base: 100 points
+      let deductions = 0;
+
+      // Ad spend
+      if (state.adSpend.includes('₹0')) deductions += 5;
+      else if (state.adSpend.includes('10k–50k')) deductions += 15;
+      else if (state.adSpend.includes('50k–2L')) deductions += 25;
+      else if (state.adSpend.includes('2L–10L')) deductions += 35;
+      else if (state.adSpend.includes('10L–50L')) deductions += 45;
+
+      // Platform
+      if (state.platform === 'Custom') deductions += 5;
+      else if (state.platform === 'Shopify') deductions += 15;
+      else if (state.platform === 'WordPress') deductions += 20;
+      else if (state.platform === 'Other') deductions += 20;
+
+      // Number of problems
+      deductions += state.problems.length * 15; // 15 or 30
+
+      // Timeline urgency
+      if (state.timelineA === 'ASAP') deductions += 15;
+      else if (state.timelineA === '1–2 Weeks') deductions += 10;
+      else if (state.timelineA === 'This Month') deductions += 5;
+
+      targetScore = Math.max(10, 100 - deductions);
+
+      // Score status mapping
+      if (targetScore <= 40) {
+        state.ratingBracket = 'CRITICAL';
+        state.bracketColor = '#ff5f56'; // Red
+        state.bracketMessage = 'Your website is actively losing you money.';
+      } else if (targetScore <= 70) {
+        state.ratingBracket = 'AT RISK';
+        state.bracketColor = '#ffbd2e'; // Yellow
+        state.bracketMessage = "You're leaving conversions on the table.";
+      } else {
+        state.ratingBracket = 'NEEDS OPTIMIZATION';
+        state.bracketColor = '#00ff88'; // Green
+        state.bracketMessage = 'Small fixes. Big gains.';
+      }
+
+      // Generate Personalized Insights
+      const problemsCount = state.problems.length;
+      const insightStr = `You're spending ${state.adSpend}/month on ads but your website has ${problemsCount} major conversion leak${problemsCount > 1 ? 's' : ''}. Potential revenue leakage detected.`;
+      
+      const recos = [];
+      if (state.problems.includes('Slow page speed')) recos.push('Improve LCP and speed index to prevent bounce rates.');
+      if (state.problems.includes('Poor mobile experience')) recos.push('Optimize mobile viewport layout and simplify mobile forms.');
+      if (state.problems.includes('Low trust / high bounce rate')) recos.push('Add conversion-boosting trust signals and testimonials.');
+      if (state.problems.includes('Getting traffic but no sales')) recos.push('Refine landing page positioning and add strong, single-focused CTAs.');
+      if (state.problems.includes('Website looks outdated')) recos.push('Redesign with a premium dark interactive aesthetic.');
+      
+      state.recommendation = recos.join(' ');
+      state.calculatedScore = targetScore;
+
+      // Update Reveal dashboard values
+      if (revealTypeVal) revealTypeVal.textContent = 'Website Audit';
+      if (revealSpendVal) {
+        revealSpendVal.textContent = state.adSpend;
+        revealSpendVal.style.color = '#ffffff';
+      }
+      if (revealRecoVal) revealRecoVal.textContent = `${insightStr} Recommendation: ${state.recommendation}`;
+    } else {
+      // PATH B - Launch Readiness Score Calculation
+      // Base: 10 points
+      let score = 10;
+
+      // Business Clarity / Type
+      if (state.businessType === 'Ecommerce') score += 15;
+      else if (state.businessType === 'Service') score += 15;
+      else if (state.businessType === 'Personal Brand') score += 10;
+      else if (state.businessType === 'Offline Business') score += 10;
+      else score += 5;
+
+      // Selling status
+      if (state.currentlySelling === 'Yes (Instagram)') score += 15;
+      else if (state.currentlySelling === 'Planning To') score += 10;
+
+      // Planned spend
+      if (state.plannedAdSpend.includes('10L')) score += 20;
+      else if (state.plannedAdSpend.includes('2L')) score += 20;
+      else if (state.plannedAdSpend.includes('50k')) score += 15;
+      else if (state.plannedAdSpend.includes('10k')) score += 10;
+      else score += 5;
+
+      // Launch timeline
+      if (state.timelineB === 'ASAP') score += 15;
+      else if (state.timelineB === 'Within 2 Weeks') score += 15;
+      else if (state.timelineB === 'This Month') score += 10;
+      else score += 5;
+
+      // Budget
+      if (state.budgetB === '₹1L+') score += 20;
+      else if (state.budgetB === '₹60k–1L') score += 15;
+      else if (state.budgetB === '₹30k–60k') score += 10;
+
+      targetScore = Math.min(100, score);
+
+      if (targetScore <= 40) {
+        state.ratingBracket = 'NOT READY';
+        state.bracketColor = '#ff5f56'; // Red
+        state.bracketMessage = 'You need a stronger foundation before spending on ads.';
+      } else if (targetScore <= 70) {
+        state.ratingBracket = 'ALMOST THERE';
+        state.bracketColor = '#ffbd2e'; // Yellow
+        state.bracketMessage = 'A few important pieces are missing.';
+      } else {
+        state.ratingBracket = 'LAUNCH READY';
+        state.bracketColor = '#00ff88'; // Green
+        state.bracketMessage = "You're ready. Let's build your high-converting store.";
+      }
+
+      const insightStr = `Your planned ad spend is ${state.plannedAdSpend} but you currently have ${state.budgetB} budget and ${state.timelineB} timeline. A structured conversion layout is needed before scaling.`;
+      
+      const recos = [];
+      if (state.budgetB === 'Less than ₹30k') recos.push('Focus on building a high-converting single product page before scaling budget.');
+      if (state.currentlySelling === 'No') recos.push('Leverage direct response copy and clear value proposition to build initial trust.');
+      if (state.timelineB === 'ASAP') recos.push('Sprint to launch a high-end MVP landing page within 7-10 days.');
+      if (state.budgetB === '₹1L+') recos.push('Implement custom premium components to stand out from generic templates.');
+
+      state.recommendation = recos.join(' ');
+      state.calculatedScore = targetScore;
+
+      // Update Reveal dashboard values
+      if (revealTypeVal) revealTypeVal.textContent = 'Launch Readiness';
+      if (revealSpendVal) {
+        revealSpendVal.textContent = state.plannedAdSpend;
+        revealSpendVal.style.color = '#ffffff';
+      }
+      if (revealRecoVal) revealRecoVal.textContent = `${insightStr} Recommendation: ${state.recommendation}`;
+    }
+
+    // Trigger visual score reveal screen animations
+    animateScoreGauge(targetScore);
+    generateWhatsAppLink();
+  };
+
+  // Apple-style Reveal Animations (Gauge Progress and score tick counter)
+  const animateScoreGauge = (targetScore: number) => {
+    const ring = document.getElementById('reveal-ring');
+    const scoreText = document.getElementById('reveal-score-text');
+    const badge = document.getElementById('reveal-badge');
+    const msg = document.getElementById('reveal-msg');
+    const glow = document.getElementById('reveal-glow');
+
+    if (ring && scoreText && badge && msg && glow) {
+      // Reset
+      ring.style.strokeDashoffset = '276.4';
+      scoreText.textContent = '0';
+      badge.style.opacity = '0';
+      msg.style.opacity = '0';
+      glow.style.backgroundColor = state.bracketColor;
+
+      // Update text variables immediately so details are correct
+      badge.textContent = state.ratingBracket;
+      badge.style.color = state.bracketColor;
+      badge.style.borderColor = `${state.bracketColor}50`;
+      msg.textContent = state.bracketMessage;
+
+      // 1. Animate SVG circle stroke dash-offset (fills up to target percentage of 276.4 circumference)
+      // Percentage of dash filled = 276.4 - (276.4 * (score / 100))
+      const targetOffset = 276.4 - (276.4 * (targetScore / 100));
+      
+      gsap.to(ring, {
+        strokeDashoffset: targetOffset,
+        duration: 2.0,
+        ease: 'power3.out'
+      });
+
+      // 2. Score text counting animation (0 to targetScore in 2s)
+      const countObj = { val: 0 };
+      gsap.to(countObj, {
+        val: targetScore,
+        duration: 2.0,
+        ease: 'power3.out',
+        onUpdate: () => {
+          scoreText.textContent = Math.round(countObj.val).toString();
+        },
+        onComplete: () => {
+          // Fade in rating message and badge after score counts up
+          gsap.to([badge, msg], {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.15,
+            ease: 'power2.out'
+          });
+        }
+      });
+    }
+  };
+
+  // Format WhatsApp message pre-fill details and update deep-link CTA
+  const generateWhatsAppLink = () => {
+    const whatsappCTA = document.getElementById('whatsapp-connect-cta') as HTMLAnchorElement;
+    if (!whatsappCTA) return;
+
+    const isPathA = state.hasWebsite === 'yes';
+    let messageText = '';
+
+    if (isPathA) {
+      // Path A prefilled text template
+      messageText = `Hi Aditya,
+
+I completed the Convertify Audit.
+
+Name: ${state.name}
+Brand: ${state.brand}
+
+Audit Type: Website Audit
+
+Website:
+${state.websiteUrl}
+
+Platform:
+${state.platform}
+
+Ad Spend:
+${state.adSpend}
+
+Problems:
+${state.problems.map(p => `* ${p}`).join('\n')}
+
+Timeline:
+${state.timelineA}
+
+Budget:
+${state.budgetA}
+
+Website Health Score:
+${state.calculatedScore}/100
+
+I'd like to discuss improving my conversions.`;
+    } else {
+      // Path B prefilled text template
+      messageText = `Hi Aditya,
+
+I completed the Convertify Audit.
+
+Name: ${state.name}
+Brand: ${state.brand}
+
+Audit Type: Launch Readiness Audit
+
+Business Type:
+${state.businessType}
+
+Currently Selling Online:
+${state.currentlySelling}
+
+Planned Ad Spend:
+${state.plannedAdSpend}
+
+Target Audience:
+${state.targetAudience}
+
+Launch Timeline:
+${state.timelineB}
+
+Budget:
+${state.budgetB}
+
+Launch Readiness Score:
+${state.calculatedScore}/100
+
+I'd like to discuss improving my conversions.`;
+    }
+
+    const encodedText = encodeURIComponent(messageText);
+    const deepLink = `https://wa.me/918290258775?text=${encodedText}`;
+    
+    whatsappCTA.href = deepLink;
+  };
+
+  // Run on load
+  window.addEventListener('loaderComplete', () => {
+    initStepOptionListeners();
+    initUrlInput();
+    initMultiSelect();
+    initLeadCapture();
+    updateWizardProgress();
+  });
+</script>
