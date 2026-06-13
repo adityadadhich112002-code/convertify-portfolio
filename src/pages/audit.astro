@@ -443,7 +443,7 @@ import Footer from '../components/Footer.astro';
     </div>
 
     <!-- Hero-style heading -->
-    <div class="portfolio-heading opacity-0 translate-y-8 max-w-[860px]">
+    <div class="portfolio-heading opacity-0 translate-y-8 -ml-6 md:-ml-16">
       <h2 class="text-[40px] sm:text-display-xl text-white font-bold leading-[0.9] tracking-[-0.05em]">
         <span class="block">Don't Take</span>
         <span class="block">Our Word For It.</span>
@@ -784,19 +784,9 @@ import Footer from '../components/Footer.astro';
       </svg>
     </div>
 
-    <!-- Dramatic Background Effects (matching premium CTA look) -->
+    <!-- Background Effects (solid black with noise) -->
     <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
       <div class="noise-bg"></div>
-      
-      <!-- Grid Lines -->
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)] opacity-60"></div>
-      
-      <!-- Ambient colorful glows (deep blue & violet highlights) -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] max-w-[1200px] h-[100vh] max-h-[700px] bg-radial from-[#0099ff]/10 via-[#6a4cf5]/4 to-transparent blur-[110px]"></div>
-      
-      <!-- Floating decorative elements -->
-      <div class="absolute top-[10%] left-[5%] w-[250px] h-[250px] rounded-full bg-[#0099ff]/5 blur-[70px]"></div>
-      <div class="absolute bottom-[10%] right-[5%] w-[300px] h-[300px] rounded-full bg-[#ff5577]/4 blur-[80px]"></div>
     </div>
 
     <div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center justify-center">
@@ -837,6 +827,7 @@ import Footer from '../components/Footer.astro';
     margin-left: 0 !important;
     margin-right: auto !important;
     display: block !important;
+    width: 100% !important;
   }
   .portfolio-heading h2 {
     text-align: left !important;
@@ -996,11 +987,11 @@ import Footer from '../components/Footer.astro';
     /* Force consistent landscape cards + glass metal border */
     #filmstrip .film-card,
     #moreGrid .more-card {
-      width: 120% !important;
-      max-width: 120% !important;
-      margin-left: -10% !important;
-      margin-right: -10% !important;
-      aspect-ratio: 16 / 11 !important;
+      width: 140% !important;
+      max-width: 140% !important;
+      margin-left: -20% !important;
+      margin-right: -20% !important;
+      aspect-ratio: 16 / 10 !important;
       min-height: auto !important;
       border-radius: 20px !important;
       box-sizing: border-box !important;
