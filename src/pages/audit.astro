@@ -92,13 +92,13 @@ import Footer from '../components/Footer.astro';
                 <span class="font-mono text-xs text-[#00ff88]">// DOMAIN_INPUT</span>
                 <h2 class="text-white font-display text-2xl md:text-3xl font-bold tracking-tight">Enter your Website URL</h2>
               </div>
-              <div class="flex flex-col gap-3 mt-2">
+              <div class="flex flex-col gap-2 md:gap-3 mt-2">
                 <div class="relative">
                   <span class="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-white/30 text-sm">https://</span>
                   <input type="url" id="website-url" placeholder="yourdomain.com" class="w-full pl-20 pr-4 py-4 rounded-xl border border-white/10 bg-white/[0.02] text-white text-base font-mono focus:outline-none focus:border-[#00ff88] focus:shadow-[0_0_20px_rgba(0,255,136,0.1)] transition-all" />
                 </div>
-                <p id="url-error" class="text-red-500 font-mono text-xs opacity-0 transition-opacity">Please enter a valid website URL</p>
-                <button type="button" id="url-continue-btn" class="mt-2 w-full py-4 bg-white text-black font-semibold rounded-xl hover:bg-[#00ff88] transition-all flex items-center justify-center gap-2 font-mono">
+                <p id="url-error" class="text-red-500 font-mono text-xs opacity-0 h-0 overflow-hidden transition-all duration-300">Please enter a valid website URL</p>
+                <button type="button" id="url-continue-btn" class="w-[70%] mx-auto mt-1 md:mt-2 py-[11px] md:py-4 bg-white text-black font-semibold rounded-xl hover:bg-[#00ff88] transition-all flex items-center justify-center gap-2 font-mono text-[11.2px] md:text-base md:w-full">
                   CONTINUE_PROCESS &rarr;
                 </button>
               </div>
@@ -852,10 +852,12 @@ import Footer from '../components/Footer.astro';
         const domainRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/i;
         if (val && domainRegex.test(val)) {
           state.websiteUrl = val;
-          errorMsg.classList.add('opacity-0');
+          errorMsg.classList.add('opacity-0', 'h-0');
+          errorMsg.classList.remove('h-auto', 'mt-1');
           navigateTo('step-3-a');
         } else {
-          errorMsg.classList.remove('opacity-0');
+          errorMsg.classList.remove('opacity-0', 'h-0');
+          errorMsg.classList.add('h-auto', 'mt-1');
           urlInput.focus();
         }
       };
