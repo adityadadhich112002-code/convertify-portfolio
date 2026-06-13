@@ -387,12 +387,7 @@ import Footer from '../components/Footer.astro';
   <!-- ─── SECTION HEADER ──────────────────────────────────────────── -->
   <div class="portfolio-header px-6 md:px-16 pt-24 md:pt-32 pb-6 md:pb-8 max-w-7xl mx-auto relative z-10">
 
-    <!-- Eyebrow -->
-    <span class="portfolio-eyebrow opacity-0 translate-y-4 flex items-center gap-3 text-[10px] md:text-[11px] font-display font-medium tracking-[0.25em] uppercase text-brand-blue mb-6">
-      <span class="w-5 h-[1px] bg-brand-blue/50"></span>
-      Our Work
-      <span class="w-5 h-[1px] bg-brand-blue/50"></span>
-    </span>
+
 
     <!-- Click indicator helper (very subtle dual-arrow pointing to PORTFOLIO text, borderless and fast-loading) -->
     <div class="flex justify-center w-full mb-4 select-none pointer-events-none">
@@ -1888,10 +1883,6 @@ I'd like to discuss improving my conversions.`;
     if (!container) return;
 
     // Header entrance
-    gsap.to(container.querySelector('.portfolio-eyebrow'), {
-      opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: { trigger: '#audit-portfolio', start: 'top 75%' }
-    });
     gsap.to(container.querySelector('.portfolio-heading'), {
       opacity: 1, y: 0, duration: 1.0, ease: 'power3.out', delay: 0.1,
       scrollTrigger: { trigger: '#audit-portfolio', start: 'top 75%' }
@@ -2006,14 +1997,11 @@ I'd like to discuss improving my conversions.`;
       };
 
       const playReelAnimation = () => {
-        gsap.killTweensOf([portfolioWord, portfolioShimmer, photoReel, ...Array.from(reelPhotos), '#portfolio-click-helper']);
+        gsap.killTweensOf([portfolioWord, portfolioShimmer, photoReel, ...Array.from(reelPhotos)]);
         gsap.set(photoReel,       { opacity: 1 });
         gsap.set(reelPhotos,      { opacity: 0 });
         gsap.set(portfolioWord,   { opacity: 0, scaleY: 0.82, letterSpacing: '0.55em' });
         gsap.set(portfolioShimmer,{ opacity: 0, x: '-110%' });
-        
-        // Dim the click helper during the fast photo-reel flashing sequence
-        gsap.to('#portfolio-click-helper', { opacity: 0.15, duration: 0.2, ease: 'power2.out' });
 
         const tl = gsap.timeline({
           onComplete: () => {
@@ -2023,13 +2011,6 @@ I'd like to discuss improving my conversions.`;
               ease: 'sine.inOut',
               yoyo: true,
               repeat: -1
-            });
-            // Fade the click helper back to full opacity once the sequence finishes
-            gsap.to('#portfolio-click-helper', {
-              opacity: 0.95,
-              y: 0,
-              duration: 0.5,
-              ease: 'power2.out'
             });
           }
         });
