@@ -24,7 +24,7 @@ import Footer from '../components/Footer.astro';
     <div class="relative z-10 w-full max-w-3xl md:max-w-7xl mx-auto my-auto flex-1 flex flex-col justify-center items-center shrink-0">
       <!-- Title & Subtitle Header -->
       <div class="flex flex-col items-center justify-center text-center mb-8 w-full max-w-md md:max-w-2xl md:mb-6 mx-auto">
-        <h1 class="text-center text-white font-display text-3xl sm:text-4xl md:text-6xl font-black tracking-[-0.04em] leading-tight whitespace-nowrap">Let's Talk</h1>
+        <h1 class="text-center text-white font-display text-3xl sm:text-4xl md:text-6xl font-black tracking-[-0.04em] leading-tight whitespace-nowrap">Let's <span class="underline-draw-red">Talk</span></h1>
         <p class="text-center text-white/40 text-xs sm:text-sm font-mono mt-0.5 md:mt-1 md:text-lg whitespace-nowrap">// FREE_CONVERSION_AUDIT</p>
       </div>
 
@@ -76,12 +76,10 @@ import Footer from '../components/Footer.astro';
               </div>
               <div class="flex flex-col gap-4 mt-2">
                 <button type="button" data-value="yes" class="step-option flex flex-col items-start p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/[0.02] transition-all duration-300 text-left group w-full">
-                  <span class="text-white font-bold text-lg mb-1 group-hover:text-[#00ff88] transition-colors">Yes, I have a website</span>
-                  <span class="text-white/40 text-xs font-mono">Run analysis on your existing domain & traffic.</span>
+                  <span class="text-white font-bold text-lg group-hover:text-[#00ff88] transition-colors">Yes, I have a website</span>
                 </button>
                 <button type="button" data-value="no" class="step-option flex flex-col items-start p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#ff007f]/50 hover:bg-[#ff007f]/[0.02] transition-all duration-300 text-left group w-full">
-                  <span class="text-white font-bold text-lg mb-1 group-hover:text-[#ff007f] transition-colors">No, I'm starting fresh</span>
-                  <span class="text-white/40 text-xs font-mono">Evaluate pre-launch structure & audience readiness.</span>
+                  <span class="text-white font-bold text-lg group-hover:text-[#ff007f] transition-colors">No, I'm starting fresh</span>
                 </button>
               </div>
             </div>
@@ -537,6 +535,34 @@ import Footer from '../components/Footer.astro';
       inset 0 2px 3px rgba(255, 255, 255, 0.9),
       inset 0 -3px 10px rgba(0, 0, 0, 0.3) !important;
     transform: translateY(-2px) scale(1.025) !important;
+  }
+
+  /* Red Line Draw Underline for "Talk" */
+  .underline-draw-red {
+    position: relative;
+    display: inline-block;
+  }
+
+  .underline-draw-red::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* position line directly under letters */
+    left: 0;
+    width: 100%;
+    height: 4px; /* thick flashy line */
+    background: linear-gradient(90deg, #ff0033, #990000);
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: drawLine 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 0.3s;
+    box-shadow: 0 0 12px rgba(255, 0, 51, 0.7);
+  }
+
+  @keyframes drawLine {
+    to {
+      transform: scaleX(1);
+    }
   }
 </style>
 
