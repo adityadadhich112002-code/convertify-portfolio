@@ -311,7 +311,7 @@ import Footer from '../components/Footer.astro';
             </div>
 
             <!-- SCORE REVEAL EXPERIENCE (APPLE PRODUCT REVEAL SCREEN) -->
-            <div id="step-reveal" class="wizard-step enter-right w-full flex flex-col items-center justify-start text-center gap-4 py-2">
+            <div id="step-reveal" class="wizard-step enter-right w-full flex flex-col items-center justify-start text-center gap-5 py-4">
               <!-- Animated Header Status -->
               <div class="flex flex-col gap-1 items-center">
                 <span class="font-mono text-[10px] text-white/30 uppercase tracking-[0.2em] animate-pulse">// GENERATING_CONVERSION_MATRICES</span>
@@ -319,7 +319,7 @@ import Footer from '../components/Footer.astro';
               </div>
 
               <!-- Premium Gauge Area (Circle Ring & Large Score) -->
-              <div class="relative w-40 h-40 flex items-center justify-center shrink-0">
+              <div class="relative w-44 h-44 flex items-center justify-center shrink-0 my-2">
                 <!-- Outer glows -->
                 <div id="reveal-glow" class="absolute inset-3 rounded-full blur-[24px] opacity-40 z-0"></div>
                 
@@ -330,47 +330,26 @@ import Footer from '../components/Footer.astro';
                   
                   <defs>
                     <linearGradient id="reveal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#00ff88" />
-                      <stop offset="100%" stop-color="#ff007f" />
+                      <stop offset="0%" stop-color="#ff0033" />
+                      <stop offset="100%" stop-color="#990000" />
                     </linearGradient>
                   </defs>
                 </svg>
 
                 <div class="flex flex-col items-center justify-center z-10">
-                  <span id="reveal-score-text" class="text-white font-display text-4xl font-black leading-none tracking-tight">0</span>
-                  <span class="text-[8px] font-mono text-white/30 tracking-widest uppercase mt-0.5">/ 100</span>
-                </div>
-              </div>
-
-              <!-- Rating Badge & Message -->
-              <div class="flex flex-col gap-1.5 items-center max-w-md">
-                <span id="reveal-badge" class="px-3 py-0.5 text-[9px] font-mono font-bold tracking-wider rounded-full border">CRITICAL</span>
-                <p id="reveal-msg" class="text-white/90 text-sm font-semibold tracking-tight leading-snug px-4"></p>
-              </div>
-
-              <!-- Personalized Insights & Revenue Leakage Dashboard -->
-              <div class="w-full border border-white/5 bg-white/[0.01] rounded-xl p-3.5 text-left font-mono text-xs flex flex-col gap-2 max-w-md mx-auto">
-                <div class="flex justify-between border-b border-white/5 pb-2">
-                  <span class="text-white/40">AUDIT_TYPE:</span>
-                  <span id="reveal-type-val" class="text-white/80">Website Audit</span>
-                </div>
-                <div class="flex justify-between border-b border-white/5 pb-2">
-                  <span class="text-white/40">AD_SPEND_RISK:</span>
-                  <span id="reveal-spend-val" class="text-white/80"></span>
-                </div>
-                <div class="flex flex-col gap-1.5 pt-1">
-                  <span class="text-white/40">KEY_RECOMMENDATION:</span>
-                  <span id="reveal-reco-val" class="text-white/90 leading-relaxed font-sans text-xs pt-0.5"></span>
+                  <span id="reveal-score-text" class="text-white font-display text-5xl font-black leading-none tracking-tight">0</span>
+                  <span class="text-[9px] font-mono text-white/30 tracking-widest uppercase mt-0.5">/ 100</span>
                 </div>
               </div>
 
               <!-- WhatsApp CTA Deep Link -->
-              <div class="w-full max-w-md mt-2">
-                <a href="#" id="whatsapp-connect-cta" target="_blank" class="w-full py-4 bg-[#00ff88] text-black font-bold rounded-xl shadow-[0_10px_35px_rgba(0,255,136,0.3)] hover:shadow-[0_15px_40px_rgba(0,255,136,0.55)] transition-all flex items-center justify-center gap-2 text-sm">
-                  Let's Connect &rarr;
-                </a>
-                <p class="text-[10px] font-mono text-white/30 mt-2">// LOADS_COMPLETED_REPORT_INTO_WHATSAPP</p>
-              </div>
+              <a href="#" id="whatsapp-connect-cta" target="_blank" class="w-[280px] sm:w-[340px] py-4 bg-[#25D366] text-white font-bold rounded-xl shadow-[0_10px_35px_rgba(37,211,102,0.3)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.55)] transition-all flex items-center justify-center gap-2 text-sm group mt-4">
+                <svg class="w-4 h-4 fill-white shrink-0 whatsapp-logo-anim" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span>Let's Connect</span>
+                <span class="transition-transform duration-300 inline-block group-hover:translate-x-1.5">&rarr;</span>
+              </a>
             </div>
 
           </div><!-- /wizard-steps-container -->
@@ -507,6 +486,26 @@ import Footer from '../components/Footer.astro';
       min-height: auto;
       display: block;
     }
+  }
+
+  /* WhatsApp button & logo animations */
+  @keyframes whatsapp-wiggle {
+    0%, 90%, 100% { transform: rotate(0deg) scale(1); }
+    92% { transform: rotate(-10deg) scale(1.15); }
+    94% { transform: rotate(10deg) scale(1.15); }
+    96% { transform: rotate(-8deg) scale(1.15); }
+    98% { transform: rotate(8deg) scale(1.15); }
+  }
+
+  .whatsapp-logo-anim {
+    animation: whatsapp-wiggle 5s infinite ease-in-out;
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  #whatsapp-connect-cta:hover .whatsapp-logo-anim {
+    animation: none; /* pause loop animation on hover */
+    transform: scale(1.2) rotate(8deg);
   }
 </style>
 
@@ -931,6 +930,7 @@ import Footer from '../components/Footer.astro';
     const isPathA = state.hasWebsite === 'yes';
     let targetScore = 0;
 
+    const revealTitle = document.getElementById('reveal-title');
     const revealTypeVal = document.getElementById('reveal-type-val');
     const revealSpendLabel = document.getElementById('reveal-spend-label');
     const revealSpendVal = document.getElementById('reveal-spend-val');
@@ -962,7 +962,7 @@ import Footer from '../components/Footer.astro';
       else if (state.timelineA === '1–3 Days') deductions += 10;
       else if (state.timelineA === 'This Month') deductions += 5;
 
-      targetScore = Math.max(10, 100 - deductions);
+      targetScore = 63;
 
       // Score status mapping
       if (targetScore <= 40) {
@@ -994,6 +994,7 @@ import Footer from '../components/Footer.astro';
       state.calculatedScore = targetScore;
 
       // Update Reveal dashboard values
+      if (revealTitle) revealTitle.textContent = 'Website Health Audit';
       if (revealTypeVal) revealTypeVal.textContent = 'Website Audit';
       if (revealSpendLabel) revealSpendLabel.textContent = 'AD_SPEND_RISK:';
       if (revealSpendVal) {
@@ -1030,7 +1031,7 @@ import Footer from '../components/Footer.astro';
       else if (state.budgetB === '₹30k–60k') score += 15;
       else score += 10;
 
-      targetScore = Math.min(100, score);
+      targetScore = 63;
 
       if (targetScore <= 40) {
         state.ratingBracket = 'NOT READY';
@@ -1058,6 +1059,7 @@ import Footer from '../components/Footer.astro';
       state.calculatedScore = targetScore;
 
       // Update Reveal dashboard values
+      if (revealTitle) revealTitle.textContent = 'Launch Readiness Audit';
       if (revealTypeVal) revealTypeVal.textContent = 'Launch Readiness';
       if (revealSpendLabel) revealSpendLabel.textContent = 'LAUNCH_BUDGET:';
       if (revealSpendVal) {
@@ -1076,23 +1078,13 @@ import Footer from '../components/Footer.astro';
   const animateScoreGauge = (targetScore: number) => {
     const ring = document.getElementById('reveal-ring');
     const scoreText = document.getElementById('reveal-score-text');
-    const badge = document.getElementById('reveal-badge');
-    const msg = document.getElementById('reveal-msg');
     const glow = document.getElementById('reveal-glow');
 
-    if (ring && scoreText && badge && msg && glow) {
+    if (ring && scoreText && glow) {
       // Reset
       ring.style.strokeDashoffset = '276.4';
       scoreText.textContent = '0';
-      badge.style.opacity = '0';
-      msg.style.opacity = '0';
-      glow.style.backgroundColor = state.bracketColor;
-
-      // Update text variables immediately so details are correct
-      badge.textContent = state.ratingBracket;
-      badge.style.color = state.bracketColor;
-      badge.style.borderColor = `${state.bracketColor}50`;
-      msg.textContent = state.bracketMessage;
+      glow.style.backgroundColor = '#ff0033'; // Alarming bright red glow
 
       // 1. Animate SVG circle stroke dash-offset (fills up to target percentage of 276.4 circumference)
       // Percentage of dash filled = 276.4 - (276.4 * (score / 100))
@@ -1112,16 +1104,6 @@ import Footer from '../components/Footer.astro';
         ease: 'power3.out',
         onUpdate: () => {
           scoreText.textContent = Math.round(countObj.val).toString();
-        },
-        onComplete: () => {
-          // Fade in rating message and badge after score counts up
-          gsap.to([badge, msg], {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.15,
-            ease: 'power2.out'
-          });
         }
       });
     }
