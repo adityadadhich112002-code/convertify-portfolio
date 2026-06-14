@@ -1303,7 +1303,25 @@ import Footer from '../components/Footer.astro';
     bracketColor: '',
     bracketMessage: '',
     recommendation: '',
-    submitted: false
+    submitted: false,
+    pixelTracked: {
+      started: false,
+      halfway: false
+    }
+  };
+
+  // Helper to safely track Meta Pixel events
+  const trackPixelEvent = (eventName: string, data?: any, isCustom = false) => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      if (isCustom) {
+        (window as any).fbq('trackCustom', eventName, data);
+      } else {
+        (window as any).fbq('track', eventName, data);
+      }
+      console.log(`[Meta Pixel] Tracked ${isCustom ? 'Custom ' : ''}Event: ${eventName}`, data || '');
+    } else {
+      console.log(`[Meta Pixel Simulation] Event: ${eventName} (Pixel not loaded or ID missing)`, data || '');
+    }
   };
 
   // Define Steps Flow map
@@ -1404,6 +1422,19 @@ import Footer from '../components/Footer.astro';
       targetEl.classList.remove('enter-right');
       
       currentHistory.push(targetId);
+
+      // Track milestone events
+      if (targetId === 'step-2-a' || targetId === 'step-2-b') {
+        if (!state.pixelTracked.started) {
+          state.pixelTracked.started = true;
+          trackPixelEvent('AuditFormStart', { path: state.hasWebsite === 'yes' ? 'has_website' : 'no_website' }, true);
+        }
+      } else if (targetId === 'step-5-a' || targetId === 'step-5-b') {
+        if (!state.pixelTracked.halfway) {
+          state.pixelTracked.halfway = true;
+          trackPixelEvent('AuditFormHalfCompleted', { path: state.hasWebsite === 'yes' ? 'has_website' : 'no_website' }, true);
+        }
+      }
     } else {
       // Current slides right and fades
       currentEl.classList.add('exit-right');
@@ -1894,6 +1925,14 @@ import Footer from '../components/Footer.astro';
     if (!state.submitted) {
       state.submitted = true;
       submitLeadToGoogleSheets(state);
+
+      // Track standard Lead event on successful questionnaire completion
+      trackPixelEvent('Lead', {
+        value: targetScore,
+        currency: 'INR',
+        content_name: isPathA ? 'Website Audit' : 'Launch Readiness Audit',
+        content_category: 'Audit Questionnaire'
+      });
     }
   };
 
