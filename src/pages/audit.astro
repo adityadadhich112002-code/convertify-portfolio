@@ -1302,7 +1302,8 @@ import Footer from '../components/Footer.astro';
     ratingBracket: '',
     bracketColor: '',
     bracketMessage: '',
-    recommendation: ''
+    recommendation: '',
+    submitted: false
   };
 
   // Define Steps Flow map
@@ -1689,6 +1690,58 @@ import Footer from '../components/Footer.astro';
     }
   };
 
+  // Send lead details to Google Sheets Web App with local backup failsafe
+  const submitLeadToGoogleSheets = async (payload: typeof state) => {
+    // 1. Save local backup to prevent data loss
+    try {
+      const backupLeads = JSON.parse(localStorage.getItem('convertify_leads_backup') || '[]');
+      backupLeads.push({
+        ...payload,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem('convertify_leads_backup', JSON.stringify(backupLeads));
+      console.log('Lead backed up to localStorage.');
+    } catch (err) {
+      console.error('Failed to write local backup:', err);
+    }
+
+    // 2. Submit to Google Sheets Web App
+    const googleSheetsUrl = import.meta.env.PUBLIC_GOOGLE_SHEETS_URL;
+    if (!googleSheetsUrl) {
+      console.warn('PUBLIC_GOOGLE_SHEETS_URL environment variable is not defined. Lead saved in local backup only.');
+      return;
+    }
+
+    try {
+      await fetch(googleSheetsUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          auditType: payload.hasWebsite === 'yes' ? 'Website Audit' : 'Launch Readiness Audit',
+          name: payload.name,
+          whatsapp: payload.whatsapp,
+          brand: payload.brand,
+          hasWebsite: payload.hasWebsite,
+          websiteUrl: payload.websiteUrl,
+          platform: payload.platform,
+          adSpend: payload.adSpend,
+          problems: payload.problems,
+          timeline: payload.hasWebsite === 'yes' ? payload.timelineA : payload.timelineB,
+          budget: payload.hasWebsite === 'yes' ? payload.budgetA : payload.budgetB,
+          businessType: payload.businessType,
+          currentlySelling: payload.currentlySelling,
+          targetAudience: payload.targetAudience
+        })
+      });
+      console.log('Lead submitted to Google Sheets.');
+    } catch (error) {
+      console.error('Failed to submit lead to Google Sheets:', error);
+    }
+  };
+
   // Compile calculations and generate WhatsApp link
   const compileAndRevealReport = () => {
     const isPathA = state.hasWebsite === 'yes';
@@ -1836,6 +1889,12 @@ import Footer from '../components/Footer.astro';
     // Trigger visual score reveal screen animations
     animateScoreGauge(targetScore);
     generateWhatsAppLink();
+
+    // Submit lead details to Google Sheets Web App once
+    if (!state.submitted) {
+      state.submitted = true;
+      submitLeadToGoogleSheets(state);
+    }
   };
 
   // Apple-style Reveal Animations (Gauge Progress and score tick counter)
