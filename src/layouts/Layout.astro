@@ -19,6 +19,18 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || ''
 <!doctype html>
 <html lang="en">
 	<head>
+		{gaId && (
+			<>
+				<!-- Google Analytics 4 (gtag.js) -->
+				<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+				<script is:inline define:vars={{ gaId }}>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', gaId);
+				</script>
+			</>
+		)}
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -73,18 +85,6 @@ const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || ''
 			<meta name="google-site-verification" content={googleVerification} />
 		)}
 
-		{gaId && (
-			<>
-				<!-- Google Analytics 4 (gtag.js) -->
-				<script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-				<script is:inline define:vars={{ gaId }}>
-					window.dataLayer = window.dataLayer || [];
-					function gtag(){dataLayer.push(arguments);}
-					gtag('js', new Date());
-					gtag('config', gaId);
-				</script>
-			</>
-		)}
 	</head>
 	<body class="font-feature-settings-custom">
 		<slot />
