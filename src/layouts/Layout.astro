@@ -12,6 +12,8 @@ const {
 } = Astro.props;
 
 const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '';
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || '';
+const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || '';
 ---
 
 <!doctype html>
@@ -64,6 +66,23 @@ const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '';
 						src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`} />
 				</noscript>
 				<!-- End Meta Pixel Code -->
+			</>
+		)}
+
+		{googleVerification && (
+			<meta name="google-site-verification" content={googleVerification} />
+		)}
+
+		{gaId && (
+			<>
+				<!-- Google Analytics 4 (gtag.js) -->
+				<script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+				<script is:inline define:vars={{ gaId }}>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', gaId);
+				</script>
 			</>
 		)}
 	</head>
