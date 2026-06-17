@@ -1737,9 +1737,28 @@ import Footer from '../components/Footer.astro';
     }
 
     // 2. Submit to Google Sheets Web App
-    const googleSheetsUrl = import.meta.env.PUBLIC_GOOGLE_SHEETS_URL;
+    let googleSheetsUrl = import.meta.env.PUBLIC_GOOGLE_SHEETS_URL;
     if (!googleSheetsUrl) {
-      console.warn('PUBLIC_GOOGLE_SHEETS_URL environment variable is not defined. Lead saved in local backup only.');
+      try {
+        // Try loading from root, then from parent directory fallback
+        let response = await fetch('/sheets-config.json');
+        if (!response.ok) {
+          response = await fetch('../sheets-config.json');
+        }
+        if (!response.ok) {
+          response = await fetch('./sheets-config.json');
+        }
+        if (response.ok) {
+          const config = await response.json();
+          googleSheetsUrl = config.PUBLIC_GOOGLE_SHEETS_URL;
+        }
+      } catch (err) {
+        console.error('Failed to load runtime sheets config:', err);
+      }
+    }
+
+    if (!googleSheetsUrl) {
+      console.warn('PUBLIC_GOOGLE_SHEETS_URL is not defined in environment variables or sheets-config.json. Lead saved in local backup only.');
       return;
     }
 
